@@ -1,13 +1,17 @@
-# `zero-one-xxx`
+# `zero-one-10wms`
 
-xxx相关概念参考：
+`WMS`概念定义参考：
 
-- 
-- 
+- https://en.wikipedia.org/wiki/Warehouse_management_system
+- https://baike.baidu.com/item/%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86/9163356
 
 ## 项目简介
 
+仓储管理系统（`WMS`）是一种软件解决方案，它提供对企业整个库存的可见性，可管理从配送中心到商店货架的整个供应链履行运营。通过协调和优化资源使用与物料流动，助力企业充分利用劳动力、空间以及所投资的设备。旨在满足整个全球供应链的需求，包括分销、制造、资产密集型和服务业务。
 
+在当今动态、全渠道的履行经济中，网购消费者希望随时随地都能进行购买、订单履行和退货。这要求企业使用适当的仓库管理软件来提高履行能力，快速响应客户需求。
+
+`zero-one-10wms`旨在帮助您满足未来的供应链需求，将库存管理和履行服务与现代采购方法相匹配，并提供对整个库存的实时可见性。只要有互联网，用户就可以通过智能手机和浏览器实时了解库存。
 
 ## 系统架构图
 
@@ -16,7 +20,7 @@ xxx相关概念参考：
 ![architecture](./documents/00、preview-pic/architecture.jpg)
 
 ## 项目结构说明
-> `zero-one-xxx`  
+> `zero-one-10wms` 
 >
 > > `.gitignore` -- 忽略提交配置
 > >
@@ -24,11 +28,11 @@ xxx相关概念参考：
 > >
 > > `documents` -- 环境搭建、编码规范、项目需求等等文档资源
 > >
-> > `xxx-java` -- `Java`项目主体
+> > `wms-java` -- `Java`项目主体
 > >
-> > `xxx-cpp` -- `C++`项目主体
+> > `wms-cpp` -- `C++`项目主体
 > >
-> > `xxx-frontend` -- 前端项目主体
+> > `wms-frontend` -- 前端项目主体
 
 ## 软件架构
 
@@ -188,7 +192,7 @@ https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#requirem
 
 ## 特别鸣谢
 
-`zero-one-xxx`的诞生离不开开源软件和社区的支持，感谢以下开源项目及项目维护者：
+`zero-one-10wms`的诞生离不开开源软件和社区的支持，感谢以下开源项目及项目维护者：
 
 - `spring`：https://github.com/spring-projects
 - `alibaba`：https://github.com/alibaba
