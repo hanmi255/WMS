@@ -29,6 +29,8 @@
 #endif
 #include "controller/cangkudingyi/StoreController.h"
 
+#include "tuopandingyi/TPController.h"
+
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -53,9 +55,9 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+	ROUTER_SIMPLE_BIND(TPController);
 	ROUTER_SIMPLE_BIND(CangKuDingYiController);
-	ROUTER_SIMPLE_BIND(StoreController);
-}
+	ROUTER_SIMPLE_BIND(StoreController);}
 
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()

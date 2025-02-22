@@ -1,3 +1,14 @@
+TP:
+ QueryTPSummary: 获取托盘名称列表
+ AddTPSummary: 录入托盘
+ field:
+  id: 主键
+  tin_id: 托盘号
+  tin_sort: 托盘顺序
+  bin_id: 储位
+  tin_status: 托盘状态
+  bpm_status: 流程状态
+  query_tp_rows: 托盘列表
 Cangku:
  info:
   store_name: 仓库名称

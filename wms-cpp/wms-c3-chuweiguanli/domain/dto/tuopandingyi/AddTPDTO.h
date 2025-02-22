@@ -1,0 +1,38 @@
+#pragma once
+#ifndef _ADD_TP_DTO_H_
+#define _ADD_TP_DTO_H_
+#include "../../GlobalInclude.h"
+
+#include OATPP_CODEGEN_BEGIN(DTO)
+
+class AddTPDTO: public oatpp::DTO {
+	DTO_INIT(AddTPDTO, DTO);
+	// ÍÐÅÌºÅ
+	DTO_FIELD(String, tin_id);
+	DTO_FIELD_INFO(tin_id) {
+		info->description = ZH_WORDS_GETTER("TP.field.tin_id");
+	}
+	// ÍÐÅÌË³Ðò
+	DTO_FIELD(Int32, tin_sort);
+	DTO_FIELD_INFO(tin_sort) {
+		info->description = ZH_WORDS_GETTER("TP.field.tin_sort");
+	}
+	// ´¢Î»
+	DTO_FIELD(String, bin_id);
+	DTO_FIELD_INFO(bin_id) {
+		info->description = ZH_WORDS_GETTER("TP.field.bin_id");
+	}
+	// ÍÐÅÌ×´Ì¬
+	DTO_FIELD(String, tin_status);
+	DTO_FIELD_INFO(tin_status) {
+		info->description = ZH_WORDS_GETTER("TP.field.tin_status");
+	}
+	// Á÷³Ì×´Ì¬
+	DTO_FIELD(String, bpm_status);
+	DTO_FIELD_INFO(bpm_status) {
+		info->description = ZH_WORDS_GETTER("TP.field.bpm_status");
+	}
+};
+
+#include OATPP_CODEGEN_END(DTO)
+#endif // _ADD_TP_DTO_H_
