@@ -1,4 +1,20 @@
-﻿store:
+Cangku:
+ info:
+  store_name: 仓库名称
+  id: 仓库ID
+  store_code: 仓库代码
+ EndPoint: 
+  get_cangku_name_list: 获取仓库名称列表 
+  delete_cangku:
+   summary: 删除仓库(支持批量删除)
+   params:
+    ids: 仓库ID列表(非必填)
+  down_load_cangku_excel: 
+   summary: 导出仓库(导出为Excel)
+   params:
+    store_code: 仓库代码列表(非必须)
+
+store:
  add:
   summary: 添加仓库
  modify:
