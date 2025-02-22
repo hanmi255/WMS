@@ -1,0 +1,17 @@
+﻿store:
+ add:
+  summary: 添加仓库
+ modify:
+  summary: 修改仓库
+ store_code: 仓库代码    
+ store_name: 仓库名称
+ store_text: 仓库属性
+ id: 唯一id（主键）
+ create_date: 创建时间
+ update_date: 更新时间
+ create_by: 创建人登录名称（比如：admin）
+ create_name: 创建人名称（比如：管理员）
+ update_by: 更新人登录名称（比如：admin）
+ update_name: 更新人名称（比如：管理员）
+ sys_org_code: 所属部门
+ sys_company_code: 所属公司
