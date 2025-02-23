@@ -14,6 +14,7 @@ tuopan:
   summary: 修改托盘
  delete:
   summary: 删除托盘（支持批量删除）
+
 TP:
  QueryTPSummary: 获取托盘名称列表
  AddTPSummary: 录入托盘
@@ -25,7 +26,8 @@ TP:
   tin_status: 托盘状态
   bpm_status: 流程状态
   query_tp_rows: 托盘列表
-
+  sys_org_code: 所属部门
+  sys_company_code: 所属公司
 Cangku:
  info:
   store_name: 仓库名称
@@ -59,3 +61,4 @@ store:
  update_name: 更新人名称（比如：管理员）
  sys_org_code: 所属部门
  sys_company_code: 所属公司
+

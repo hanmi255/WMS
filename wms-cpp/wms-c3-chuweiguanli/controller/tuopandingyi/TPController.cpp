@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "TPController.h"
 
 QueryTPListJsonVO::Wrapper TPController::execQueryTP(){

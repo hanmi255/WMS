@@ -60,8 +60,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(TuopanController);	
 	ROUTER_SIMPLE_BIND(TPController);
 	ROUTER_SIMPLE_BIND(CangKuDingYiController);
-	ROUTER_SIMPLE_BIND(StoreController);
-}
+	ROUTER_SIMPLE_BIND(StoreController);}
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
