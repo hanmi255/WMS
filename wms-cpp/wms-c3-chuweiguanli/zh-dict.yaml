@@ -40,7 +40,7 @@ Cangku:
   down_load_cangku_excel: 
    summary: 导出仓库(导出为Excel)
    params:
-    store_code: 仓库代码列表(非必须)
+    store_code: 仓库代码列表(非必须) 
 
 store:
  add:

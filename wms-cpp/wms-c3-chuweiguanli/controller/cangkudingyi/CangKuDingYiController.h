@@ -28,7 +28,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(CangkuNameListJsonVO);
 	}
 	//	定义 获取仓库名称列表接口 处理
-	ENDPOINT(API_M_GET, "/chuweiguanli/query-cangku-name-list", listCangkuName, API_HANDLER_AUTH_PARAME) {
+	ENDPOINT(API_M_GET, "/chuweiguanli/cangkudingyi/query-cangku-name-list", listCangkuName, API_HANDLER_AUTH_PARAME) {
 		//	呼叫执行函数响应结果
 		API_HANDLER_RESP_VO(execListCangkuName(authObject->getPayload()));
 	}
@@ -46,7 +46,7 @@ public:
 
 	}
 	//	定义 删除仓库 接口 处理
-	ENDPOINT(API_M_DEL, "/chuweiguanli/delete-cangku-by-id", deleteCangku, BODY_DTO(DeleteCangkuDTO::Wrapper, id_list), API_HANDLER_AUTH_PARAME) {
+	ENDPOINT(API_M_DEL, "/chuweiguanli/cangkudingyi/delete-cangku-by-id", deleteCangku, BODY_DTO(DeleteCangkuDTO::Wrapper, id_list), API_HANDLER_AUTH_PARAME) {
 		API_HANDLER_RESP_VO(execDeleteCangku(id_list, authObject->getPayload()));
 	}
 	
@@ -62,7 +62,7 @@ public:
 		API_DEF_ADD_QUERY_PARAMS(oatpp::String, "store_code", ZH_WORDS_GETTER("Cangku.EndPoint.down_load_cangku_excel.params.store_code"), "001-FKD", false);
 	}
 	//	定义 导出仓库接口 处理
-	ENDPOINT(API_M_GET, "/chuweiguanli/down-load-cangku-excel", downLoadCangkuExcel, QUERY(String, store_code), API_HANDLER_AUTH_PARAME){
+	ENDPOINT(API_M_GET, "/chuweiguanli/cangkudingyi/down-load-cangku-excel", downLoadCangkuExcel, QUERY(String, store_code), API_HANDLER_AUTH_PARAME){
 		API_HANDLER_RESP_VO(execDownLoadCangkuExcel(store_code, authObject->getPayload()));
 	}
 
