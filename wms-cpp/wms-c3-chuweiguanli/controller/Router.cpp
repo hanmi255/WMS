@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-#include "cangkudingyi/CangKuDingYiController.h"
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
@@ -29,7 +28,8 @@
 #endif
 #include "tuopandingyi/TuopanController.h"
 #include "controller/cangkudingyi/StoreController.h"
-
+#include "controller/cangkudingyi/CangKuDingYiController.h"
+#include "controller/keyongchuwei/BinController.h"
 #include "tuopandingyi/TPController.h"
 
 // 如果定义了关闭Swagger文档宏
@@ -59,8 +59,10 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(CangKuDingYiController);
 	ROUTER_SIMPLE_BIND(TuopanController);	
 	ROUTER_SIMPLE_BIND(TPController);
-	ROUTER_SIMPLE_BIND(CangKuDingYiController);
-	ROUTER_SIMPLE_BIND(StoreController);}
+	ROUTER_SIMPLE_BIND(StoreController);
+	ROUTER_SIMPLE_BIND(BinController);
+}
+
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {

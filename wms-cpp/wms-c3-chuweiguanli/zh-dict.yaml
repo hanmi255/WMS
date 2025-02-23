@@ -1,4 +1,4 @@
-tuopan: 
+﻿tuopan: 
  id: 主键
  field: 
   id: 托盘号
@@ -62,3 +62,28 @@ store:
  sys_org_code: 所属部门
  sys_company_code: 所属公司
 
+bin:
+ xlsx:
+  summary: 导出选中可用储位的Excel
+ list:
+  summary: 查询可用储位列表
+ id: 唯一id（主键）请将所有需要导出为Excel的行的id列出来
+ bin_store: 仓库
+ # ku_wei_lei_xing: 库位类型
+ chu_wei_lei_xing: 储位类型
+ chu_wei_lei_xing_example: 常温
+ chu_wei: 储位
+ shang_jia_ci_xu: 上架次序
+ gao_du: 高度CM
+ chang_du: 长度CM
+ kuan_du: 宽度CM
+ zui_da_tuo_pan: 最大托盘
+ bin_store_example: 1仓库
+ # ku_wei_lei_xing_example: 存储储位
+ suo_shu_ke_hu: 所属客户
+ # ku_wei_bian_ma: 库位编码
+ # ku_wei_tiao_ma: 库位条码
+ # chp_shu_xing: 产品属性
+ # xnode: x坐标
+ # ynode: y坐标
+ # znode: z坐标

@@ -7,7 +7,7 @@
 #include "domain/dto/cangkudingyi/StoreDTO.h"
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
-//#define ADD_AUTH // 如果需要授权就取消注释
+#define ADD_AUTH // 如果需要授权就取消注释
 
 class StoreController : public oatpp::web::server::api::ApiController
 {
@@ -17,41 +17,29 @@ public:
 	ENDPOINT_INFO(addStore) {
 		API_DEF_ADD_TITLE(ZH_WORDS_GETTER("store.add.summary"));
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-#ifdef ADD_AUTH
 		API_DEF_ADD_AUTH();
-#endif // ADD_AUTH
 	}
-#ifdef ADD_AUTH
-	ENDPOINT(API_M_POST, "/add-store", addStore, BODY_DTO(StoreAddDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME) {
-#else
-	ENDPOINT(API_M_POST, "/add-store", addStore, BODY_DTO(StoreAddDTO::Wrapper, dto)) {
-#endif // ADD_AUTH
+	ENDPOINT(API_M_POST, "cangkudingyi/add-store", addStore, BODY_DTO(StoreAddDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME) {
 		// 呼叫执行函数响应结果
-		API_HANDLER_RESP_VO(execAddStore(dto));
+		API_HANDLER_RESP_VO(execAddStore(dto, authObject->getPayload()));
 	}
 
 	// [修改仓库]接口
 	ENDPOINT_INFO(modifyStore) {
 		API_DEF_ADD_TITLE(ZH_WORDS_GETTER("store.modify.summary"));
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-#ifdef ADD_AUTH
 		API_DEF_ADD_AUTH();
-#endif // ADD_AUTH
 	}
-#ifdef ADD_AUTH
-	ENDPOINT(API_M_PUT, "/modify-store", modifyStore, BODY_DTO(StoreModifyDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME) {
-#else
-	ENDPOINT(API_M_PUT, "/modify-store", modifyStore, BODY_DTO(StoreModifyDTO::Wrapper, dto)) {
-#endif // ADD_AUTH
+	ENDPOINT(API_M_PUT, "cangkudingyi/modify-store", modifyStore, BODY_DTO(StoreModifyDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME) {
 		// 呼叫执行函数响应结果
-		API_HANDLER_RESP_VO(execModifyStore(dto));
+		API_HANDLER_RESP_VO(execModifyStore(dto, authObject->getPayload()));
 	}
 
 private:
 	// 执行新增仓库操作
-	StringJsonVO::Wrapper execAddStore(const StoreAddDTO::Wrapper dto);
+	StringJsonVO::Wrapper execAddStore(const StoreAddDTO::Wrapper dto, const PayloadDTO& payload);
 	// 执行修改仓库操作
-	StringJsonVO::Wrapper execModifyStore(const StoreModifyDTO::Wrapper dto);
+	StringJsonVO::Wrapper execModifyStore(const StoreModifyDTO::Wrapper dto, const PayloadDTO& payload);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

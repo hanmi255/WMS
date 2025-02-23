@@ -28,21 +28,6 @@ class BaseDTO : public oatpp::DTO
 class StoreAddDTO : public BaseDTO
 {
 	DTO_INIT(StoreAddDTO, BaseDTO);
-	
-	DTO_FIELD(String, create_name);
-	DTO_FIELD_INFO(create_name) {
-		info->description = ZH_WORDS_GETTER("store.create_name");
-	}
-
-	DTO_FIELD(String, create_by);
-	DTO_FIELD_INFO(create_by) {
-		info->description = ZH_WORDS_GETTER("store.create_by");
-	}
-
-	DTO_FIELD(String, create_date);
-	DTO_FIELD_INFO(create_date) {
-		info->description = ZH_WORDS_GETTER("store.create_date");
-	}
 
 	DTO_FIELD(String, sys_org_code);
 	DTO_FIELD_INFO(sys_org_code) {
@@ -58,6 +43,26 @@ class StoreAddDTO : public BaseDTO
 class StoreModifyDTO : public BaseDTO
 {
 	DTO_INIT(StoreModifyDTO, BaseDTO);
+};
+
+class StoreDTO : public StoreAddDTO, public StoreModifyDTO
+{
+	DTO_INIT(StoreDTO, StoreAddDTO, StoreModifyDTO);
+
+	DTO_FIELD(String, create_name);
+	DTO_FIELD_INFO(create_name) {
+		info->description = ZH_WORDS_GETTER("store.create_name");
+	}
+
+	DTO_FIELD(String, create_by);
+	DTO_FIELD_INFO(create_by) {
+		info->description = ZH_WORDS_GETTER("store.create_by");
+	}
+
+	DTO_FIELD(String, create_date);
+	DTO_FIELD_INFO(create_date) {
+		info->description = ZH_WORDS_GETTER("store.create_date");
+	}
 
 	DTO_FIELD(String, update_name);
 	DTO_FIELD_INFO(update_name) {
@@ -78,11 +83,6 @@ class StoreModifyDTO : public BaseDTO
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("store.id");
 	}
-};
-
-class StoreDTO : public StoreAddDTO, public StoreModifyDTO
-{
-	DTO_INIT(StoreDTO, StoreAddDTO, StoreModifyDTO);
 };
 
 #include OATPP_CODEGEN_BEGIN(DTO)
