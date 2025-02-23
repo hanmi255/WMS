@@ -1,0 +1,26 @@
+move-goods:
+ get:
+  summary: 分页获取转移任务
+ put:
+  modify:
+   summary: 修改转移任务
+  batch:
+   summary: 批量转移任务
+ field:
+  id: 转移任务ID
+  items: 转移项
+  goods-id: 商品编码
+  goods-name: 商品名称
+  cus-code: 货主
+  cus-name: 货主名称
+  to-cus-code: 到货主
+  to-cus-name: 到货主名称
+  tin-from: 源托盘
+  tin-to: 到托盘
+  bin-from: 源储位
+  bin-to: 到储位
+  move-sta: 状态
+  run-sta: 执行状态
+  move-num: 移动数量
+  produce-date: 生产日期
+  to-produce-date: 到生产日期
