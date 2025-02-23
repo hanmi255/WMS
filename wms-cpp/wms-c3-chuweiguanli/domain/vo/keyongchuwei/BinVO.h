@@ -6,8 +6,8 @@
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class BinJsonVO : public JsonVO<BinDTO::Wrapper> {
-	DTO_INIT(BinJsonVO, JsonVO<BinDTO::Wrapper>);
+class BinPageJsonVO : public JsonVO<BinPageDTO::Wrapper> {
+	DTO_INIT(BinPageJsonVO, JsonVO<BinPageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

@@ -31,7 +31,6 @@
 #include "controller/cangkudingyi/CangKuDingYiController.h"
 #include "controller/keyongchuwei/BinController.h"
 #include "tuopandingyi/TPController.h"
-
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -60,8 +59,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(TuopanController);	
 	ROUTER_SIMPLE_BIND(TPController);
 	ROUTER_SIMPLE_BIND(StoreController);
-	ROUTER_SIMPLE_BIND(BinController);
-}
+	ROUTER_SIMPLE_BIND(BinController);}
 
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()

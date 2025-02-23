@@ -5,18 +5,18 @@
 #include "domain/query/PageQuery.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class BinQuery : public PageQuery
+class BinPageQuery : public PageQuery
 {
-	DTO_INIT(BinQuery, PageQuery);
+	DTO_INIT(BinPageQuery, PageQuery);
 
 	DTO_FIELD(String, bin_store);
 	DTO_FIELD_INFO(bin_store) {
 		info->description = ZH_WORDS_GETTER("bin.bin_store");
 	}
 
-	DTO_FIELD(String, ku_wei_lei_xing);
-	DTO_FIELD_INFO(ku_wei_lei_xing) {
-		info->description = ZH_WORDS_GETTER("bin.ku_wei_lei_xing");
+	DTO_FIELD(String, ku_wei_shu_xing);
+	DTO_FIELD_INFO(ku_wei_shu_xing) {
+		info->description = ZH_WORDS_GETTER("bin.ku_wei_shu_xing");
 	}
 
 	DTO_FIELD(String, ku_wei_bian_ma);
@@ -24,24 +24,19 @@ class BinQuery : public PageQuery
 		info->description = ZH_WORDS_GETTER("bin.ku_wei_bian_ma");
 	}
 
-	DTO_FIELD(String, ku_wei_tiao_ma);
-	DTO_FIELD_INFO(ku_wei_tiao_ma) {
-		info->description = ZH_WORDS_GETTER("bin.ku_wei_tiao_ma");
+	DTO_FIELD(String, suo_shu_ke_hu);
+	DTO_FIELD_INFO(suo_shu_ke_hu) {
+		info->description = ZH_WORDS_GETTER("bin.suo_shu_ke_hu");
 	}
 
-	DTO_FIELD(String, xnode);
-	DTO_FIELD_INFO(xnode) {
-		info->description = ZH_WORDS_GETTER("bin.xnode");
+	DTO_FIELD(String, shang_jia_ci_xu);
+	DTO_FIELD_INFO(shang_jia_ci_xu) {
+		info->description = ZH_WORDS_GETTER("bin.shang_jia_ci_xu");
 	}
 
-	DTO_FIELD(String, ynode);
-	DTO_FIELD_INFO(ynode) {
-		info->description = ZH_WORDS_GETTER("bin.ynode");
-	}
-
-	DTO_FIELD(String, znode);
-	DTO_FIELD_INFO(znode) {
-		info->description = ZH_WORDS_GETTER("bin.znode");
+	DTO_FIELD(String, gao);
+	DTO_FIELD_INFO(gao) {
+		info->description = ZH_WORDS_GETTER("bin.gao");
 	}
 };
 

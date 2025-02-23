@@ -5,6 +5,6 @@ std::shared_ptr<oatpp::web::server::api::ApiController::OutgoingResponse> BinCon
 	return {};
 }
 
-BinJsonVO::Wrapper BinController::execQueryBinList(const BinQuery::Wrapper& file, const PayloadDTO& payload) {
+BinPageJsonVO::Wrapper BinController::execQueryBinList(const BinPageQuery::Wrapper& query, const PayloadDTO& payload) {
 	return {};
 }

@@ -70,13 +70,14 @@ bin:
  id: 唯一id（主键）请将所有需要导出为Excel的行的id列出来
  bin_store: 仓库
  # ku_wei_lei_xing: 库位类型
- chu_wei_lei_xing: 储位类型
- chu_wei_lei_xing_example: 常温
- chu_wei: 储位
+ ku_wei_shu_xing: 储位类型
+ ku_wei_shu_xing_example: 常温
+ ku_wei_bian_ma: 储位
  shang_jia_ci_xu: 上架次序
- gao_du: 高度CM
- chang_du: 长度CM
- kuan_du: 宽度CM
+ gao: 高度CM
+ chang: 长度CM
+ kuan: 宽度CM
+ zui_da_ti_ji: 最大体积
  zui_da_tuo_pan: 最大托盘
  bin_store_example: 1仓库
  # ku_wei_lei_xing_example: 存储储位

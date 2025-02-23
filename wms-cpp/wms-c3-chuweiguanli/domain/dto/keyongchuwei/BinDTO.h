@@ -1,15 +1,26 @@
 #pragma once
 #ifndef _BINDTO_
 #define _BINDTO_
-#include "../../GlobalInclude.h"
+#include "domain/GlobalInclude.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class BinPageDTO : public oatpp::DTO {
-	DTO_INIT(BinPageDTO, DTO);
+class BinBaseDTO : public oatpp::DTO
+{
+	DTO_INIT(BinBaseDTO, DTO);
 
 	DTO_FIELD(String, bin_store);
 	DTO_FIELD_INFO(bin_store) {
 		info->description = ZH_WORDS_GETTER("bin.bin_store");
+	}
+
+	DTO_FIELD(String, ku_wei_shu_xing);
+	DTO_FIELD_INFO(ku_wei_shu_xing) {
+		info->description = ZH_WORDS_GETTER("bin.ku_wei_shu_xing");
+	}
+
+	DTO_FIELD(String, ku_wei_bian_ma);
+	DTO_FIELD_INFO(ku_wei_bian_ma) {
+		info->description = ZH_WORDS_GETTER("bin.ku_wei_bian_ma");
 	}
 
 	DTO_FIELD(String, suo_shu_ke_hu);
@@ -17,14 +28,9 @@ class BinPageDTO : public oatpp::DTO {
 		info->description = ZH_WORDS_GETTER("bin.suo_shu_ke_hu");
 	}
 
-	DTO_FIELD(String, chu_wei_lei_xing);
-	DTO_FIELD_INFO(chu_wei_lei_xing) {
-		info->description = ZH_WORDS_GETTER("bin.chu_wei_lei_xing");
-	}
-
-	DTO_FIELD(String, chu_wei);
-	DTO_FIELD_INFO(chu_wei) {
-		info->description = ZH_WORDS_GETTER("bin.chu_wei");
+	DTO_FIELD(String, zui_da_ti_ji);
+	DTO_FIELD_INFO(zui_da_ti_ji) {
+		info->description = ZH_WORDS_GETTER("bin.zui_da_ti_ji");
 	}
 
 	DTO_FIELD(String, shang_jia_ci_xu);
@@ -32,28 +38,19 @@ class BinPageDTO : public oatpp::DTO {
 		info->description = ZH_WORDS_GETTER("bin.shang_jia_ci_xu");
 	}
 
-	DTO_FIELD(String, gao_du);
-	DTO_FIELD_INFO(gao_du) {
-		info->description = ZH_WORDS_GETTER("bin.gao_du");
-	}
-};
-
-class BinDTO : public BinPageDTO {
-	DTO_INIT(BinDTO, BinPageDTO);
-
-	DTO_FIELD(String, chang_du);
-	DTO_FIELD_INFO(chang_du) {
-		info->description = ZH_WORDS_GETTER("bin.chang_du");
+	DTO_FIELD(String, chang);
+	DTO_FIELD_INFO(chang) {
+		info->description = ZH_WORDS_GETTER("bin.chang");
 	}
 
-	DTO_FIELD(String, kuan_du);
-	DTO_FIELD_INFO(kuan_du) {
-		info->description = ZH_WORDS_GETTER("bin.kuan_du");
+	DTO_FIELD(String, kuan);
+	DTO_FIELD_INFO(kuan) {
+		info->description = ZH_WORDS_GETTER("bin.kuan");
 	}
 
-	DTO_FIELD(String, zui_da_ti_ji);
-	DTO_FIELD_INFO(zui_da_ti_ji) {
-		info->description = ZH_WORDS_GETTER("bin.zui_da_ti_ji");
+	DTO_FIELD(String, gao);
+	DTO_FIELD_INFO(gao) {
+		info->description = ZH_WORDS_GETTER("bin.gao");
 	}
 
 	DTO_FIELD(String, zui_da_tuo_pan);
@@ -61,6 +58,12 @@ class BinDTO : public BinPageDTO {
 		info->description = ZH_WORDS_GETTER("bin.zui_da_tuo_pan");
 	}
 };
+
+class BinPageDTO : public PageDTO<BinBaseDTO::Wrapper> {
+	DTO_INIT(BinPageDTO, PageDTO<BinBaseDTO::Wrapper>);
+};
+
+
 
 #include OATPP_CODEGEN_END(DTO)
 #endif // !_BINDTO_

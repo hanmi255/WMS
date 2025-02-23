@@ -25,23 +25,24 @@ public:
 	}
 
 	ENDPOINT_INFO(queryBinList) {
-		API_DEF_ADD_COMMON_AUTH(ZH_WORDS_GETTER("bin.list.summary"), BinJsonVO::Wrapper);
+		API_DEF_ADD_COMMON_AUTH(ZH_WORDS_GETTER("bin.list.summary"), BinPageJsonVO::Wrapper);
 		API_DEF_ADD_AUTH();
+		API_DEF_ADD_RSP_JSON_WRAPPER(BinPageJsonVO);
 		API_DEF_ADD_PAGE_PARAMS();
-		API_DEF_ADD_QUERY_PARAMS(String, "chu_wei_lei_xing", ZH_WORDS_GETTER("bin.chu_wei_lei_xing"), ZH_WORDS_GETTER("bin.chu_wei_lei_xing_example"), false);
 		API_DEF_ADD_QUERY_PARAMS(String, "bin_store", ZH_WORDS_GETTER("bin.bin_store"), ZH_WORDS_GETTER("bin.bin_store_example"), false);
-		API_DEF_ADD_QUERY_PARAMS(String, "chu_wei", ZH_WORDS_GETTER("bin.chu_wei"), "A-5-1-1-1", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "ku_wei_shu_xing", ZH_WORDS_GETTER("bin.ku_wei_shu_xing"), ZH_WORDS_GETTER("bin.ku_wei_shu_xing_example"), false);
+		API_DEF_ADD_QUERY_PARAMS(String, "ku_wei_bian_ma", ZH_WORDS_GETTER("bin.ku_wei_bian_ma"), "A-5-1-1-1", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "suo_shu_ke_hu", ZH_WORDS_GETTER("bin.suo_shu_ke_hu"), "001", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "shang_jia_ci_xu", ZH_WORDS_GETTER("bin.shang_jia_ci_xu"), "111", false);
-		API_DEF_ADD_QUERY_PARAMS(String, "gao_du", ZH_WORDS_GETTER("bin.gao_du"), "10", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "gao", ZH_WORDS_GETTER("bin.gao"), "10", false);
 	}
 	ENDPOINT(API_M_GET, "/keyongchuwei/query-usefulbin-list", queryBinList, QUERIES(QueryParams, queryParams), API_HANDLER_AUTH_PARAME){
-		API_HANDLER_QUERY_PARAM(binQuery, BinQuery, queryParams);
+		API_HANDLER_QUERY_PARAM(binQuery, BinPageQuery, queryParams);
 		API_HANDLER_RESP_VO(execQueryBinList(binQuery, authObject->getPayload()));
 	}
 private:
 	std::shared_ptr<OutgoingResponse> execExportBinXlsx(const Vector<String>& ids);
-	BinJsonVO::Wrapper execQueryBinList(const BinQuery::Wrapper& file, const PayloadDTO& payload);
+	BinPageJsonVO::Wrapper execQueryBinList(const BinPageQuery::Wrapper& query, const PayloadDTO& payload);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
