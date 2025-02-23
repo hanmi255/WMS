@@ -31,6 +31,7 @@
 
 #include "tuopandingyi/TPController.h"
 
+
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
 // 简化绑定控制器宏定义
@@ -57,7 +58,8 @@ void Router::initRouter()
 	//#TIP :系统扩展路由定义，写在这个后面
 	ROUTER_SIMPLE_BIND(TPController);
 	ROUTER_SIMPLE_BIND(CangKuDingYiController);
-	ROUTER_SIMPLE_BIND(StoreController);}
+	ROUTER_SIMPLE_BIND(StoreController);
+}
 
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
@@ -68,7 +70,7 @@ void Router::createSampleRouter()
 	ROUTER_SIMPLE_BIND(UserController);
 	// 绑定文件控制器
 	ROUTER_SIMPLE_BIND(FileController);
-	
+
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }

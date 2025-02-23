@@ -13,3 +13,9 @@ StringJsonVO::Wrapper CangKuDingYiController::execDownLoadCangkuExcel(const Stri
 	return {};
 }
 
+StringJsonVO::Wrapper CangKuDingYiController::execListCangku(const PayloadDTO& payload)
+{
+	return {};
+}
+
+

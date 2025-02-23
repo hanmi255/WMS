@@ -14,8 +14,10 @@ Cangku:
   store_name: 仓库名称
   id: 仓库ID
   store_code: 仓库代码
+  store_text: 仓库属性
  EndPoint: 
   get_cangku_name_list: 获取仓库名称列表 
+  get_cangku_list: 获取仓库列表 
   delete_cangku:
    summary: 删除仓库(支持批量删除)
    params:
@@ -42,3 +44,5 @@ store:
  update_name: 更新人名称（比如：管理员）
  sys_org_code: 所属部门
  sys_company_code: 所属公司
+
+
