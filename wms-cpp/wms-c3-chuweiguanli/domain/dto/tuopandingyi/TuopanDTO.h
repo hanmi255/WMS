@@ -7,12 +7,13 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 托盘列表传输对象
+ * 托盘列表基础数据对象
  */
 
-class TuopanDTO : public oatpp::DTO
+class TuopanBaseDTO : public oatpp::DTO
 {
-	DTO_INIT(TuopanDTO, DTO);
+	DTO_INIT(TuopanBaseDTO, DTO);
+
 	// 托盘号
 	DTO_FIELD(String, tin_id);
 	DTO_FIELD_INFO(tin_id) {
@@ -33,8 +34,37 @@ class TuopanDTO : public oatpp::DTO
 	DTO_FIELD_INFO(tin_status) {
 		info->description = ZH_WORDS_GETTER("tuopan.field.status");
 	}
+	// 流程状态
+	DTO_FIELD(String, bpm_status);
+	DTO_FIELD_INFO(bpm_status) {
+		info->description = ZH_WORDS_GETTER("tuopan.field.bpm_status");
+	}
+	// 所属部门
+	DTO_FIELD(String, sys_org_code);
+	DTO_FIELD_INFO(sys_org_code) {
+		info->description = ZH_WORDS_GETTER("tuopan.field.sys_org_code");
+	}
+	// 所属公司
+	DTO_FIELD(String, sys_company_code);
+	DTO_FIELD_INFO(sys_company_code) {
+		info->description = ZH_WORDS_GETTER("tuopan.field.sys_company_code");
+	}
 };
 
+/**
+ * 托盘列表传输对象
+ */
+
+class TuopanDTO : public TuopanBaseDTO
+{
+	DTO_INIT(TuopanDTO, TuopanBaseDTO);
+
+	// 主键
+	DTO_FIELD(String, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("tuopan.id");
+	}
+};
 
 /*
 * 托盘分页传输对象

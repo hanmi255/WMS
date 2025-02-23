@@ -37,7 +37,7 @@ public:
 		API_DEF_ADD_QUERY_PARAMS(String, "tin_status", ZH_WORDS_GETTER("tuopan.field.status"), "xxx", false);
 	}
 	// 托盘分页查询接口处理
-	ENDPOINT(API_M_GET, "/tuopan", querySample, QUERIES(QueryParams, queryParams), API_HANDLER_AUTH_PARAME) {
+	ENDPOINT(API_M_GET, "/chuweiguanli/tuopandingyi/fenyechaxun", querySample, QUERIES(QueryParams, queryParams), API_HANDLER_AUTH_PARAME) {
 		// 解析查询参数为Query领域模型
 		API_HANDLER_QUERY_PARAM(userQuery, TuopanQuery, queryParams);
 		// 呼叫执行函数响应结果
@@ -47,24 +47,22 @@ public:
 	// 托盘修改接口描述
 	API_DEF_ENDPOINT_INFO_AUTH(ZH_WORDS_GETTER("tuopan.put.summary"), modifySample, Uint64JsonVO::Wrapper);
 	// 托盘修改接口处理
-	API_HANDLER_ENDPOINT_AUTH(API_M_PUT, "/tuopan", modifySample, BODY_DTO(TuopanDTO::Wrapper, dto), execModifyTuopan(dto));
+	API_HANDLER_ENDPOINT_AUTH(API_M_PUT, "/chuweiguanli/tuopandingyi/xiugaituopan", modifySample, BODY_DTO(TuopanDTO::Wrapper, dto), execModifyTuopan(dto));
 
 	// 托盘删除接口描述
 	ENDPOINT_INFO(removeSample) {
 		// 定义标题和返回类型以及授权支持
 		API_DEF_ADD_COMMON_AUTH(ZH_WORDS_GETTER("tuopan.delete.summary"), Uint64JsonVO::Wrapper);
-		// 定义其他路径参数说明
-		API_DEF_ADD_PATH_PARAMS(UInt64, "tin_id", ZH_WORDS_GETTER("tuopan.field.id"), 1, true);
 	}
 	// 托盘删除接口处理
-	API_HANDLER_ENDPOINT_AUTH(API_M_DEL, "/tuopan/{id}", removeSample, PATH(UInt64, id), execRemoveTuopan(id));
+	API_HANDLER_ENDPOINT_AUTH(API_M_DEL, "/chuweiguanli/tuopandingyi/shanchutuopan/{id}", removeSample, PATH(String, id), execRemoveTuopan(id));
 
 	// 3.3 托盘分页查询数据
 	TuopanPageJsonVO::Wrapper execQueryTuopan(const TuopanQuery::Wrapper& query, const PayloadDTO& payload);
 	// 3.3 托盘修改数据
 	Uint64JsonVO::Wrapper execModifyTuopan(const TuopanDTO::Wrapper& dto);
 	// 3.3 托盘删除数据
-	Uint64JsonVO::Wrapper execRemoveTuopan(const UInt64& id);
+	Uint64JsonVO::Wrapper execRemoveTuopan(const String& id);
 };
 
 // 0 取消API控制器使用宏

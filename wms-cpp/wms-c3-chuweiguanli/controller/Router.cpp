@@ -27,6 +27,7 @@
 #include "file/FileController.h"
 #include "ws/WSController.h"
 #endif
+#include "tuopandingyi/TuopanController.h"
 #include "controller/cangkudingyi/StoreController.h"
 
 #include "tuopandingyi/TPController.h"
@@ -55,10 +56,10 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+	ROUTER_SIMPLE_BIND(TuopanController);	
 	ROUTER_SIMPLE_BIND(TPController);
 	ROUTER_SIMPLE_BIND(CangKuDingYiController);
-	ROUTER_SIMPLE_BIND(StoreController);
-}
+	ROUTER_SIMPLE_BIND(StoreController);}
 
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()

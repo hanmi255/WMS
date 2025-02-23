@@ -33,6 +33,21 @@ class TuopanQuery : public PageQuery
 	DTO_FIELD_INFO(tin_status) {
 		info->description = ZH_WORDS_GETTER("tuopan.field.status");
 	}
+	// 流程状态
+	DTO_FIELD(String, bpm_status);
+	DTO_FIELD_INFO(bpm_status) {
+		info->description = ZH_WORDS_GETTER("tuopan.field.bpm_status");
+	}
+	// 所属部门
+	DTO_FIELD(String, sys_org_code);
+	DTO_FIELD_INFO(sys_org_code) {
+		info->description = ZH_WORDS_GETTER("tuopan.field.sys_org_code");
+	}
+	// 所属公司
+	DTO_FIELD(String, sys_company_code);
+	DTO_FIELD_INFO(sys_company_code) {
+		info->description = ZH_WORDS_GETTER("tuopan.field.sys_company_code");
+	}
 };
 
 #include OATPP_CODEGEN_END(DTO)
