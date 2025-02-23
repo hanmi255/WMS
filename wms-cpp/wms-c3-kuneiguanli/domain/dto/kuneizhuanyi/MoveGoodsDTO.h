@@ -10,8 +10,8 @@
 class MoveGoodsBaseDTO : public oatpp::DTO {
     DTO_INIT(MoveGoodsBaseDTO, DTO);
     // 转移任务ID
-    DTO_FIELD(String, moveId);
-    DTO_FIELD_INFO(moveId) {
+    DTO_FIELD(String, id);
+    DTO_FIELD_INFO(id) {
         info->description = ZH_WORDS_GETTER("move-goods.field.id");
     }
     // 移动数量
@@ -64,7 +64,6 @@ class MoveGoodsModifyDTO : public MoveGoodsBaseDTO {
  */
 class MoveGoodsBatchDTO : public oatpp::DTO {
     DTO_INIT(MoveGoodsBatchDTO, DTO);
-
     DTO_FIELD(Vector<Object<MoveGoodsBaseDTO>>, items);
     DTO_FIELD_INFO(items) {
         info->description = ZH_WORDS_GETTER("move-goods.field.items");

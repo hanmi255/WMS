@@ -10,6 +10,11 @@
  */
 class MoveGoodsQuery : public PageQuery {
 	DTO_INIT(MoveGoodsQuery, PageQuery);
+	// 转移任务ID
+	DTO_FIELD(Int64, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("move-goods.field.id");
+	}
 	// 商品编码
 	DTO_FIELD(String, goodsID);
 	DTO_FIELD_INFO(goodsID) {

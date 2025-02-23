@@ -17,6 +17,7 @@ public:
 		API_DEF_ADD_COMMON_AUTH(ZH_WORDS_GETTER("move-goods.get.summary"), MoveGoodsPageJsonVO::Wrapper);
 		API_DEF_ADD_AUTH();
 		API_DEF_ADD_PAGE_PARAMS();
+		API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("move-goods.field.id"), "", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "goods-id", ZH_WORDS_GETTER("move-goods.field.goods-id"), "", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "goods-name", ZH_WORDS_GETTER("move-goods.field.goods-name"), "", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "cus-code", ZH_WORDS_GETTER("move-goods.field.cus-code"), "", false);
