@@ -12,6 +12,16 @@ class AddTPDTO: public oatpp::DTO {
 	DTO_FIELD_INFO(tin_id) {
 		info->description = ZH_WORDS_GETTER("TP.field.tin_id");
 	}
+	// 所属部门
+	DTO_FIELD(String, sys_org_code);
+	DTO_FIELD_INFO(sys_org_code) {
+		info->description = ZH_WORDS_GETTER("TP.field.sys_org_code");
+	}
+	// 所属公司
+	DTO_FIELD(String, sys_company_code);
+	DTO_FIELD_INFO(sys_company_code) {
+		info->description = ZH_WORDS_GETTER("TP.field.sys_company_code");
+	}
 	// 托盘顺序
 	DTO_FIELD(Int32, tin_sort);
 	DTO_FIELD_INFO(tin_sort) {
