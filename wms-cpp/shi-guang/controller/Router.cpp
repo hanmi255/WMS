@@ -26,12 +26,6 @@
 #include "file/FileController.h"
 #include "ws/WSController.h"
 #endif
-#include "tuopandingyi/TuopanController.h"
-#include "controller/cangkudingyi/StoreController.h"
-#include "controller/cangkudingyi/CangKuDingYiController.h"
-#include "controller/keyongchuwei/BinController.h"
-#include "tuopandingyi/TPController.h"
-#include "./chuweidingyi/xxxxapi.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -57,12 +51,9 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(apixiangxixinxi);
-	ROUTER_SIMPLE_BIND(CangKuDingYiController);
-	ROUTER_SIMPLE_BIND(TuopanController);	
-	ROUTER_SIMPLE_BIND(TPController);
-	ROUTER_SIMPLE_BIND(StoreController);
-	ROUTER_SIMPLE_BIND(BinController);}
+
+}
+
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {
