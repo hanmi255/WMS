@@ -42,11 +42,11 @@ public:
 
 	// [批量转移任务]接口
 	API_DEF_ENDPOINT_INFO_AUTH(ZH_WORDS_GETTER("move-goods.put.batch.summary"), batchMoveGoods, Uint64JsonVO::Wrapper);
-	API_HANDLER_ENDPOINT_AUTH(API_M_PUT, "/kuneizhuanyi/batch-move-goods", batchMoveGoods, BODY_DTO(MoveGoodsBatchDTO::Wrapper, dto), execBatchMoveGoods(dto));
+	API_HANDLER_ENDPOINT_AUTH(API_M_PUT, "/kuneiguanli/kuneizhuanyi/batch-move-goods", batchMoveGoods, BODY_DTO(MoveGoodsBatchDTO::Wrapper, dto), execBatchMoveGoods(dto));
 
 	//  定义[删除转移任务（支持批量）]接口
 	API_DEF_ENDPOINT_INFO_AUTH(ZH_WORDS_GETTER("move-goods.delete.batch.summary"), batchRemoveMoveGoods, Uint64JsonVO::Wrapper);
-	API_HANDLER_ENDPOINT_AUTH(API_M_DEL, "/kuneizhuanyi/batch-remove-move-goods", batchRemoveMoveGoods, BODY_DTO(BatchRemoveMoveGoodsDTO::Wrapper, id), execBatchRemoveMoveGoods(id));
+	API_HANDLER_ENDPOINT_AUTH(API_M_DEL, "/kuneiguanli/kuneizhuanyi/batch-remove-move-goods", batchRemoveMoveGoods, BODY_DTO(BatchRemoveMoveGoodsDTO::Wrapper, id), execBatchRemoveMoveGoods(id));
 
 
 	// 定义[获取转移任务详细信息]接口
@@ -56,7 +56,7 @@ public:
 		// 定义参数描述
 		API_DEF_ADD_QUERY_PARAMS(Int64, "id", ZH_WORDS_GETTER("move-goods.field.id"), 1, false);
 	}
-	API_HANDLER_ENDPOINT_AUTH(API_M_GET, "/kuneizhuanyi/query-detailed-move-goods", queryDetailedMoveGoods, 
+	API_HANDLER_ENDPOINT_AUTH(API_M_GET, "/kuneiguanli/kuneizhuanyi/query-detailed-move-goods", queryDetailedMoveGoods, 
 		QUERY(Int64, id), execQueryDetailedMoveGoods(id));
 
 
