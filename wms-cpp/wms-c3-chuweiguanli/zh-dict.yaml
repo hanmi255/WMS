@@ -27,6 +27,8 @@ Cangku:
    summary: 导出仓库(导出为Excel)
    params:
     store_code: 仓库代码列表(非必须)
+  up_load_cangku_excel: 
+   summary: Excel导入仓库
 
 store:
  add:

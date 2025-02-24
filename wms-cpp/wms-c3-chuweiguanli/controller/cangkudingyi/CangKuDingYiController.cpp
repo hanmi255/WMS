@@ -18,4 +18,9 @@ StringJsonVO::Wrapper CangKuDingYiController::execListCangku(const PayloadDTO& p
 	return {};
 }
 
+StringJsonVO::Wrapper CangKuDingYiController::execUpload(std::shared_ptr<IncomingRequest> request)
+{
+	return {};
+}
+
 

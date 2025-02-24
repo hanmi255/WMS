@@ -88,6 +88,12 @@ public:
 		API_HANDLER_RESP_VO(execListCangku(authObject->getPayload()));
 	}
 
+
+	// 定义 导入仓库 处理
+	API_DEF_ENDPOINT_INFO(ZH_WORDS_GETTER("Cangku.EndPoint.up_load_cangku_excel.summary"), upload, StringJsonVO::Wrapper);
+	// 定义 导入仓库 处理
+	API_HANDLER_ENDPOINT(API_M_POST, "/chuweiguanli/upload", upload, REQUEST(std::shared_ptr<IncomingRequest>, request), execUpload(request));
+
 private:
 	//	获取仓库名称列表执行函数
 	CangkuNameListJsonVO::Wrapper execListCangkuName(const PayloadDTO& payload);
@@ -97,6 +103,8 @@ private:
 	StringJsonVO::Wrapper execDownLoadCangkuExcel(const String& store_code, const PayloadDTO& payload);
 	//	获取仓库列表执行函数
 	StringJsonVO::Wrapper execListCangku(const PayloadDTO& payload);
+	// 导入仓库执行函数
+	StringJsonVO::Wrapper execUpload(std::shared_ptr<IncomingRequest> request);
 };
 
 #include OATPP_CODEGEN_END(ApiController)
