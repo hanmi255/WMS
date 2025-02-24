@@ -9,6 +9,7 @@ TP:
   tin_status: 托盘状态
   bpm_status: 流程状态
   query_tp_rows: 托盘列表
+
 Cangku:
  info:
   store_name: 仓库名称
@@ -45,4 +46,33 @@ store:
  sys_org_code: 所属部门
  sys_company_code: 所属公司
 
-
+chuwei:
+ add:
+  summary: 录入储位
+  kehu: 所属客户
+  kuweibianma: 库位编码
+  kuweitiaoma: 库位条码
+  kuweileixing: 库位类型
+  kuweishuxing: 库位属性
+  chanqinshuxing: 产品属性
+  shangjiacixv: 上架次序
+  quhuocixv: 取货次序
+  zuidazhongliang: 最大重量
+  zuidatuopan: 最大托盘
+  chang: 长
+  kuan: 宽
+  gao: 高
+  zuidatiji: 最大体积
+  tingyong: 停用
+  beizhu: 备注
+  beizhu1: 备注1
+  beizhu2: 备注2
+  dongxian: 动线
+  diancibiaoqianID: 电子标签id
+  tijidanwei: 体积单位
+  zhonglaingdanwei: 重量单位
+  mianjidanwei: 面积单位
+  zuidamianji: 最大面积
+  x_node: x坐标
+  y_node: y坐标
+  z_node: z坐标

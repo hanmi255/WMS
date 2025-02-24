@@ -28,6 +28,7 @@
 #include "ws/WSController.h"
 #endif
 #include "controller/cangkudingyi/StoreController.h"
+#include "controller/chuweidingyi/ChuWeiDingYiController.h"
 
 #include "tuopandingyi/TPController.h"
 
@@ -59,6 +60,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(TPController);
 	ROUTER_SIMPLE_BIND(CangKuDingYiController);
 	ROUTER_SIMPLE_BIND(StoreController);
+	ROUTER_SIMPLE_BIND(ChuWeiDingYiController);
 }
 
 #ifdef HTTP_SERVER_DEMO
