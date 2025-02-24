@@ -77,4 +77,16 @@ class MoveGoodsQuery : public PageQuery {
 	}
 };
 
+/**
+ * 查询转移任务基础信息
+ */
+class MoveGoodsBaseQuery : public PageQuery {
+	DTO_INIT(MoveGoodsBaseQuery, PageQuery);
+	// 转移任务ID
+	DTO_FIELD(Int64, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("move-goods.field.id");
+	}
+};
+
 #include OATPP_CODEGEN_END(DTO)

@@ -1,11 +1,18 @@
 move-goods:
  get:
   summary: 分页获取转移任务
+ getdetailed:
+  summary: 获取转移任务详细信息
+ getdownload:
+  summary: 库内转移-导出数据 
  put:
   modify:
    summary: 修改转移任务
   batch:
    summary: 批量转移任务
+ delete:
+  batch: 
+   summary: 批量删除转移任务
  field:
   id: 转移任务ID
   items: 转移项
@@ -24,3 +31,5 @@ move-goods:
   move-num: 移动数量
   produce-date: 生产日期
   to-produce-date: 到生产日期
+  goods-unit: 单位
+  now-num: 现有数量
