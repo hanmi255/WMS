@@ -1,4 +1,49 @@
-﻿tuopan: 
+chuweixiangxixinxi:
+ bs: 
+  bioashi: 唯一标识
+ xinxi:
+  cangku: 仓库
+  kehu: 所属客户
+  bianma: 仓库编码
+  tiaoma: 库位条码
+  leixing: 库位类型
+  shuxing: 库位属性
+  chanpinshuxing: 产品属性
+  shangjiacixu: 上架次序
+  quhuocixu: 取货次序
+  zuidazhongliang: 最大重量
+  zuidatuopan: 最大托盘
+  chang: 长
+  kuan: 宽
+  gao: 高
+  tingyong: 停用
+  zuidatiji: 最大体积
+  beizu: 备注
+  beizu1: 备注1
+  beizhu2: 备注2
+  dongxian: 动线
+  ID: 电子标签ID
+  tiji: 体积单位
+  zhongliang: 重量单位
+  mianji: 面积单位
+  zuidamianji: 最大面积
+  x: x坐标
+  y: y坐标
+  z: z坐标
+ api:
+  chaxunxinxi: 获取储位详细信息   
+
+daoru:
+ dr:
+  daoruwenjian: 导入文件
+  wenjianshangchaun: 导入储位
+  panduanzhi: 是否成功导入
+
+daochu:
+ daochuid: 导出唯一ID
+ daochuwenjian: 导出储位
+
+tuopan: 
  id: 主键
  field: 
   id: 托盘号
