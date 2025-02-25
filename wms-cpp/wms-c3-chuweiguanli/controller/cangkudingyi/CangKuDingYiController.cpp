@@ -13,3 +13,14 @@ StringJsonVO::Wrapper CangKuDingYiController::execDownLoadCangkuExcel(const Stri
 	return {};
 }
 
+StringJsonVO::Wrapper CangKuDingYiController::execListCangku(const PayloadDTO& payload)
+{
+	return {};
+}
+
+StringJsonVO::Wrapper CangKuDingYiController::execUpload(std::shared_ptr<IncomingRequest> request)
+{
+	return {};
+}
+
+

@@ -4,7 +4,9 @@
 #define _CANGKUDINGYICONTROLLER_H_
 
 #include "domain/vo/BaseJsonVO.h"
+#include "domain/query/PageQuery.h"
 #include "domain/dto/cangkudingyi/CangkuNameListDTO.h"
+#include "domain/dto/cangkudingyi/CangkuListDTO.h"
 #include "domain/dto/cangkudingyi/deleteCangkuDTO.h"
 #include "domain/vo/cangkudingyi/CangkuVO.h"
 
@@ -17,7 +19,7 @@ class CangKuDingYiController : public oatpp::web::server::api::ApiController
 
 	//  定义接口
 public:
-	
+
 	//	定义获取仓库名称列表接口描述
 	ENDPOINT_INFO(listCangkuName) {
 		//	定义接口标题
@@ -49,7 +51,7 @@ public:
 	ENDPOINT(API_M_DEL, "/chuweiguanli/cangkudingyi/delete-cangku-by-id", deleteCangku, BODY_DTO(DeleteCangkuDTO::Wrapper, id_list), API_HANDLER_AUTH_PARAME) {
 		API_HANDLER_RESP_VO(execDeleteCangku(id_list, authObject->getPayload()));
 	}
-	
+
 	//	定义 导出仓库接口 描述
 	ENDPOINT_INFO(downLoadCangkuExcel) {
 		//	定义接口标题
@@ -66,7 +68,31 @@ public:
 		API_HANDLER_RESP_VO(execDownLoadCangkuExcel(store_code, authObject->getPayload()));
 	}
 
+	//	定义 获取仓库列表接口 描述
+	ENDPOINT_INFO(listCangku)
+	{
+		//	定义接口标题
+		API_DEF_ADD_TITLE(ZH_WORDS_GETTER("Cangku.EndPoint.get_cangku_list"));
+		//	请求参数描述
+		API_DEF_ADD_PAGE_PARAMS();
+		//	定义默认授权参数
+		API_DEF_ADD_AUTH();
+		//	定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(CangkuListJsonVO);
+	}
 
+	//	定义 获取仓库列表接口 处理
+	ENDPOINT(API_M_GET, "/chuweiguanli/query-cangku-list", listCangku, API_HANDLER_AUTH_PARAME)
+	{
+		//	呼叫执行函数响应结果
+		API_HANDLER_RESP_VO(execListCangku(authObject->getPayload()));
+	}
+
+
+	// 定义 导入仓库 描述
+	API_DEF_ENDPOINT_INFO(ZH_WORDS_GETTER("Cangku.EndPoint.up_load_cangku_excel.summary"), upload, StringJsonVO::Wrapper, API_DEF_ADD_AUTH(););
+	// 定义 导入仓库 端点
+	API_HANDLER_ENDPOINT(API_M_POST, "/chuweiguanli/upload", upload, REQUEST(std::shared_ptr<IncomingRequest>, request), execUpload(request), API_HANDLER_AUTH_PARAME);
 private:
 	//	获取仓库名称列表执行函数
 	CangkuNameListJsonVO::Wrapper execListCangkuName(const PayloadDTO& payload);
@@ -74,7 +100,10 @@ private:
 	StringJsonVO::Wrapper execDeleteCangku(const DeleteCangkuDTO::Wrapper& id_list, const PayloadDTO& payload);
 	//	导出仓库执行函数
 	StringJsonVO::Wrapper execDownLoadCangkuExcel(const String& store_code, const PayloadDTO& payload);
-
+	//	获取仓库列表执行函数
+	StringJsonVO::Wrapper execListCangku(const PayloadDTO& payload);
+	// 导入仓库执行函数
+	StringJsonVO::Wrapper execUpload(std::shared_ptr<IncomingRequest> request);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

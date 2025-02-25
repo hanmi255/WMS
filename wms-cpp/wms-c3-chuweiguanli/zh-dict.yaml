@@ -6,19 +6,7 @@ file:
   file-url: 文件src
   file-alt: 文件文字描述
   file-href: 文件链接地址
-store:
- query-forward: 
-  summary: 查询
- query-reverse:
-  summary: 查询
- field:
-  bin_store: 仓库
-  ku_wei_bian_ma: 储位
-  other: 其他
-  znode: 层数
-  xnode: 行数
-  ynode: 列数
-  ting_yong: 停用
+
 chuweixiangxixinxi:
  bs: 
   bioashi: 唯一标识
@@ -99,8 +87,10 @@ Cangku:
   store_name: 仓库名称
   id: 仓库ID
   store_code: 仓库代码
+  store_text: 仓库属性
  EndPoint: 
   get_cangku_name_list: 获取仓库名称列表 
+  get_cangku_list: 获取仓库列表 
   delete_cangku:
    summary: 删除仓库(支持批量删除)
    params:
@@ -109,6 +99,8 @@ Cangku:
    summary: 导出仓库(导出为Excel)
    params:
     store_code: 仓库代码列表(非必须) 
+  up_load_cangku_excel: 
+   summary: Excel导入仓库
 
 store:
  add:
@@ -127,6 +119,49 @@ store:
  update_name: 更新人名称（比如：管理员）
  sys_org_code: 所属部门
  sys_company_code: 所属公司
+ query-forward: 
+  summary: 查询
+ query-reverse:
+  summary: 查询
+ field:
+  bin_store: 仓库
+  ku_wei_bian_ma: 储位
+  other: 其他
+  znode: 层数
+  xnode: 行数
+  ynode: 列数
+  ting_yong: 停用
+
+chuwei:
+ add:
+  summary: 录入储位
+  kehu: 所属客户
+  kuweibianma: 库位编码
+  kuweitiaoma: 库位条码
+  kuweileixing: 库位类型
+  kuweishuxing: 库位属性
+  chanqinshuxing: 产品属性
+  shangjiacixv: 上架次序
+  quhuocixv: 取货次序
+  zuidazhongliang: 最大重量
+  zuidatuopan: 最大托盘
+  chang: 长
+  kuan: 宽
+  gao: 高
+  zuidatiji: 最大体积
+  tingyong: 停用
+  beizhu: 备注
+  beizhu1: 备注1
+  beizhu2: 备注2
+  dongxian: 动线
+  diancibiaoqianID: 电子标签id
+  tijidanwei: 体积单位
+  zhonglaingdanwei: 重量单位
+  mianjidanwei: 面积单位
+  zuidamianji: 最大面积
+  x_node: x坐标
+  y_node: y坐标
+  z_node: z坐标
 
 bin:
  xlsx:

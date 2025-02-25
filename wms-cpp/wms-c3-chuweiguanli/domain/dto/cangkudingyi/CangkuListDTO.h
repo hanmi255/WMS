@@ -1,16 +1,13 @@
 #pragma once
 
-#ifndef _CANGKUNAMELISTDTO_H_
-#define _CANGKUNAMELLISTDTO_H_
-
 #include"../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-//	获取仓库名称列表 数据传输对象
-class CangkuNameListDTO : public oatpp::DTO
+//	获取仓库列表 数据传输对象
+class CangkuListDTO : public oatpp::DTO
 {
-	DTO_INIT(CangkuNameListDTO, DTO);
+	DTO_INIT(CangkuListDTO, DTO);
 
 	//	仓库ID
 	DTO_FIELD(Int64, id);
@@ -29,8 +26,13 @@ class CangkuNameListDTO : public oatpp::DTO
 	DTO_FIELD_INFO(store_code) {
 		info->description = ZH_WORDS_GETTER("Cangku.info.store_code");
 	}
+
+	//	仓库属性
+	DTO_FIELD(String, store_text);
+	DTO_FIELD_INFO(store_text) {
+		info->description = ZH_WORDS_GETTER("Cangku.info.store_text");
+	}
 };
 
 #include OATPP_CODEGEN_END(DTO)
 
-#endif // _CANGKUNAMELLISTDTO_H_

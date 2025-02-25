@@ -5,6 +5,7 @@
 
 #include "../../GlobalInclude.h"
 #include "../../dto/cangkudingyi/CangkuNameListDTO.h"
+#include "../../dto/cangkudingyi/CangkuListDTO.h"
 #include "../../dto/cangkudingyi/deleteCangkuDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
@@ -17,6 +18,11 @@ class CangkuNameListJsonVO : public JsonVO<oatpp::List<CangkuNameListDTO::Wrappe
 //	删除仓库的请求体JsonVO，没有用到...
 class DeleteCangkuJsonVO : public JsonVO<oatpp::List<DeleteCangkuDTO::Wrapper>> {
 	DTO_INIT(DeleteCangkuJsonVO, JsonVO<oatpp::List<DeleteCangkuDTO::Wrapper>>);
+};
+
+// 获取仓库列表的显示JsonVO
+class CangkuListJsonVO : public JsonVO<oatpp::List<CangkuListDTO::Wrapper>> {
+	DTO_INIT(CangkuListJsonVO, JsonVO<oatpp::List<CangkuListDTO::Wrapper>>);
 };
 
 #include OATPP_CODEGEN_END(DTO)
