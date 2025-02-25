@@ -1,3 +1,20 @@
+tuopanzhuanyi:
+ query-all:
+  summary: 查询所有可转移任务
+ field:
+  op: 操作
+  movedate: 移动日期
+  kuctype: 库存类型
+  id: 储位
+  bin_id: 托盘
+  cus_code: 货主
+  zhong_wen_qch: 货主名称
+  goods_id: 商品编码
+  goods_qua: 商品数量
+  shp_ming_cheng: 商品名称
+  goods_pro_date: 生产日期
+  bzhi_qi: 保质期
+  goods_unit: 单位
 move-goods:
  get:
   summary: 分页获取转移任务

@@ -26,6 +26,7 @@
 #include "file/FileController.h"
 #include "ws/WSController.h"
 #endif
+#include "shengchengtuopanzhuanyi/HuoQuKeZhuanYiLieBiaoController.h"
 
 #include "controller/kuneizhuanyi/MoveGoodsController.h"
 
@@ -53,6 +54,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+	ROUTER_SIMPLE_BIND(HuoQuKeZhuanYiLieBiaoController);
 	ROUTER_SIMPLE_BIND(MoveGoodsController);
 }
 
