@@ -8,6 +8,11 @@ class BinBaseDTO : public oatpp::DTO
 {
 	DTO_INIT(BinBaseDTO, DTO);
 
+	DTO_FIELD(String, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("bin.id");
+	}
+
 	DTO_FIELD(String, bin_store);
 	DTO_FIELD_INFO(bin_store) {
 		info->description = ZH_WORDS_GETTER("bin.bin_store");
@@ -61,6 +66,10 @@ class BinBaseDTO : public oatpp::DTO
 
 class BinPageDTO : public PageDTO<BinBaseDTO::Wrapper> {
 	DTO_INIT(BinPageDTO, PageDTO<BinBaseDTO::Wrapper>);
+};
+
+class BinDTO : public BinBaseDTO {
+	DTO_INIT(BinDTO, BinBaseDTO);
 };
 
 

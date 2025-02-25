@@ -1,4 +1,4 @@
-chuweixiangxixinxi:
+﻿chuweixiangxixinxi:
  bs: 
   bioashi: 唯一标识
  xinxi:
@@ -109,10 +109,15 @@ store:
 
 bin:
  xlsx:
-  summary: 导出选中可用储位的Excel
+  summary: 导出可用储位
+  filename: 可用储位报表.xlsx
+  sheet:
+   s1: 导出信息
  list:
-  summary: 查询可用储位列表
- id: 唯一id（主键）请将所有需要导出为Excel的行的id列出来
+  summary: 获取可用储位列表（条件+分页）
+ file_path: xlsx文件的导出路径
+ id: 唯一id（主键）
+ ids : 唯一id（主键）请将所有需要导出为Excel的行的id列出来
  bin_store: 仓库
  # ku_wei_lei_xing: 库位类型
  ku_wei_shu_xing: 储位类型

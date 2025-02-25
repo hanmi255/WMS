@@ -3,6 +3,7 @@
 #define _BINVO_
 #include "domain/GlobalInclude.h"
 #include "domain/dto/keyongchuwei/BinDTO.h"
+#include "domain/query/keyongchuwei/BinQuery.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 

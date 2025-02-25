@@ -16,11 +16,11 @@ public:
 	ENDPOINT_INFO(exportBinXlsx) {
 		API_DEF_ADD_COMMON(ZH_WORDS_GETTER("bin.xlsx.summary"), Void);
 		API_DEF_ADD_AUTH();
-		info->queryParams.add<Vector<String>>("ids").description = YamlHelper().getString(&(ServerInfo::getInstance().getZhDictNode()), "bin.id");
-		info->queryParams["ids"].addExample("default", Vector<String>{"1","2","3"});
-		info->queryParams["ids"].required = true;
+		API_DEF_ADD_QUERY_PARAMS(String, "file_path", ZH_WORDS_GETTER("bin.file_path"), "C:\\", true);
+		API_DEF_ADD_QUERY_PARAMS(String, "ids", ZH_WORDS_GETTER("bin.ids"), String{ "1,2,3" }, true);
 	}
-	ENDPOINT(API_M_GET, "/keyongchuwei/export-usefulbin-xlsx", exportBinXlsx, QUERY(Vector<String>, ids), API_HANDLER_AUTH_PARAME) {
+	ENDPOINT(API_M_GET, "/chuweiguanli/keyongchuwei/export-usefulbin-xlsx", exportBinXlsx, QUERIES(QueryParams, queryParams), API_HANDLER_AUTH_PARAME) {
+		API_HANDLER_QUERY_PARAM(ids, BinExcelQuery, queryParams);
 		return execExportBinXlsx(ids);
 	}
 
@@ -36,13 +36,13 @@ public:
 		API_DEF_ADD_QUERY_PARAMS(String, "shang_jia_ci_xu", ZH_WORDS_GETTER("bin.shang_jia_ci_xu"), "111", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "gao", ZH_WORDS_GETTER("bin.gao"), "10", false);
 	}
-	ENDPOINT(API_M_GET, "/keyongchuwei/query-usefulbin-list", queryBinList, QUERIES(QueryParams, queryParams), API_HANDLER_AUTH_PARAME){
+	ENDPOINT(API_M_GET, "/chuweiguanli/keyongchuwei/query-usefulbin-list", queryBinList, QUERIES(QueryParams, queryParams), API_HANDLER_AUTH_PARAME){
 		API_HANDLER_QUERY_PARAM(binQuery, BinPageQuery, queryParams);
-		API_HANDLER_RESP_VO(execQueryBinList(binQuery, authObject->getPayload()));
+		API_HANDLER_RESP_VO(execQueryBinList(binQuery));
 	}
 private:
-	std::shared_ptr<OutgoingResponse> execExportBinXlsx(const Vector<String>& ids);
-	BinPageJsonVO::Wrapper execQueryBinList(const BinPageQuery::Wrapper& query, const PayloadDTO& payload);
+	std::shared_ptr<OutgoingResponse> execExportBinXlsx(const BinExcelQuery::Wrapper& ids);
+	BinPageJsonVO::Wrapper execQueryBinList(const BinPageQuery::Wrapper& query);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

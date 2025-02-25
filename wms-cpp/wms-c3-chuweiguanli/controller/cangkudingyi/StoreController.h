@@ -19,7 +19,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		API_DEF_ADD_AUTH();
 	}
-	ENDPOINT(API_M_POST, "cangkudingyi/add-store", addStore, BODY_DTO(StoreAddDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME) {
+	ENDPOINT(API_M_POST, "/chuweiguanli/cangkudingyi/add-store", addStore, BODY_DTO(StoreAddDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME) {
 		// 呼叫执行函数响应结果
 		API_HANDLER_RESP_VO(execAddStore(dto, authObject->getPayload()));
 	}
@@ -30,7 +30,7 @@ public:
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		API_DEF_ADD_AUTH();
 	}
-	ENDPOINT(API_M_PUT, "cangkudingyi/modify-store", modifyStore, BODY_DTO(StoreModifyDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME) {
+	ENDPOINT(API_M_PUT, "/chuweiguanli/cangkudingyi/modify-store", modifyStore, BODY_DTO(StoreModifyDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME) {
 		// 呼叫执行函数响应结果
 		API_HANDLER_RESP_VO(execModifyStore(dto, authObject->getPayload()));
 	}

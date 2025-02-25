@@ -5,6 +5,21 @@
 #include "domain/query/PageQuery.h"
 #include OATPP_CODEGEN_BEGIN(DTO)
 
+class BinExcelQuery : public oatpp::DTO
+{
+	DTO_INIT(BinExcelQuery, DTO);
+	
+	DTO_FIELD(String, file_path);
+	DTO_FIELD_INFO(file_path) {
+		info->description = ZH_WORDS_GETTER("bin.file_path");
+	}
+
+	DTO_FIELD(String, ids);
+	DTO_FIELD_INFO(ids) {
+		info->description = ZH_WORDS_GETTER("bin.ids");
+	}
+};
+
 class BinPageQuery : public PageQuery
 {
 	DTO_INIT(BinPageQuery, PageQuery);
