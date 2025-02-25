@@ -17,7 +17,7 @@ public:
 	API_DEF_ENDPOINT_INFO_AUTH(ZH_WORDS_GETTER("chuwei.add.summary"), addCW, Uint64JsonVO::Wrapper);
 	// 定义 录入储位接口 处理
 
-	ENDPOINT(API_M_POST, "/chuweidingyi/add-CW", addCW, BODY_DTO(AddCWDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME)
+	ENDPOINT(API_M_POST, "/chuweiguanli/chuweidingyi/add-CW", addCW, BODY_DTO(AddCWDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME)
 	{
 		// 呼叫执行函数响应结果
 		API_HANDLER_RESP_VO(execAddCW(dto, authObject->getPayload()));
