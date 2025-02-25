@@ -6,6 +6,22 @@ file:
   file-url: 文件src
   file-alt: 文件文字描述
   file-href: 文件链接地址
+store:
+ query-forward: 
+  summary: 查询
+ query-reverse:
+  summary: 查询
+ field:
+  bin_store: 仓库
+  binid: 储位编码
+  ku_wei_bian_ma: 储位
+  other: 其他
+  znode: 层数
+  xnode: 行数
+  ynode: 列数
+  ting_yong: 停用
+  ku_wei_shu_xing: 储位属性
+  chp_shu_xing: 产品属性
 
 chuweixiangxixinxi:
  bs: 
@@ -82,6 +98,7 @@ TP:
   query_tp_rows: 托盘列表
   sys_org_code: 所属部门
   sys_company_code: 所属公司
+
 Cangku:
  info:
   store_name: 仓库名称

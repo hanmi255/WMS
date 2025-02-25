@@ -19,6 +19,8 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
+#include "kongchuwei/DaoChuKongChuWeiController.h"
+#include "cangweitu/HuoQuCangWeiShuJuController.h"
 
 
 #ifdef HTTP_SERVER_DEMO
@@ -31,10 +33,7 @@
 #include "tuopandingyi/TuopanController.h"
 #include "controller/cangkudingyi/StoreController.h"
 #include "cangkudingyi/CangKuDingYiController.h"
-#include "kongchuwei/DaoChuKongChuWeiController.h"
-#include "cangweitu/HuoQuCangWeiShuJuController.h"
 #include "controller/chuweidingyi/ChuWeiDingYiController.h"
-#include "controller/cangkudingyi/CangKuDingYiController.h"
 #include "controller/keyongchuwei/BinController.h"
 #include "tuopandingyi/TPController.h"
 #include "./chuweidingyi/xxxxapi.h"

@@ -15,6 +15,7 @@ tuopanzhuanyi:
   goods_pro_date: 生产日期
   bzhi_qi: 保质期
   goods_unit: 单位
+
 move-goods:
  get:
   summary: 分页获取转移任务

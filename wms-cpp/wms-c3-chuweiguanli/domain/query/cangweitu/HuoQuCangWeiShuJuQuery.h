@@ -14,8 +14,8 @@ class HuoQuCangWeiShuJuQuery : public PageQuery
 {
 	DTO_INIT(HuoQuCangWeiShuJuQuery, PageQuery);
 	// ²Ö¿â
-	DTO_FIELD(String, name);
-	DTO_FIELD_INFO(name) {
+	DTO_FIELD(String, bin_store);
+	DTO_FIELD_INFO(bin_store) {
 		info->description = ZH_WORDS_GETTER("store.field.bin_store");
 	}
 
