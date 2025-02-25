@@ -51,3 +51,36 @@ move-goods:
   to-produce-date: 到生产日期
   goods-unit: 单位
   now-num: 现有数量
+ 
+assignment: 
+ get:
+  tin:
+   summary: 分页获取托盘可转移列表  
+  bin:
+   summary: 分页获取储位可转移列表  
+ put:
+  tin:
+   modify:
+    summary: 生成托盘转移任务(支持批量)
+  bin:
+   modify:
+    summary: 生成储位转移任务(支持批量)
+ field:
+  id: 唯一标识
+  move-date: 移动日期
+  to-move-date: 到移动日期
+  inventory-type: 库存类型
+  bin: 储位
+  tin: 托盘
+  cus-code: 货主
+  cus-name: 货主名称
+  goods-id: 商品编码
+  goods-num: 商品数量
+  goods-name: 商品名称
+  produce-date: 生产日期
+  to-produce-date: 到生产日期
+  produce-shelf-life: 保质期
+  produce-unit: 单位
+  move-sta: 状态
+  bin-to: 转移托盘
+  iteams: 转移项
