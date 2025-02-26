@@ -13,10 +13,16 @@ class ChuWeiDingYiController : public oatpp::web::server::api::ApiController
 	//  定义接口
 public:
 	// 定义 录入储位接口 描述
-
-	API_DEF_ENDPOINT_INFO_AUTH(ZH_WORDS_GETTER("chuwei.add.summary"), addCW, Uint64JsonVO::Wrapper);
+	ENDPOINT_INFO(addCW)
+	{
+		//	定义接口标题
+		API_DEF_ADD_TITLE(ZH_WORDS_GETTER("chuwei.add.summary"));
+		//	定义默认授权参数
+		API_DEF_ADD_AUTH();
+		//	定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+	}
 	// 定义 录入储位接口 处理
-
 	ENDPOINT(API_M_POST, "/chuweiguanli/chuweidingyi/add-CW", addCW, BODY_DTO(AddCWDTO::Wrapper, dto), API_HANDLER_AUTH_PARAME)
 	{
 		// 呼叫执行函数响应结果

@@ -90,9 +90,20 @@ public:
 
 
 	// 定义 导入仓库 描述
-	API_DEF_ENDPOINT_INFO(ZH_WORDS_GETTER("Cangku.EndPoint.up_load_cangku_excel.summary"), upload, StringJsonVO::Wrapper, API_DEF_ADD_AUTH(););
+	ENDPOINT_INFO(upload)
+	{
+		//	定义接口标题
+		API_DEF_ADD_TITLE(ZH_WORDS_GETTER("Cangku.EndPoint.up_load_cangku_excel.summary"));
+		//	定义默认授权参数
+		API_DEF_ADD_AUTH();
+		//	定义响应参数格式
+		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
+	}
 	// 定义 导入仓库 端点
-	API_HANDLER_ENDPOINT(API_M_POST, "/chuweiguanli/cangkudingyi/upload", upload, REQUEST(std::shared_ptr<IncomingRequest>, request), execUpload(request), API_HANDLER_AUTH_PARAME);
+	ENDPOINT(API_M_POST, "/chuweiguanli/cangkudingyi/upload", upload, REQUEST(std::shared_ptr<IncomingRequest>, request), API_HANDLER_AUTH_PARAME)
+	{
+		API_HANDLER_RESP_VO(execUpload(request));
+	}
 private:
 	//	获取仓库名称列表执行函数
 	CangkuNameListJsonVO::Wrapper execListCangkuName(const PayloadDTO& payload);
