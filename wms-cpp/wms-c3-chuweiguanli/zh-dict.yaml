@@ -62,11 +62,13 @@ daoru:
  dr:
   daoruwenjian: 导入文件
   wenjianshangchaun: 导入储位
+  wenjianshangchaunmore: 导入多个储位
   panduanzhi: 是否成功导入
 
 daochu:
  daochuid: 导出唯一ID
  daochuwenjian: 导出储位
+ id_zhi: 2ces35d
 
 tuopan: 
  id: 主键

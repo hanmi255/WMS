@@ -36,7 +36,7 @@
 #include "controller/chuweidingyi/ChuWeiDingYiController.h"
 #include "controller/keyongchuwei/BinController.h"
 #include "tuopandingyi/TPController.h"
-#include "./chuweidingyi/xxxxapi.h"
+#include "./chuweidingyi/chuweixaingxixinxidaorudaochuCONTROLLER.h"
 
 
 // 如果定义了关闭Swagger文档宏
