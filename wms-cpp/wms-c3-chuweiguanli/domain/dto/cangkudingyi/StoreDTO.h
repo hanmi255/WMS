@@ -43,6 +43,11 @@ class StoreAddDTO : public BaseDTO
 class StoreModifyDTO : public BaseDTO
 {
 	DTO_INIT(StoreModifyDTO, BaseDTO);
+
+	DTO_FIELD(String, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("store.id");
+	}
 };
 
 class StoreDTO : public StoreAddDTO, public StoreModifyDTO
@@ -77,11 +82,6 @@ class StoreDTO : public StoreAddDTO, public StoreModifyDTO
 	DTO_FIELD(String, update_date);
 	DTO_FIELD_INFO(update_date) {
 		info->description = ZH_WORDS_GETTER("store.update_date");
-	}
-
-	DTO_FIELD(String, id);
-	DTO_FIELD_INFO(id) {
-		info->description = ZH_WORDS_GETTER("store.id");
 	}
 };
 

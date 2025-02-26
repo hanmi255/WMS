@@ -29,12 +29,11 @@
 #include "file/FileController.h"
 #include "ws/WSController.h"
 #endif
-
-#include "tuopandingyi/TuopanController.h"
 #include "controller/cangkudingyi/StoreController.h"
+#include "controller/keyongchuwei/BinController.h"
+#include "tuopandingyi/TuopanController.h"
 #include "cangkudingyi/CangKuDingYiController.h"
 #include "controller/chuweidingyi/ChuWeiDingYiController.h"
-#include "controller/keyongchuwei/BinController.h"
 #include "tuopandingyi/TPController.h"
 #include "./chuweidingyi/chuweixaingxixinxidaorudaochuCONTROLLER.h"
 
@@ -71,6 +70,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(TuopanController);	
 	ROUTER_SIMPLE_BIND(TPController);
 	ROUTER_SIMPLE_BIND(StoreController);
+	ROUTER_SIMPLE_BIND(BinController);
 }
 
 #ifdef HTTP_SERVER_DEMO

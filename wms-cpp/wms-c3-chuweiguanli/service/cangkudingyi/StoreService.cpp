@@ -31,6 +31,7 @@ string StoreService::modifyStore(const StoreModifyDTO::Wrapper dto, const Payloa
 {
 	StoreDO data;
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto,
+		Id, id,
 		StoreCode, store_code,
 		StoreName, store_name,
 		StoreText, store_text);
