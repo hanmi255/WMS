@@ -25,7 +25,7 @@ public:
 		API_DEF_ADD_QUERY_PARAMS(String, "to-cus-code", ZH_WORDS_GETTER("move-goods.field.to-cus-code"), "", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "to-cus-name", ZH_WORDS_GETTER("move-goods.field.to-cus-name"), "", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "tin-from", ZH_WORDS_GETTER("move-goods.field.tin-from"), "", false);
-		API_DEF_ADD_QUERY_PARAMS(String, "tin-to", ZH_WORDS_GETTER("move-goods.field.tin-to"), "", false);
+		API_DEF_ADD_QUERY_PARAMS(String, "tin-id", ZH_WORDS_GETTER("move-goods.field.tin-id"), "", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "bin-from", ZH_WORDS_GETTER("move-goods.field.bin-from"), "", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "bin-to", ZH_WORDS_GETTER("move-goods.field.bin-to"), "", false);
 		API_DEF_ADD_QUERY_PARAMS(String, "move-sta", ZH_WORDS_GETTER("move-goods.field.move-sta"), "", false);

@@ -11,7 +11,7 @@
 class MoveGoodsQuery : public PageQuery {
 	DTO_INIT(MoveGoodsQuery, PageQuery);
 	// ×ªÒÆÈÎÎñID
-	DTO_FIELD(Int64, id);
+	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("move-goods.field.id");
 	}
