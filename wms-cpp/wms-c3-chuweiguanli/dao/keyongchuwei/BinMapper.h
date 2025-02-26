@@ -2,7 +2,7 @@
 #ifndef _BINMAPPER_
 #define _BINMAPPER_
 #include "Mapper.h"
-#include "domain/do/keyongchuwei/BinDO.h"
+#include "domain/do/BinDO.h"
 
 class BinMapper : public Mapper<BinDO>
 {

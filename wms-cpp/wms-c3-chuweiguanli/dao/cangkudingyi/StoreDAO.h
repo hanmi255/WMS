@@ -1,7 +1,7 @@
 #pragma once
 #ifndef STOREDAO
 #define STOREDAO
-#include "domain/do/cangkudingyi/StoreDO.h"
+#include "domain/do/StoreDO.h"
 #include "BaseDAO.h"
 
 class StoreDAO : public BaseDAO

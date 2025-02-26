@@ -2,7 +2,7 @@
 #ifndef _BINDAO_
 #define _BINDAO_
 #include "BaseDAO.h"
-#include "domain/do/keyongchuwei/BinDO.h"
+#include "domain/do/BinDO.h"
 #include "domain/query/keyongchuwei/BinQuery.h"
 
 class BinDAO : public BaseDAO
