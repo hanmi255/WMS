@@ -151,8 +151,13 @@ class MoveGoodsDetailedDTO : public oatpp::DTO {
  * 导出转移任务的DTO
  * 包含所有导出转移任务所需的字段
  */
-class MoveGoodsDownLoadDTO : public MoveGoodsDetailedDTO {
-    DTO_INIT(MoveGoodsDownLoadDTO, MoveGoodsDetailedDTO);
+class MoveGoodsDownLoadDTO : public oatpp::DTO {
+    DTO_INIT(MoveGoodsDownLoadDTO, oatpp::DTO);
+	// 返回导出转移任务文件地址
+	DTO_FIELD(String, downLoadMoveGoods);
+	DTO_FIELD_INFO(downLoadMoveGoods) {
+		info->description = ZH_WORDS_GETTER("move-goods.field.down-load-move-goods");
+	}
 };
 
 

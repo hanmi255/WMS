@@ -48,7 +48,6 @@ public:
 	API_DEF_ENDPOINT_INFO_AUTH(ZH_WORDS_GETTER("move-goods.delete.batch.summary"), batchRemoveMoveGoods, Uint64JsonVO::Wrapper);
 	API_HANDLER_ENDPOINT_AUTH(API_M_DEL, "/kuneiguanli/kuneizhuanyi/batch-remove-move-goods", batchRemoveMoveGoods, BODY_DTO(BatchRemoveMoveGoodsDTO::Wrapper, id), execBatchRemoveMoveGoods(id));
 
-
 	// 定义[获取转移任务详细信息]接口
 	ENDPOINT_INFO(queryDetailedMoveGoods) {
 		// 定义通用描述

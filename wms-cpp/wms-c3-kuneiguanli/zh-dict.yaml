@@ -16,6 +16,7 @@ tuopanzhuanyi:
   bzhi_qi: 保质期
   goods_unit: 单位
 
+
 move-goods:
  get:
   summary: 分页获取转移任务
@@ -51,7 +52,9 @@ move-goods:
   to-produce-date: 到生产日期
   goods-unit: 单位
   now-num: 现有数量
- 
+  now-num: 现有数量
+  down-load-move-goods: 导出转移任务文件
+
 assignment: 
  get:
   tin:
