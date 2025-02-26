@@ -1,4 +1,4 @@
-﻿file:
+file:
  download:
   summary: 导出空储位
  field:
@@ -70,7 +70,6 @@ tuopan:
   summary: 修改托盘
  delete:
   summary: 删除托盘（支持批量删除）
-
 TP:
  QueryTPSummary: 获取托盘名称列表
  AddTPSummary: 录入托盘

@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "TuopanController.h"
 
+
+
+
 TuopanPageJsonVO::Wrapper TuopanController::execQueryTuopan(const TuopanQuery::Wrapper& query, const PayloadDTO& payload)
 {
 	return {};
