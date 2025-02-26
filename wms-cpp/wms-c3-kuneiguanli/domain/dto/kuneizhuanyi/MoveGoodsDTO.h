@@ -20,9 +20,9 @@ class MoveGoodsBaseDTO : public oatpp::DTO {
         info->description = ZH_WORDS_GETTER("move-goods.field.move-num");
     }
     // µ½ÍÐÅÌ
-    DTO_FIELD(String, tinTo);
-    DTO_FIELD_INFO(tinTo) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.tin-to");
+    DTO_FIELD(String, tinId);
+    DTO_FIELD_INFO(tinId) {
+        info->description = ZH_WORDS_GETTER("move-goods.field.tin-id");
     }
     // µ½´¢Î»
     DTO_FIELD(String, binTo);
