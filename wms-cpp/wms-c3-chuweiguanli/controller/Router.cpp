@@ -29,13 +29,15 @@
 #include "file/FileController.h"
 #include "ws/WSController.h"
 #endif
+
 #include "controller/cangkudingyi/StoreController.h"
 #include "controller/keyongchuwei/BinController.h"
 #include "tuopandingyi/TuopanController.h"
 #include "cangkudingyi/CangKuDingYiController.h"
-#include "controller/chuweidingyi/ChuWeiDingYiController.h"
 #include "tuopandingyi/TPController.h"
 #include "./chuweidingyi/chuweixaingxixinxidaorudaochuCONTROLLER.h"
+#include "controller/chuweidingyi/ChuWeiController.h"
+#include "controller/chuweidingyi/ChuWeiDingYiController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -70,8 +72,9 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(TPController);
 	ROUTER_SIMPLE_BIND(StoreController);
 	ROUTER_SIMPLE_BIND(BinController);
+	ROUTER_SIMPLE_BIND(ChuWeiController);
 }
-
+	
 #ifdef HTTP_SERVER_DEMO
 void Router::createSampleRouter()
 {

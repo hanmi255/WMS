@@ -198,3 +198,27 @@ bin:
  # xnode: x坐标
  # ynode: y坐标
  # znode: z坐标
+
+chuwei: 
+ id: 唯一标识
+ get: 
+  summary: 获取储位列表（条件+分页）
+ modify: 
+  summary: 修改储位
+ delete: 
+  summary: 删除储位（支持批量删除）
+ field: 
+  store: 仓库
+  store_code: 库位编码
+  store_barcode: 库位条码
+  store_type: 库位类型
+  store_attribute: 库位属性
+  x_axis: x轴
+  y_axis: y轴
+  z_axis: z轴
+  goods_type: 商品属性
+  customer: 所属客户
+  state: 停用
+  notes: 备注
+  notes1: 备注1
+  notes2: 备注2
