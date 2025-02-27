@@ -19,9 +19,6 @@
 #include "stdafx.h"
 #include "Router.h"
 #include "ApiHelper.h"
-#include "kongchuwei/DaoChuKongChuWeiController.h"
-#include "cangweitu/HuoQuCangWeiShuJuController.h"
-
 
 #ifdef HTTP_SERVER_DEMO
 #include "user/UserController.h"
@@ -29,13 +26,6 @@
 #include "file/FileController.h"
 #include "ws/WSController.h"
 #endif
-#include "controller/cangkudingyi/StoreController.h"
-#include "controller/keyongchuwei/BinController.h"
-#include "tuopandingyi/TuopanController.h"
-#include "cangkudingyi/CangKuDingYiController.h"
-#include "controller/chuweidingyi/ChuWeiDingYiController.h"
-#include "tuopandingyi/TPController.h"
-#include "./chuweidingyi/chuweixaingxixinxidaorudaochuCONTROLLER.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -61,15 +51,7 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
-	ROUTER_SIMPLE_BIND(ChuWeiDingYiController);
-	ROUTER_SIMPLE_BIND(DaoChuKongChuWeiController);
-	ROUTER_SIMPLE_BIND(HuoQuCangWeiShuJuController);	
-	ROUTER_SIMPLE_BIND(apixiangxixinxi);
-	ROUTER_SIMPLE_BIND(CangKuDingYiController);
-	ROUTER_SIMPLE_BIND(TuopanController);	
-	ROUTER_SIMPLE_BIND(TPController);
-	ROUTER_SIMPLE_BIND(StoreController);
-	ROUTER_SIMPLE_BIND(BinController);
+
 }
 
 #ifdef HTTP_SERVER_DEMO
@@ -81,7 +63,7 @@ void Router::createSampleRouter()
 	ROUTER_SIMPLE_BIND(UserController);
 	// 绑定文件控制器
 	ROUTER_SIMPLE_BIND(FileController);
-
+	
 	// 绑定WebSocket控制器
 	router->addController(WSContorller::createShared());
 }
