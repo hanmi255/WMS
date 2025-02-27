@@ -26,8 +26,11 @@
 #include "file/FileController.h"
 #include "ws/WSController.h"
 #endif
+#include "shengchengtuopanzhuanyi/HuoQuKeZhuanYiLieBiaoController.h"
 
 #include "controller/kuneizhuanyi/MoveGoodsController.h"
+#include "controller/shengchengtuopanzhuanyi/TinTransferController.h"
+#include "controller/shengchengchuweizhuanyi/BinTransferController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -53,7 +56,10 @@ void Router::initRouter()
 #endif
 
 	//#TIP :系统扩展路由定义，写在这个后面
+	ROUTER_SIMPLE_BIND(HuoQuKeZhuanYiLieBiaoController);
 	ROUTER_SIMPLE_BIND(MoveGoodsController);
+	ROUTER_SIMPLE_BIND(TinTransferController);
+	ROUTER_SIMPLE_BIND(BinTransferController);
 }
 
 #ifdef HTTP_SERVER_DEMO

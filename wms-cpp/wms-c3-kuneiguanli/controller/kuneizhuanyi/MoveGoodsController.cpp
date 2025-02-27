@@ -15,3 +15,18 @@ Uint64JsonVO::Wrapper MoveGoodsController::execBatchMoveGoods(const MoveGoodsBat
 {
 	return Uint64JsonVO::Wrapper();
 }
+
+Uint64JsonVO::Wrapper MoveGoodsController::execBatchRemoveMoveGoods(const BatchRemoveMoveGoodsDTO::Wrapper& id)
+{
+	return Uint64JsonVO::Wrapper();
+}
+
+MoveGoodsDetailedJsonVO::Wrapper MoveGoodsController::execQueryDetailedMoveGoods(const Int64& id)
+{
+	return MoveGoodsDetailedJsonVO::Wrapper();
+}
+
+MoveGoodsDownLoadJsonVO::Wrapper MoveGoodsController::execDownLoadMoveGoods(const Int64& id)
+{
+	return MoveGoodsDownLoadJsonVO::Wrapper();
+}

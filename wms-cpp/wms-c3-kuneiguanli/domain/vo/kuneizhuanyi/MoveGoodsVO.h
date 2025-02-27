@@ -19,4 +19,19 @@ class MoveGoodsPageJsonVO : public JsonVO<MoveGoodsPageDTO::Wrapper> {
 	DTO_INIT(MoveGoodsPageJsonVO, JsonVO<MoveGoodsPageDTO::Wrapper>);
 };
 
+/**
+ * ÏêÏ¸ÏÔÊ¾JsonVO
+ */
+class MoveGoodsDetailedJsonVO : public JsonVO<MoveGoodsDetailedDTO::Wrapper> {
+	DTO_INIT(MoveGoodsDetailedJsonVO, JsonVO<MoveGoodsDetailedDTO::Wrapper>);
+};
+
+/**
+ * µ¼³öJsonVO
+ */
+class MoveGoodsDownLoadJsonVO : public JsonVO<MoveGoodsDownLoadDTO::Wrapper> {
+	DTO_INIT(MoveGoodsDownLoadJsonVO, JsonVO<MoveGoodsDownLoadDTO::Wrapper>);
+};
+
+
 #include OATPP_CODEGEN_END(DTO)
