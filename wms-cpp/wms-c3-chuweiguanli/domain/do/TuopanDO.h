@@ -16,7 +16,7 @@ class TuopanDO{
 	CC_SYNTHESIZE(string, update_date, UpdateDate);//更新日期
 	CC_SYNTHESIZE(string, sys_org_code, SysOrgCode);//所属部门
 	CC_SYNTHESIZE(string, sys_company_code, SysCompanyCode);//所属公司
-	CC_SYNTHESIZE(string, bmp_status,BmpStatus);//流程状态
+	CC_SYNTHESIZE(string, bpm_status,BpmStatus);//流程状态
 	CC_SYNTHESIZE(string, tin_id, TinId);//托盘号
 	CC_SYNTHESIZE(string, tin_sort, TinSort);//托盘顺序
 	CC_SYNTHESIZE(string, bin_id, BinId);//储位
@@ -33,7 +33,7 @@ public:
 		update_date = "";
 		sys_org_code = "";
 		sys_company_code = "";
-		bmp_status = "";
+		bpm_status = "";
 		tin_id = "";
 		tin_sort = "";
 		bin_id = "";
