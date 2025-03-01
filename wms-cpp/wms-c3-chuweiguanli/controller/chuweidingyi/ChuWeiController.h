@@ -66,11 +66,11 @@ public:
 
 private:
 	//分页查询储位数据
-	ChuWeiPageJsonVO::Wrapper ChuWeiController::execQueryChuwei(const ChuWeiQuery::Wrapper& query, const PayloadDTO& payload);
+	ChuWeiPageJsonVO::Wrapper execQueryChuwei(const ChuWeiQuery::Wrapper& query, const PayloadDTO& payload);
 	//储位修改数据
-	Uint64JsonVO::Wrapper ChuWeiController::execModifyChuwei(const ChuWeiDTO::Wrapper& dto);
+	Uint64JsonVO::Wrapper execModifyChuwei(const ChuWeiDTO::Wrapper& dto);
 	//储位删除数据
-	Uint64JsonVO::Wrapper ChuWeiController::execRemoveChuwei(const String& id);
+	Uint64JsonVO::Wrapper execRemoveChuwei(const String& id);
 };
 
 #include OATPP_CODEGEN_END(ApiController) ///< End ApiController codegen section

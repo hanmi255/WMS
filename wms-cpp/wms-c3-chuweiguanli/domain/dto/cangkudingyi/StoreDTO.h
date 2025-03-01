@@ -1,6 +1,6 @@
 #pragma once
-#ifndef STOREDTO
-#define STOREDTO
+#ifndef _STOREDTO_
+#define _STOREDTO_
 #include "domain/GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
@@ -50,9 +50,24 @@ class StoreModifyDTO : public BaseDTO
 	}
 };
 
-class StoreDTO : public StoreAddDTO, public StoreModifyDTO
+class StoreDTO : /*public StoreAddDTO, public StoreModifyDTO*/ public BaseDTO
 {
-	DTO_INIT(StoreDTO, StoreAddDTO, StoreModifyDTO);
+	DTO_INIT(StoreDTO, BaseDTO);
+
+	DTO_FIELD(String, id);
+	DTO_FIELD_INFO(id) {
+		info->description = ZH_WORDS_GETTER("store.id");
+	}
+
+	DTO_FIELD(String, sys_org_code);
+	DTO_FIELD_INFO(sys_org_code) {
+		info->description = ZH_WORDS_GETTER("store.sys_org_code");
+	}
+
+	DTO_FIELD(String, sys_company_code);
+	DTO_FIELD_INFO(sys_company_code) {
+		info->description = ZH_WORDS_GETTER("store.sys_company_code");
+	}
 
 	DTO_FIELD(String, create_name);
 	DTO_FIELD_INFO(create_name) {
@@ -86,4 +101,4 @@ class StoreDTO : public StoreAddDTO, public StoreModifyDTO
 };
 
 #include OATPP_CODEGEN_BEGIN(DTO)
-#endif // !STOREDTO
+#endif // !_STOREDTO_
