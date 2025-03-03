@@ -52,7 +52,6 @@ move-goods:
   to-produce-date: 到生产日期
   goods-unit: 单位
   now-num: 现有数量
-  now-num: 现有数量
   down-load-move-goods: 导出转移任务文件
 
 assignment: 
@@ -87,3 +86,28 @@ assignment:
   move-sta: 状态
   bin-to: 转移托盘
   iteams: 转移项
+
+guanli:
+ task:
+  get: 获取任务列表
+  data: 理货任务-导出数据
+output:
+ con:
+  inventoryType: 库内类型
+  goods_qua: 数量
+  shl_dan_wei: 单位
+  base_goodscount: 基本单位数量
+  base_unit: 基本单位
+  bin: 储位
+  cusCode: 货主
+  cusName: 货主名称
+  commodity: 商品
+  shp_ming_cheng: 商品名称
+  goods_pro_data : 生产日期
+  bzhi_qi: 保质期
+  to_goods_pro_data: 到期日
+  bin_store: 仓库
+  tin: 托盘
+  lihuo: 理货任务
+
+     

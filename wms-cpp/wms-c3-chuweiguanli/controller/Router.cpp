@@ -38,6 +38,7 @@
 #include "./chuweidingyi/chuweixaingxixinxidaorudaochuCONTROLLER.h"
 #include "controller/chuweidingyi/ChuWeiController.h"
 #include "controller/chuweidingyi/ChuWeiDingYiController.h"
+#include"kongchuwei/GetKongChuWeiListMycontroller.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -73,6 +74,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(StoreController);
 	ROUTER_SIMPLE_BIND(BinController);
 	ROUTER_SIMPLE_BIND(ChuWeiController);
+	ROUTER_SIMPLE_BIND(GetKongChuWeiListMycontroller);
 }
 	
 #ifdef HTTP_SERVER_DEMO
