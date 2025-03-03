@@ -19,14 +19,5 @@ class QueryTPDTO : public oatpp::DTO {
 	}
 };
 
-class QueryTPListDTO : public DTO {
-	DTO_INIT(QueryTPListDTO, DTO);
-	// ап╠М
-	DTO_FIELD(List<QueryTPDTO::Wrapper>, query_tp_rows);
-	DTO_FIELD_INFO(query_tp_rows) {
-		info->description = ZH_WORDS_GETTER("TP.field.query_tp_rows");
-	}
-};
-
 #include OATPP_CODEGEN_END(DTO)
 #endif // !_QUERY_TP_DTO_H_

@@ -1,10 +1,19 @@
 #include "stdafx.h"
 #include "TPController.h"
+#include "service/tuopandingyi/TPService.h"
 
 QueryTPListJsonVO::Wrapper TPController::execQueryTP(){
-	return {};
+	TPService service;
+	auto result = service.queryTP();
+	auto jvo = QueryTPListJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
 }
 
-Uint64JsonVO::Wrapper TPController::execAddTP(AddTPDTO::Wrapper dto, const PayloadDTO& payload) {
-	return {};
+StringJsonVO::Wrapper TPController::execAddTP(const AddTPDTO::Wrapper &dto, const PayloadDTO& payload) {
+	TPService service;
+	auto id = service.addTP(dto, payload);
+	auto jvo = StringJsonVO::createShared();
+	jvo->success(id);
+	return jvo;
 }

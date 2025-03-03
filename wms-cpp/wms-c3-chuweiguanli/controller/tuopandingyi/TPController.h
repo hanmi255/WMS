@@ -34,7 +34,7 @@ public:
 private:
 	// 获取托盘名称列表
 	QueryTPListJsonVO::Wrapper execQueryTP();
-	Uint64JsonVO::Wrapper execAddTP(AddTPDTO::Wrapper dto, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execAddTP(const AddTPDTO::Wrapper &dto, const PayloadDTO& payload);
 };
 
 #include OATPP_CODEGEN_END(ApiController)

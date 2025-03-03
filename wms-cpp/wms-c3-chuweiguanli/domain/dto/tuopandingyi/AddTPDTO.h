@@ -23,7 +23,7 @@ class AddTPDTO: public oatpp::DTO {
 		info->description = ZH_WORDS_GETTER("TP.field.sys_company_code");
 	}
 	// ÍÐÅÌË³Ðò
-	DTO_FIELD(Int32, tin_sort);
+	DTO_FIELD(String, tin_sort);
 	DTO_FIELD_INFO(tin_sort) {
 		info->description = ZH_WORDS_GETTER("TP.field.tin_sort");
 	}
