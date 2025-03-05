@@ -1,6 +1,10 @@
 #pragma once
 #include "../../GlobalInclude.h"
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> remotes/origin/c3-foreveromc
 #include OATPP_CODEGEN_BEGIN(DTO)
 /**
  * "空储位" - 空储位列表
