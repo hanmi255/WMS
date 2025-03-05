@@ -16,7 +16,7 @@ class MoveGoodsDO {
 	CC_SYNTHESIZE(string, order_id_i, OrderIdI);			   // 原始单据行项目
 	CC_SYNTHESIZE(string, goods_id, GoodsId);			       // 商品编码
 	CC_SYNTHESIZE(string, goods_name, GoodsName);			   // 商品名称
-	CC_SYNTHESIZE(string, goods_qua, GoodsQua);                // 数量
+	CC_SYNTHESIZE(string, goods_qua, GoodsQua);				   // 数量
 	CC_SYNTHESIZE(string, goods_pro_data, GoodsProData);	   // 生产日期
 	CC_SYNTHESIZE(string, goods_unit, GoodsUnit);			   // 单位
 	CC_SYNTHESIZE(string, cus_code, CusCode);				   // 客户编码
@@ -29,7 +29,7 @@ class MoveGoodsDO {
 	CC_SYNTHESIZE(string, to_cus_code, ToCusCode);			   // 转移客户
 	CC_SYNTHESIZE(string, to_cus_name, ToCusName);			   // 转移客户名称
 	CC_SYNTHESIZE(string, base_unit, BaseUnit);				   // 基本单位
-	CC_SYNTHESIZE(string, base_goodscount, BaseGoodscount);    // 基本单位数量
+	CC_SYNTHESIZE(string, base_goodscount, BaseGoodscount);       // 基本单位数量
 	CC_SYNTHESIZE(string, to_goods_pro_data, ToGoodsProData);  // 到生产日期
 	CC_SYNTHESIZE(string, run_sta, RunSta);					   // 执行状态
 
@@ -68,3 +68,6 @@ public:
 		run_sta = "";
 	}
 };
+
+// 定义智能指针
+using PtrMoveGoodsDO = std::shared_ptr<MoveGoodsDO>;
