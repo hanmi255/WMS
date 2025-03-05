@@ -33,4 +33,4 @@ private:
 	StringJsonVO::Wrapper execAddCW(const AddCWDTO::Wrapper dto, const PayloadDTO& payload);
 };
 
-#include OATPP_CODEGEN_END(ApiController);
+#include OATPP_CODEGEN_END(ApiController)
