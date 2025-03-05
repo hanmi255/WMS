@@ -1,5 +1,5 @@
 #pragma once
-#include "../../Globalinclude.h"
+#include "../../GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 /**
