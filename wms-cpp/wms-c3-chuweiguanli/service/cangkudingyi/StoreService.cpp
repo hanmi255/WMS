@@ -17,11 +17,11 @@ string StoreService::addStore(const StoreAddDTO::Wrapper dto, const PayloadDTO& 
 	ZO_STAR_DOMAIN_DTO_TO_DO(data, dto, 
 		StoreCode, store_code,
 		StoreName, store_name,
-		StoreText, store_text,
-		SysOrgCode, sys_org_code,
-		SysCompanyCode, sys_company_code);
-	data.setCreateName(payload.getUsername());
-	data.setCreateBy(payload.getId());
+		StoreText, store_text);
+	data.setCreateName(payload.getRealname());
+	data.setCreateBy(payload.getUsername());
+	data.setSysOrgCode(payload.getOrgCode());
+	data.setSysCompanyCode(payload.getCompanyCode());
 	data.setCreateDate(getTimeStr());
 	StoreDAO dao;
 	return dao.add(data);
@@ -35,8 +35,8 @@ string StoreService::modifyStore(const StoreModifyDTO::Wrapper dto, const Payloa
 		StoreCode, store_code,
 		StoreName, store_name,
 		StoreText, store_text);
-	data.setUpdateName(payload.getUsername());
-	data.setUpdateBy(payload.getId());
+	data.setUpdateName(payload.getRealname());
+	data.setUpdateBy(payload.getUsername());
 	data.setUpdateDate(getTimeStr());
 	StoreDAO dao;
 	return dao.modify(data);

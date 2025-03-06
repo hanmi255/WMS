@@ -29,7 +29,7 @@ class StoreAddDTO : public BaseDTO
 {
 	DTO_INIT(StoreAddDTO, BaseDTO);
 
-	DTO_FIELD(String, sys_org_code);
+	/*DTO_FIELD(String, sys_org_code);
 	DTO_FIELD_INFO(sys_org_code) {
 		info->description = ZH_WORDS_GETTER("store.sys_org_code");
 	}
@@ -37,7 +37,7 @@ class StoreAddDTO : public BaseDTO
 	DTO_FIELD(String, sys_company_code);
 	DTO_FIELD_INFO(sys_company_code) {
 		info->description = ZH_WORDS_GETTER("store.sys_company_code");
-	}
+	}*/
 };
 
 class StoreModifyDTO : public BaseDTO
