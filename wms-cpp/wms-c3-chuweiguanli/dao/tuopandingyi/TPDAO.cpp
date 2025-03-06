@@ -15,10 +15,11 @@ std::list<TuopanDO> TPDAO::queryTP() {
 
 std::string TPDAO::addTP(const TuopanDO &iObj) {
 	SqlParams params;
-	string sql = "INSERT INTO `wm_tuopan` (`id`, `tin_id`, `sys_org_code`, `sys_company_code`, `tin_sort`, `bin_id`, `tin_status`, `bpm_status`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	string sql = "INSERT INTO `wm_tuopan` (`id`, `tin_id`, `sys_org_code`, `sys_company_code`, `tin_sort`, `bin_id`, `tin_status`, `bpm_status`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 	UuidFacade uf;
 	auto id = uf.genUuid();
-	auto result = sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s%s", id, iObj.getTinId(), iObj.getSysOrgCode(), iObj.getSysCompanyCode(), iObj.getTinSort(), iObj.getBinId(), iObj.getTinStatus(), iObj.getBpmStatus());
+	auto result = sqlSession->executeInsert(sql, "%s%s%s%s%s%s%s%s", id, iObj.getTinId(), iObj.getSysOrgCode(), iObj.getSysCompanyCode(), iObj.getTinSort(), iObj.getBinId(), iObj.getTinStatus(), iObj.getBpmStatus());
+	std::cout << result << std::endl;
 	if (result == -1) {
 		return "";
 	}
