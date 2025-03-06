@@ -7,6 +7,7 @@
 //#include "domain/dto/sample/SampleDTO.h"
 #include "domain/vo/tuopandingyi/TuopanVO.h"
 #include "domain/query/tuopandingyi/TuopanQuery.h"
+#include "domain/dto/tuopandingyi/DeleteTuopanDTO.h"
 
 // 0 定义API控制器使用宏
 #include OATPP_CODEGEN_BEGIN(ApiController) //<- Begin Codegen
@@ -55,14 +56,14 @@ public:
 		API_DEF_ADD_COMMON_AUTH(ZH_WORDS_GETTER("tuopan.delete.summary"), Uint64JsonVO::Wrapper);
 	}
 	// 托盘删除接口处理
-	API_HANDLER_ENDPOINT_AUTH(API_M_DEL, "/chuweiguanli/tuopandingyi/shanchutuopan/{id}", removeSample, PATH(String, id), execRemoveTuopan(id));
+	API_HANDLER_ENDPOINT_AUTH(API_M_DEL, "/chuweiguanli/tuopandingyi/shanchutuopan/{id}", removeSample,BODY_DTO(DeleteTuopanDTO::Wrapper,idlist), execRemoveTuopan(idlist));
 
 	// 3.3 托盘分页查询数据
 	TuopanPageJsonVO::Wrapper execQueryTuopan(const TuopanQuery::Wrapper& query, const PayloadDTO& payload);
 	// 3.3 托盘修改数据
-	Uint64JsonVO::Wrapper execModifyTuopan(const TuopanDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execModifyTuopan(const TuopanDTO::Wrapper& dto);
 	// 3.3 托盘删除数据
-	Uint64JsonVO::Wrapper execRemoveTuopan(const String& id);
+	StringJsonVO::Wrapper execRemoveTuopan(const DeleteTuopanDTO::Wrapper& idlist);
 };
 
 // 0 取消API控制器使用宏

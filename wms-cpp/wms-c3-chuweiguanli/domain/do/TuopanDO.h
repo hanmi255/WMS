@@ -41,5 +41,6 @@ public:
 	}
 
 };
-
+// 给TuopanDO智能指针设定一个别名方便使用
+typedef std::shared_ptr<TuopanDO> PtrTuopanDO;
 #endif // !_TUOPANDO_H_
