@@ -16,8 +16,7 @@ tuopanzhuanyi:
   bzhi_qi: 保质期
   goods_unit: 单位
 
-
-move-goods:
+movegoods:
  get:
   summary: 分页获取转移任务
  getdetailed:
@@ -35,24 +34,24 @@ move-goods:
  field:
   id: 转移任务ID
   items: 转移项
-  goods-id: 商品编码
-  goods-name: 商品名称
-  cus-code: 客户编码
-  cus-name: 客户名称
-  to-cus-code: 转移客户
-  to-cus-name: 转移客户名称
-  tin-from: 源托盘
-  tin-id: 到托盘
-  bin-from: 源储位
-  bin-to: 到储位
-  move-sta: 状态
-  run-sta: 执行状态
-  move-num: 移动数量
-  produce-date: 生产日期
-  to-produce-date: 到生产日期
-  goods-unit: 单位
-  now-num: 现有数量
-  down-load-move-goods: 导出转移任务文件
+  goods_id: 商品编码
+  goods_name: 商品名称
+  cus_code: 客户编码
+  cus_name: 客户名称
+  to_cus_code: 转移客户
+  to_cus_name: 转移客户名称
+  tin_from: 源托盘
+  tin_id: 到托盘
+  bin_from: 源储位
+  bin_to: 到储位
+  move_sta: 状态
+  run_sta: 执行状态
+  goods_qua: 现有数量
+  goods_pro_data: 生产日期
+  to_goods_pro_data: 到生产日期
+  goods_unit: 单位
+  base_goodscount: 移动数量
+  download_movegoods: 导出转移任务文件
 
 assignment: 
  get:

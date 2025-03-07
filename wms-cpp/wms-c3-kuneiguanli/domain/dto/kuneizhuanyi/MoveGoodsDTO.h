@@ -9,25 +9,25 @@
  */
 class MoveGoodsBaseDTO : public oatpp::DTO {
     DTO_INIT(MoveGoodsBaseDTO, DTO);
-    // 转移任务ID
+    // 转移任务Id
     DTO_FIELD(String, id);
     DTO_FIELD_INFO(id) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.id");
+        info->description = ZH_WORDS_GETTER("movegoods.field.id");
     }
     // 移动数量
-    DTO_FIELD(Int32, moveNum);
-    DTO_FIELD_INFO(moveNum) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.move-num");
+    DTO_FIELD(String, base_goodscount);
+    DTO_FIELD_INFO(base_goodscount) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.base_goodscount");
     }
     // 到托盘
-    DTO_FIELD(String, tinId);
-    DTO_FIELD_INFO(tinId) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.tin-id");
+    DTO_FIELD(String, tin_id);
+    DTO_FIELD_INFO(tin_id) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.tin_id");
     }
     // 到储位
-    DTO_FIELD(String, binTo);
-    DTO_FIELD_INFO(binTo) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.bin-to");
+    DTO_FIELD(String, bin_to);
+    DTO_FIELD_INFO(bin_to) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.bin_to");
     }
 };
 
@@ -37,25 +37,30 @@ class MoveGoodsBaseDTO : public oatpp::DTO {
  */
 class MoveGoodsModifyDTO : public MoveGoodsBaseDTO {
     DTO_INIT(MoveGoodsModifyDTO, MoveGoodsBaseDTO);
-    // 到货主名称
-    DTO_FIELD(String, toCustomerName);
-    DTO_FIELD_INFO(toCustomerName) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.to-cus-name");
+    // 转移客户
+    DTO_FIELD(String, to_cus_code);
+    DTO_FIELD_INFO(to_cus_code) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.to_cus_code");
+    }
+    // 转移客户名称
+    DTO_FIELD(String, to_cus_name);
+    DTO_FIELD_INFO(to_cus_name) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.to_cus_name");
     }
     // 生产日期
-    DTO_FIELD(String, produceDate);
-    DTO_FIELD_INFO(produceDate) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.produce-date");
+    DTO_FIELD(String, goods_pro_data);
+    DTO_FIELD_INFO(goods_pro_data) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.goods_pro_data");
     }
     // 到生产日期
-    DTO_FIELD(String, toProduceDate);
-    DTO_FIELD_INFO(toProduceDate) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.to-produce-date");
+    DTO_FIELD(String, to_goods_pro_data);
+    DTO_FIELD_INFO(to_goods_pro_data) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.to_goods_pro_data");
     }
     // 状态
-    DTO_FIELD(String, moveStatus);
-    DTO_FIELD_INFO(moveStatus) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.move-sta");
+    DTO_FIELD(String, move_sta);
+    DTO_FIELD_INFO(move_sta) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.move_sta");
     }
 };
 
@@ -66,84 +71,84 @@ class MoveGoodsModifyDTO : public MoveGoodsBaseDTO {
 class MoveGoodsDetailedDTO : public oatpp::DTO {
     DTO_INIT(MoveGoodsDetailedDTO, DTO);
     // 商品编码
-    DTO_FIELD(String, goodsID);
-    DTO_FIELD_INFO(goodsID) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.goods-id");
+    DTO_FIELD(String, goods_id);
+    DTO_FIELD_INFO(goods_id) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.goods_id");
     }
     // 商品名称
-    DTO_FIELD(String, goodsName);
-    DTO_FIELD_INFO(goodsName) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.goods-name");
+    DTO_FIELD(String, goods_name);
+    DTO_FIELD_INFO(goods_name) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.goods_name");
     }
     // 现有数量
-    DTO_FIELD(Int32, nowNum);
-    DTO_FIELD_INFO(nowNum) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.now-num");
+    DTO_FIELD(String, goods_qua);
+    DTO_FIELD_INFO(goods_qua) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.goods_qua");
     }
     // 移动数量
-    DTO_FIELD(Int32, moveNum);
-    DTO_FIELD_INFO(moveNum) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.move-num");
+    DTO_FIELD(String, base_goodscount);
+    DTO_FIELD_INFO(base_goodscount) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.base_goodscount");
     }
     // 生产日期
-    DTO_FIELD(String, produceDate);
-    DTO_FIELD_INFO(produceDate) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.produce-date");
+    DTO_FIELD(String, goods_pro_data);
+    DTO_FIELD_INFO(goods_pro_data) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.goods_pro_data");
     }
     // 到生产日期
-    DTO_FIELD(String, toProduceDate);
-    DTO_FIELD_INFO(toProduceDate) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.to-produce-date");
+    DTO_FIELD(String, to_goods_pro_data);
+    DTO_FIELD_INFO(to_goods_pro_data) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.to_goods_pro_data");
     }
     // 单位
-    DTO_FIELD(String, goodsUnit);
-    DTO_FIELD_INFO(goodsUnit) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.goods-unit");
+    DTO_FIELD(String, goods_unit);
+    DTO_FIELD_INFO(goods_unit) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.goods_unit");
     }
-    // 货主编码
-    DTO_FIELD(String, cusCode);
-    DTO_FIELD_INFO(cusCode) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.cus-code");
+    // 客户编码
+    DTO_FIELD(String, cus_code);
+    DTO_FIELD_INFO(cus_code) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.cus_code");
     }
-    // 货主名称
-    DTO_FIELD(String, cusName);
-    DTO_FIELD_INFO(cusName) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.cus-name");
+    // 客户名称
+    DTO_FIELD(String, cus_name);
+    DTO_FIELD_INFO(cus_name) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.cus_name");
     }
-    // 到货主编码
-    DTO_FIELD(String, toCusCode);
-    DTO_FIELD_INFO(toCusCode) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.to-cus-code");
+    // 转移客户
+    DTO_FIELD(String, to_cus_code);
+    DTO_FIELD_INFO(to_cus_code) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.to_cus_code");
     }
-    // 到货主名称
-    DTO_FIELD(String, toCusName);
-    DTO_FIELD_INFO(toCusName) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.to-cus-name");
+    // 转移客户名称
+    DTO_FIELD(String, to_cus_name);
+    DTO_FIELD_INFO(to_cus_name) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.to_cus_name");
     }
     // 源托盘
-    DTO_FIELD(String, tinFrom);
-    DTO_FIELD_INFO(tinFrom) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.tin-from");
+    DTO_FIELD(String, tin_from);
+    DTO_FIELD_INFO(tin_from) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.tin_from");
     }
     // 到托盘
-    DTO_FIELD(String, tinTo);
-    DTO_FIELD_INFO(tinTo) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.tin-to");
+    DTO_FIELD(String, tin_id);
+    DTO_FIELD_INFO(tin_id) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.tin_id");
     }
     // 源储位
-    DTO_FIELD(String, binFrom);
-    DTO_FIELD_INFO(binFrom) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.bin-from");
+    DTO_FIELD(String, bin_from);
+    DTO_FIELD_INFO(bin_from) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.bin_from");
     }
     // 到储位
-    DTO_FIELD(String, binTo);
-    DTO_FIELD_INFO(binTo) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.bin-to");
+    DTO_FIELD(String, bin_to);
+    DTO_FIELD_INFO(bin_to) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.bin_to");
     }
     // 状态
-    DTO_FIELD(String, moveStatus);
-    DTO_FIELD_INFO(moveStatus) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.move-sta");
+    DTO_FIELD(String, move_sta);
+    DTO_FIELD_INFO(move_sta) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.move_sta");
     }
 };
 
@@ -154,21 +159,20 @@ class MoveGoodsDetailedDTO : public oatpp::DTO {
 class MoveGoodsDownLoadDTO : public oatpp::DTO {
     DTO_INIT(MoveGoodsDownLoadDTO, oatpp::DTO);
 	// 返回导出转移任务文件地址
-	DTO_FIELD(String, downLoadMoveGoods);
-	DTO_FIELD_INFO(downLoadMoveGoods) {
-		info->description = ZH_WORDS_GETTER("move-goods.field.down-load-move-goods");
+	DTO_FIELD(String, download_movegoods);
+	DTO_FIELD_INFO(download_movegoods) {
+		info->description = ZH_WORDS_GETTER("movegoods.field.download_movegoods");
 	}
 };
-
 
 /**
  * 批量转移任务的DTO
  */
-class MoveGoodsBatchDTO : public oatpp::DTO {
-    DTO_INIT(MoveGoodsBatchDTO, DTO);
+class MoveGoodsBatchModifyDTO : public MoveGoodsBaseDTO {
+    DTO_INIT(MoveGoodsBatchModifyDTO, DTO);
     DTO_FIELD(Vector<Object<MoveGoodsBaseDTO>>, items);
     DTO_FIELD_INFO(items) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.items");
+        info->description = ZH_WORDS_GETTER("movegoods.field.items");
     }
 };
 
@@ -179,7 +183,7 @@ class BatchRemoveMoveGoodsDTO : public oatpp::DTO {
     DTO_INIT(BatchRemoveMoveGoodsDTO, DTO);
     DTO_FIELD(Vector<String>, items);
     DTO_FIELD_INFO(items) {
-        info->description = ZH_WORDS_GETTER("move-goods.field.items");
+        info->description = ZH_WORDS_GETTER("movegoods.field.items");
     }
 };
 
@@ -187,8 +191,38 @@ class BatchRemoveMoveGoodsDTO : public oatpp::DTO {
  * 传输对象
  * 包含单个转移任务的信息
  */
-class MoveGoodsDTO : public MoveGoodsModifyDTO {
-    DTO_INIT(MoveGoodsDTO, MoveGoodsModifyDTO);
+class MoveGoodsDTO : public MoveGoodsDetailedDTO {
+    DTO_INIT(MoveGoodsDTO, MoveGoodsDetailedDTO);
+    // 转移任务Id
+    DTO_FIELD(String, id);
+    DTO_FIELD_INFO(id) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.id");
+    }
+    // 创建人名称
+    DTO_FIELD(String, create_name);
+    DTO_FIELD_INFO(create_name) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.create_name");
+    }
+    // 创建日期
+    DTO_FIELD(String, create_date);
+    DTO_FIELD_INFO(create_date) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.create_date");
+    }
+    // 更新人名称
+    DTO_FIELD(String, update_name);
+    DTO_FIELD_INFO(update_name) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.update_name");
+    }
+    // 更新日期
+    DTO_FIELD(String, update_date);
+    DTO_FIELD_INFO(update_date) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.update_date");
+    }
+    // 执行状态
+    DTO_FIELD(String, run_sta);
+    DTO_FIELD_INFO(run_sta) {
+        info->description = ZH_WORDS_GETTER("movegoods.field.run_sta");
+    }
 };
 
 /**
