@@ -12,17 +12,15 @@
 class HuoQuKeZhuanYiLieBiaoDTO : public oatpp::DTO
 {
 	DTO_INIT(HuoQuKeZhuanYiLieBiaoDTO, DTO);
-	//操作
-	API_DTO_FIELD_DEFAULT(String, op, ZH_WORDS_GETTER("tuopanzhuanyi.field.op"));
 
-	// 移动日期
-	API_DTO_FIELD_DEFAULT(String, yidongdate, ZH_WORDS_GETTER("tuopanzhuanyi.field.movedate"));
+	//// 移动日期
+	//API_DTO_FIELD_DEFAULT(String, move_date, ZH_WORDS_GETTER("tuopanzhuanyi.field.move_date"));
 
 	// 库存类型
 	API_DTO_FIELD_DEFAULT(String, kuctype, ZH_WORDS_GETTER("tuopanzhuanyi.field.kuctype"));
 
 	// 储位
-	API_DTO_FIELD_DEFAULT(String, id, ZH_WORDS_GETTER("tuopanzhuanyi.field.id"));
+	API_DTO_FIELD_DEFAULT(String, ku_wei_bian_ma, ZH_WORDS_GETTER("tuopanzhuanyi.field.ku_wei_bian_ma"));
 
 	// 托盘
 	API_DTO_FIELD_DEFAULT(String, bin_id, ZH_WORDS_GETTER("tuopanzhuanyi.field.bin_id"));
@@ -43,7 +41,7 @@ class HuoQuKeZhuanYiLieBiaoDTO : public oatpp::DTO
 	API_DTO_FIELD_DEFAULT(String, shp_ming_cheng, ZH_WORDS_GETTER("tuopanzhuanyi.field.shp_ming_cheng"));
 
 	//生产日期
-	API_DTO_FIELD_DEFAULT(String, goods_pro_date, ZH_WORDS_GETTER("tuopanzhuanyi.field.goods_pro_date"));
+	API_DTO_FIELD_DEFAULT(String, goods_pro_data, ZH_WORDS_GETTER("tuopanzhuanyi.field.goods_pro_data"));
 
 	//保质期
 	API_DTO_FIELD_DEFAULT(String, bzhi_qi, ZH_WORDS_GETTER("tuopanzhuanyi.field.bzhi_qi"));
@@ -51,8 +49,8 @@ class HuoQuKeZhuanYiLieBiaoDTO : public oatpp::DTO
 	//单位
 	API_DTO_FIELD_DEFAULT(String, goods_unit, ZH_WORDS_GETTER("tuopanzhuanyi.field.goods_unit"));
 
-	//状态
-	API_DTO_FIELD_DEFAULT(String, stt_sta, ZH_WORDS_GETTER("tuopanzhuanyi.field.stt_sta"));
+	////状态
+	//API_DTO_FIELD_DEFAULT(String, stt_sta, ZH_WORDS_GETTER("tuopanzhuanyi.field.stt_sta"));
 
 };
 

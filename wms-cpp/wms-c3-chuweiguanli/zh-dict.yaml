@@ -2,7 +2,7 @@ file:
  download:
   summary: 导出空储位
  field:
-  filename: 文件名
+  filename: 空储位.xlsx
   file-url: 文件src
   file-alt: 文件文字描述
   file-href: 文件链接地址
@@ -70,6 +70,7 @@ tuopan:
   summary: 修改托盘
  delete:
   summary: 删除托盘（支持批量删除）
+
 TP:
  QueryTPSummary: 获取托盘名称列表
  AddTPSummary: 录入托盘
@@ -128,13 +129,23 @@ store:
  field:
   bin_store: 仓库
   ku_wei_bian_ma: 储位
+  bin_id: 储位
   other: 其他
   znode: 层数
   xnode: 行数
   ynode: 列数
   ting_yong: 停用
   ku_wei_shu_xing: 储位属性
-  chp_shu_xing: 产品属性
+  CHP_SHU_XING: 产品属性
+  chang: 长
+  kuan: 宽
+  gao: 高
+  colour: 颜色
+  suo_shu_ke_hu: 所属客户
+  zui_da_ti_ji: 最大体积
+  shang_jia_ci_xu: 上架次序
+  zui_da_tuo_pan: 最大托盘
+  ku_wei_lei_xing: 库位类型
 
 bin:
  xlsx:
@@ -213,6 +224,7 @@ chuwei:
   y_node: y坐标
   z_node: z坐标
 
+
 kongchuwei:
  get: 获得空储位列表
  quary:
@@ -231,3 +243,17 @@ kongchuwei:
   chuweishuxing: 储位属性
   chuweibaima: 储位编码
   item: 转移项
+
+
+excel:
+ sheet:
+  s1: 数据表1
+  s2: 数据表2
+ header:
+  h1: 表头1
+  h2: 表头2
+  h3: 表头3
+  h4: 表头4
+  h5: 表头5
+ content:
+  info: 坐标

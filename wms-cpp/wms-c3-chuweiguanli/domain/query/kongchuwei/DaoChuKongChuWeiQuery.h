@@ -22,9 +22,9 @@ class DaoChuKongChuWeiQuery : public PageQuery
 	//库位属性
 	API_DTO_FIELD_DEFAULT(String, ku_wei_shu_xing, ZH_WORDS_GETTER("store.field.ku_wei_shu_xing"));
 	//产品属性
-	API_DTO_FIELD_DEFAULT(String, chp_shu_xing, ZH_WORDS_GETTER("store.field.chp_shu_xing"));
+	API_DTO_FIELD_DEFAULT(String, CHP_SHU_XING, ZH_WORDS_GETTER("store.field.CHP_SHU_XING"));
 	//储位编码
-	API_DTO_FIELD_DEFAULT(String, binid, ZH_WORDS_GETTER("store.field.binid"));
+	API_DTO_FIELD_DEFAULT(String, ku_wei_bian_ma, ZH_WORDS_GETTER("store.field.ku_wei_bian_ma"));
 
 };
 

@@ -20,9 +20,7 @@ class HuoQuCangWeiShuJuQuery : public PageQuery
 	}
 
 	//储位
-	API_DTO_FIELD_DEFAULT(String, ku_wei_bian_ma, ZH_WORDS_GETTER("store.field.ku_wei_bian_ma"));
-	//其他
-	API_DTO_FIELD_DEFAULT(String, other, ZH_WORDS_GETTER("store.field.other"));
+	API_DTO_FIELD_DEFAULT(String, bin_id, ZH_WORDS_GETTER("store.field.bin_id"));
 	//层数
 	API_DTO_FIELD_DEFAULT(String, znode, ZH_WORDS_GETTER("store.field.znode"));
 	//行数

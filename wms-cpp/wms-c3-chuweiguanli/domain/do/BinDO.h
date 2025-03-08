@@ -43,7 +43,9 @@ class BinDO {
     CC_SYNTHESIZE(string, xnode, XNode); // X×ø±ê
     CC_SYNTHESIZE(string, ynode, YNode); // Y×ø±ê
     CC_SYNTHESIZE(string, znode, ZNode); // Z×ø±ê
+
 public:
+
     BinDO() :
         id(""), create_name(""), create_by(""), create_date(""), update_name(""), update_by(""), update_date(""),
         sys_org_code(""), sys_company_code(""), ku_wei_ming_cheng(""), ku_wei_bian_ma(""), ku_wei_tiao_ma(""),

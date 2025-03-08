@@ -19,18 +19,17 @@
 #include "pch.h"
 #include "../include/id/UuidFacade.h"
 
-UuidFacade::UuidFacade(int type /*= 0*/)
+void UuidFacade::init()
 {
-	this->type = type;
 	this->random_gen = nullptr;
 #ifdef UUID_SYSTEM_GENERATOR
 	this->system_gen = nullptr;
 #endif
 	// 创建随机生成器
-	if(type == 0)
+	if (type == 0)
 	{
 		std::random_device rd;
-		auto seed_data = std::array<int, std::mt19937::state_size> {};
+		auto seed_data = std::array<int, std::mt19937::state_size>{};
 		std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
 		std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
 		std::mt19937 generator(seq);
@@ -43,6 +42,22 @@ UuidFacade::UuidFacade(int type /*= 0*/)
 		this->system_gen = new uuids::uuid_system_generator();
 	}
 #endif
+}
+
+UuidFacade::UuidFacade(int type)
+{
+	this->type = type;
+	init();
+}
+
+UuidFacade::UuidFacade()
+{
+#ifdef LINUX
+	this->type = 1;
+#else
+	this->type = 0;
+#endif
+	init();
 }
 
 UuidFacade::~UuidFacade()
@@ -75,8 +90,8 @@ std::string UuidFacade::genUuid()
 		return {};
 
 	// 判断UUID是否合法
-	if (id.is_nil() 
-		|| id.as_bytes().size() != 16 
+	if (id.is_nil()
+		|| id.as_bytes().size() != 16
 		|| id.version() != uuids::uuid_version::random_number_based
 		|| id.variant() != uuids::uuid_variant::rfc)
 		return {};

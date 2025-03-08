@@ -14,14 +14,14 @@
 class HuoQuKeZhuanYiLieBiaoQuery : public PageQuery
 {
 	DTO_INIT(HuoQuKeZhuanYiLieBiaoQuery, PageQuery);
-	// 移动日期
-	API_DTO_FIELD_DEFAULT(String, movedate, ZH_WORDS_GETTER("tuopanzhuanyi.field.movedate"));
+	//// 移动日期
+	//API_DTO_FIELD_DEFAULT(String, move_date, ZH_WORDS_GETTER("tuopanzhuanyi.field.move_date"));
 	
 	// 库存类型
 	API_DTO_FIELD_DEFAULT(String, kuctype, ZH_WORDS_GETTER("tuopanzhuanyi.field.kuctype"));
 
 	// 储位
-	API_DTO_FIELD_DEFAULT(String, id, ZH_WORDS_GETTER("tuopanzhuanyi.field.id"));
+	API_DTO_FIELD_DEFAULT(String, ku_wei_bian_ma, ZH_WORDS_GETTER("tuopanzhuanyi.field.ku_wei_bian_ma"));
 
 	// 托盘
 	API_DTO_FIELD_DEFAULT(String, bin_id, ZH_WORDS_GETTER("tuopanzhuanyi.field.bin_id"));
@@ -38,8 +38,8 @@ class HuoQuKeZhuanYiLieBiaoQuery : public PageQuery
 	//商品名称
 	API_DTO_FIELD_DEFAULT(String, shp_ming_cheng, ZH_WORDS_GETTER("tuopanzhuanyi.field.shp_ming_cheng"));
 
-	//生产日期
-	API_DTO_FIELD_DEFAULT(String, goods_pro_date, ZH_WORDS_GETTER("tuopanzhuanyi.field.goods_pro_date"));
+	////生产日期
+	//API_DTO_FIELD_DEFAULT(String, goods_pro_date, ZH_WORDS_GETTER("tuopanzhuanyi.field.goods_pro_date"));
 };
 
 #include OATPP_CODEGEN_END(DTO)
