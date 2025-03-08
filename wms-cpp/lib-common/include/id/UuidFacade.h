@@ -37,16 +37,20 @@ private:
 #ifdef UUID_SYSTEM_GENERATOR
 	uuids::uuid_system_generator* system_gen;
 #endif
+	// 初始化
+	void init();
 public:
 	//************************************
 	// Method:      UuidFacade
 	// FullName:    UuidFacade::UuidFacade
 	// Access:      public 
 	// Returns:     
-	// Parameter:   int type 使用生成器类型，0 random 1 system，默认值0
+	// Parameter:   int type 使用生成器类型，0 random 1 system
 	// Description: 构造初始化
 	//************************************
-	UuidFacade(int type = 0);
+	UuidFacade(int type);
+	// 根据系统类型自动选择生成器
+	UuidFacade();
 	~UuidFacade();
 
 	//************************************
