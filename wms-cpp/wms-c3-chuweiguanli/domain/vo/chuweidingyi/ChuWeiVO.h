@@ -3,16 +3,16 @@
 #define _CHUWEI_VO_
 
 #include "../../GlobalInclude.h"
-#include "../../dto/chuweidingyi/QueryCWDTO.h"
+#include "../../dto/chuweidingyi/ChuWeiDTO.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 
 /**
- * 示例分页显示JsonVO，用于响应给客户端的Json对象
+ * 分页显示JsonVO，用于响应给客户端的Json对象
  */
-class ChuWeiPageJsonVO : public JsonVO<QueryCWPageDTO::Wrapper> {
-	DTO_INIT(ChuWeiPageJsonVO, JsonVO<QueryCWPageDTO::Wrapper>);
+class ChuWeiPageJsonVO : public JsonVO<ChuWeiPageDTO::Wrapper> {
+	DTO_INIT(ChuWeiPageJsonVO, JsonVO<ChuWeiPageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

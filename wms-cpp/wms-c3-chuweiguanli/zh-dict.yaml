@@ -2,7 +2,7 @@ file:
  download:
   summary: 导出空储位
  field:
-  filename: 空储位.xlsx
+  filename: 文件名
   file-url: 文件src
   file-alt: 文件文字描述
   file-href: 文件链接地址
@@ -97,11 +97,11 @@ Cangku:
   delete_cangku:
    summary: 删除仓库(支持批量删除)
    params:
-    ids: 仓库ID列表(必填)
+    ids: 仓库ID列表(非必填)
   down_load_cangku_excel: 
    summary: 导出仓库(导出为Excel)
    params:
-    store_id: 仓库ID列表(非必须) 
+    store_code: 仓库代码列表(非必须) 
   up_load_cangku_excel: 
    summary: Excel导入仓库
 
@@ -129,23 +129,18 @@ store:
  field:
   bin_store: 仓库
   ku_wei_bian_ma: 储位
-  bin_id: 储位
   other: 其他
   znode: 层数
   xnode: 行数
   ynode: 列数
   ting_yong: 停用
   ku_wei_shu_xing: 储位属性
-  CHP_SHU_XING: 产品属性
+  zuidatuopan: 最大托盘
   chang: 长
   kuan: 宽
   gao: 高
-  colour: 颜色
-  suo_shu_ke_hu: 所属客户
-  zui_da_ti_ji: 最大体积
-  shang_jia_ci_xu: 上架次序
-  zui_da_tuo_pan: 最大托盘
-  ku_wei_lei_xing: 库位类型
+  z_node: z坐标
+
 
 bin:
  xlsx:
@@ -171,6 +166,7 @@ bin:
  bin_store_example: 1仓库
  suo_shu_ke_hu: 所属客户
 
+
 chuwei: 
  id: 唯一标识
  get: 
@@ -180,6 +176,20 @@ chuwei:
  delete: 
   summary: 删除储位（支持批量删除）
  field: 
+  store: 仓库
+  store_code: 库位编码
+  store_barcode: 库位条码
+  store_type: 库位类型
+  store_attribute: 库位属性
+  x_axis: x轴
+  y_axis: y轴
+  z_axis: z轴
+  goods_type: 商品属性
+  customer: 所属客户
+  state: 停用
+  notes: 备注
+  notes1: 备注1
+  notes2: 备注2
   store: 仓库
   store_code: 库位编码
   store_barcode: 库位条码
@@ -257,3 +267,46 @@ excel:
   h5: 表头5
  content:
   info: 坐标
+
+Chuwei: 
+ id: 唯一标识
+ ids: ids
+ get: 
+  summary: 获取储位列表（条件+分页）
+ modify: 
+  summary: 修改储位
+  success: 修改成功
+  empty: 请选择要编辑的项目
+  fail: 修改失败
+ delete: 
+  summary: 通过单个id删除储位
+  batch_summary: 批量删除储位
+  success: 成功删除全部ID
+  fail: 所有删除操作失败
+  partly_success: 部分ID删除成功
+ field: 
+  bin_store: 仓库
+  ku_wei_bian_ma: 库位编码
+  ku_wei_tiao_ma: 库位条码
+  ku_wei_lei_xing: 库位类型
+  store_type1: 是/否
+  ku_wei_shu_xing: 库位属性
+  xnode: x坐标
+  ynode: y坐标
+  znode: z坐标
+  CHP_SHU_XING: 产品属性
+  shang_jia_ci_xu: 上架次序
+  qu_huo_ci_xu: 取货次序
+  suo_shu_ke_hu: 所属客户
+  zui_da_ti_ji: 最大体积
+  zui_da_zhong_liang: 最大重量
+  zui_da_tuo_pan: 最大托盘
+  chang: 长度
+  kuan: 宽度
+  gao: 高度
+  ting_yong: 停用
+  ming_xi: 备注
+  ming_xi1: 备注1
+  ming_xi2: 备注2
+  ming_xi3: 动线
+  LORA_bqid: 电子标签ID

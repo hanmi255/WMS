@@ -14,25 +14,23 @@ class ChuWeiQuery : public PageQuery
 {
 	DTO_INIT(ChuWeiQuery, PageQuery);
 	// 仓库
-	DTO_FIELD(String, store);
-	DTO_FIELD_INFO(store) {
-		info->description = ZH_WORDS_GETTER("chuwei.field.store");
+	DTO_FIELD(String, bin_store);
+	DTO_FIELD_INFO(bin_store) {
+		info->description = ZH_WORDS_GETTER("Chuwei.field.bin_store");
 	}
 	//上用原方式，下用宏
 	//库位编码
-	API_DTO_FIELD_DEFAULT(String, store_code, ZH_WORDS_GETTER("chuwei.field.store_code"));
+	API_DTO_FIELD_DEFAULT(String, ku_wei_bian_ma, ZH_WORDS_GETTER("Chuwei.field.ku_wei_bian_ma"));
 	//库位条码
-	API_DTO_FIELD_DEFAULT(String, store_barcode, ZH_WORDS_GETTER("chuwei.field.store_barcode"));
+	API_DTO_FIELD_DEFAULT(String, ku_wei_tiao_ma, ZH_WORDS_GETTER("Chuwei.field.ku_wei_tiao_ma"));
 	//库位类型
-	API_DTO_FIELD_DEFAULT(String, store_type, ZH_WORDS_GETTER("chuwei.field.store_type"));
-	//x轴
-	API_DTO_FIELD_DEFAULT(String, x_axis, ZH_WORDS_GETTER("chuwei.field.x_axis"));
-	//y轴
-	API_DTO_FIELD_DEFAULT(String, y_axis, ZH_WORDS_GETTER("chuwei.field.y_axis"));
-	//z轴
-	API_DTO_FIELD_DEFAULT(String, z_axis, ZH_WORDS_GETTER("chuwei.field.z_axis"));
-
-	
+	API_DTO_FIELD_DEFAULT(String, ku_wei_lei_xing, ZH_WORDS_GETTER("Chuwei.field.ku_wei_lei_xing"));
+	//x坐标
+	API_DTO_FIELD_DEFAULT(String, xnode, ZH_WORDS_GETTER("Chuwei.field.xnode"));
+	//y坐标
+	API_DTO_FIELD_DEFAULT(String, ynode, ZH_WORDS_GETTER("Chuwei.field.ynode"));
+	//z坐标
+	API_DTO_FIELD_DEFAULT(String, znode, ZH_WORDS_GETTER("Chuwei.field.znode"));	
 };
 
 #include OATPP_CODEGEN_END(DTO)
