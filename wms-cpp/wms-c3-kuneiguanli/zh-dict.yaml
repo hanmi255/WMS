@@ -3,20 +3,20 @@ tuopanzhuanyi:
   summary: 查询所有可转移任务
  field:
   op: 操作
-  move_date: 移动日期
+  movedate: 移动日期
   kuctype: 库存类型
-  ku_wei_bian_ma: 储位
+  id: 储位
   bin_id: 托盘
   cus_code: 货主
   zhong_wen_qch: 货主名称
   goods_id: 商品编码
   goods_qua: 商品数量
   shp_ming_cheng: 商品名称
-  goods_pro_data: 生产日期
+  goods_pro_date: 生产日期
   bzhi_qi: 保质期
   goods_unit: 单位
 
-movegoods:
+move-goods:
  get:
   summary: 分页获取转移任务
  getdetailed:
@@ -29,9 +29,14 @@ movegoods:
   batch:
    summary: 批量转移任务
  delete:
+  move-sta:
+   del: 已删除
   batch: 
    summary: 批量删除转移任务
  field:
+  create-by: 创建人登录名称
+  create-date: 创建日期
+  order-id-i: 原始单据行项目
   id: 转移任务ID
   items: 转移项
   goods-id: 商品编码
@@ -50,8 +55,13 @@ movegoods:
   produce-date: 生产日期
   to-produce-date: 到生产日期
   goods-unit: 单位
+  goods-base-unit: 基本单位
   now-num: 现有数量
   down-load-move-goods: 导出转移任务文件
+  file-path: xlsx导出路径
+ xlsx:
+  sheet:
+   s1: 导出信息
 
 assignment: 
  get:

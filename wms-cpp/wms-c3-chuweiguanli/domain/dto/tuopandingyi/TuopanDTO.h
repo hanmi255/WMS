@@ -2,7 +2,7 @@
 
 #ifndef _TUOPAN_DTO_
 #define _TUOPAN_DTO_
-#include "../../GlobalInclude.h"
+#include "domain/GlobalInclude.h"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
