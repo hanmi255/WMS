@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-#include "ChuWeiDAO.h"
+#include "ChuWeiDao.h"
 #include "ChuWeiMapper.h"
 #include <sstream>
 

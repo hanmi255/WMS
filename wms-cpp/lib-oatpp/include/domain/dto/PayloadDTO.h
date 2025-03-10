@@ -86,11 +86,11 @@ private:
 	std::list<std::string> authorities;
 	// 数据状态系信息
 	PayloadCode code;
-	// 登录名称
+	//登录名称
 	std::string realname;
-	// 部门名称
+	//部门名称
 	std::string orgCode;
-	// 公司名称
+	//公司名称
 	std::string companyCode;
 public:
 	PayloadDTO()
@@ -124,12 +124,13 @@ public:
 	void setId(std::string val) { id = val; }
 	std::string getToken() const { return token; }
 	void setToken(std::string val) { token = val; }
-	std::string getRealname() const { return realname; }
-	void setRealname(std::string val) { realname = val; }
+	std::string getRealName() const { return realname; }
+	void setRealName(std::string val) { realname = val; };
 	std::string getOrgCode() const { return orgCode; }
 	void setOrgCode(std::string val) { orgCode = val; }
 	std::string getCompanyCode() const { return companyCode; }
 	void setCompanyCode(std::string val) { companyCode = val; }
+
 
 	// 添加权限
 	void putAuthority(std::string authstr) { authorities.push_back(authstr); }
@@ -171,12 +172,9 @@ public:
 		else
 			setId(_payload["id"].get<std::string>());
 		// TIP：新增字段在后面补充即可
-		if (_payload.contains("realname"))
-			realname = payload.get_claim_value<std::string>("realname");
-		if (_payload.contains("orgCode"))
-			orgCode = payload.get_claim_value<std::string>("orgCode");
-		if (_payload.contains("companyCode"))
-			companyCode = payload.get_claim_value<std::string>("companyCode");
+		//setRealName(payload.get_claim_value<std::string>("real_name"));
+		//setOrgCode(payload.get_claim_value<std::string>("org_code"));
+		//setCompanyCode(payload.get_claim_value<std::string>("company_code"));
 	}
 };
 

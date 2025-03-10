@@ -3,9 +3,9 @@
 #ifndef _MOVEGOODS_SERVICE_
 #define _MOVEGOODS_SERVICE_
 #include <list>
-#include "domain/vo/Kuneizhuanyi/MoveGoodsVO.h"
-#include "domain/query/Kuneizhuanyi/MoveGoodsQuery.h"
-#include "domain/dto/Kuneizhuanyi/MoveGoodsDTO.h"
+#include "domain/vo/kuneizhuanyi/MoveGoodsVO.h"
+#include "domain/query/kuneizhuanyi/MoveGoodsQuery.h"
+#include "domain/dto/kuneizhuanyi/MoveGoodsDTO.h"
 
 /**
  * 示例服务实现，演示基础的示例服务实现

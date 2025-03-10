@@ -18,7 +18,7 @@ string StoreService::addStore(const StoreAddDTO::Wrapper dto, const PayloadDTO& 
 		StoreCode, store_code,
 		StoreName, store_name,
 		StoreText, store_text);
-	data.setCreateName(payload.getRealname());
+	data.setCreateName(payload.getRealName());
 	data.setCreateBy(payload.getUsername());
 	data.setSysOrgCode(payload.getOrgCode());
 	data.setSysCompanyCode(payload.getCompanyCode());
@@ -35,7 +35,7 @@ string StoreService::modifyStore(const StoreModifyDTO::Wrapper dto, const Payloa
 		StoreCode, store_code,
 		StoreName, store_name,
 		StoreText, store_text);
-	data.setUpdateName(payload.getRealname());
+	data.setUpdateName(payload.getRealName());
 	data.setUpdateBy(payload.getUsername());
 	data.setUpdateDate(getTimeStr());
 	StoreDAO dao;

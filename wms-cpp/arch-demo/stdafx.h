@@ -29,6 +29,7 @@
 #include "id/UuidFacade.h"
 
 // 解决std::byte类型重定义
+#include "id/UuidFacade.h"
 #define _HAS_STD_BYTE 0
 // 添加要在此处预编译的标头
 #include "OatppMacros.h"

@@ -9,7 +9,7 @@ file:
 
 chuweixiangxixinxi:
  bs: 
-  bioashi: 唯一标识
+  id: 唯一id
  xinxi:
   cangku: 仓库
   kehu: 所属客户

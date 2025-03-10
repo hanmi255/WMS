@@ -78,7 +78,7 @@ private:
 	StringJsonVO::Wrapper execModifyChuwei(const ChuWeiDTO::Wrapper& dto);
 	//´¢Î»É¾³ýÊý¾Ý
 	StringJsonVO::Wrapper execRemoveChuwei(const String& id);
-	StringJsonVO::Wrapper ChuWeiController::execBatchRemoveChuwei(const BatchDeleteDTO::Wrapper& dto);
+	StringJsonVO::Wrapper execBatchRemoveChuwei(const BatchDeleteDTO::Wrapper& dto);
 };
 
 #include OATPP_CODEGEN_END(ApiController) ///< End ApiController codegen section
