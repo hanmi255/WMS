@@ -61,11 +61,11 @@ public:
 		//	定义响应参数格式
 		API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
 		//	定义参数：仓库代码
-		API_DEF_ADD_QUERY_PARAMS(oatpp::String, "store_code", ZH_WORDS_GETTER("Cangku.EndPoint.down_load_cangku_excel.params.store_code"), "001-FKD", false);
+		//API_DEF_ADD_QUERY_PARAMS(oatpp::String, "store_code", ZH_WORDS_GETTER("Cangku.EndPoint.down_load_cangku_excel.params.store_code"), "001-FKD", false);
 	}
 	//	定义 导出仓库接口 处理
-	ENDPOINT(API_M_GET, "/chuweiguanli/cangkudingyi/down-load-cangku-excel", downLoadCangkuExcel, QUERY(String, store_code), API_HANDLER_AUTH_PARAME){
-		API_HANDLER_RESP_VO(execDownLoadCangkuExcel(store_code, authObject->getPayload()));
+	ENDPOINT(API_M_GET, "/chuweiguanli/cangkudingyi/down-load-cangku-excel", downLoadCangkuExcel, BODY_DTO(ExportCangkuDTO::Wrapper, store_code_list), API_HANDLER_AUTH_PARAME) {
+		API_HANDLER_RESP_VO(execDownLoadCangkuExcel(store_code_list, authObject->getPayload()));
 	}
 
 	//	定义 获取仓库列表接口 描述
@@ -110,7 +110,7 @@ private:
 	//	删除仓库执行函数
 	StringJsonVO::Wrapper execDeleteCangku(const DeleteCangkuDTO::Wrapper& id_list, const PayloadDTO& payload);
 	//	导出仓库执行函数
-	StringJsonVO::Wrapper execDownLoadCangkuExcel(const String& store_code, const PayloadDTO& payload);
+	StringJsonVO::Wrapper execDownLoadCangkuExcel(const ExportCangkuDTO::Wrapper& store_code_list, const PayloadDTO& payload);
 	//	获取仓库列表执行函数
 	StringJsonVO::Wrapper execListCangku(const PayloadDTO& payload);
 	// 导入仓库执行函数

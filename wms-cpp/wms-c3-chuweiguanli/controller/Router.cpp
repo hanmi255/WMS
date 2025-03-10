@@ -35,7 +35,6 @@
 #include "tuopandingyi/TuopanController.h"
 #include "cangkudingyi/CangKuDingYiController.h"
 #include "tuopandingyi/TPController.h"
-#include "./chuweidingyi/chuweixaingxixinxidaorudaochuCONTROLLER.h"
 #include "controller/chuweidingyi/ChuWeiController.h"
 #include "controller/chuweidingyi/ChuWeiDingYiController.h"
 #include"kongchuwei/GetKongChuWeiListMycontroller.h"
@@ -67,7 +66,6 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(ChuWeiDingYiController);
 	ROUTER_SIMPLE_BIND(DaoChuKongChuWeiController);
 	ROUTER_SIMPLE_BIND(HuoQuCangWeiShuJuController);	
-	ROUTER_SIMPLE_BIND(apixiangxixinxi);
 	ROUTER_SIMPLE_BIND(CangKuDingYiController);
 	ROUTER_SIMPLE_BIND(TuopanController);	
 	ROUTER_SIMPLE_BIND(TPController);

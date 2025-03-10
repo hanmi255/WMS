@@ -97,11 +97,11 @@ Cangku:
   delete_cangku:
    summary: 删除仓库(支持批量删除)
    params:
-    ids: 仓库ID列表(非必填)
+    ids: 仓库ID列表(必填)
   down_load_cangku_excel: 
    summary: 导出仓库(导出为Excel)
    params:
-    store_code: 仓库代码列表(非必须) 
+    store_id: 仓库ID列表(非必须) 
   up_load_cangku_excel: 
    summary: Excel导入仓库
 
