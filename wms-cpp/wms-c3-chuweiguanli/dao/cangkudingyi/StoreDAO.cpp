@@ -3,6 +3,29 @@
 //#include "../lib-common/include/id/SnowFlake.h"
 #include "id/UuidFacade.h"
 
+
+std::string StoreDAO::queryConditionBuilder(const CangkuListQuery::Wrapper& query, SqlParams& params)
+{
+	stringstream sqlCondition;
+	sqlCondition << " WHERE 1=1";
+	if (query->store_code)
+	{
+		sqlCondition << " AND store_code=?";
+		SQLPARAMS_PUSH(params, "s", std::string, query->store_code.getValue(""));
+	}
+	if (query->store_name)
+	{
+		sqlCondition << " AND store_name=?";
+		SQLPARAMS_PUSH(params, "s", std::string, query->store_name.getValue(""));
+	}
+	if (query->store_text)
+	{
+		sqlCondition << " AND store_text=?";
+		SQLPARAMS_PUSH(params, "s", std::string, query->store_text.getValue(""));
+	}
+	return sqlCondition.str();
+}
+
 string get_id()
 {
 	UuidFacade uf(1);
@@ -57,4 +80,28 @@ WHERE `id` = ?)";
 		return obj.getId();
 	}
 	return string{ "failed" };
+}
+
+uint64_t StoreDAO::count(const CangkuListQuery::Wrapper& query)
+{
+	SqlParams params;
+	string sql = "SELECT COUNT(*) FROM ba_store ";
+	// 构建查询条件
+	sql += queryConditionBuilder(query, params);
+	// 执行查询
+	return sqlSession->executeQueryNumerical(sql, params);
+}
+
+std::list<StoreDO> StoreDAO::selectWithPage(const CangkuListQuery::Wrapper& query)
+{
+	SqlParams params;
+	string sql = "SELECT store_code,store_name,store_code,id FROM ba_store ";
+	// 构建查询条件
+	sql += queryConditionBuilder(query, params);
+	// 构建分页条件
+	sql += " LIMIT " + std::to_string(((query->pageIndex - 1) * query->pageSize)) + "," + std::to_string(query->pageSize);
+
+	// 执行查询
+	StoreMapper mapper;
+	return sqlSession->executeQuery<StoreDO>(sql, mapper, params);
 }

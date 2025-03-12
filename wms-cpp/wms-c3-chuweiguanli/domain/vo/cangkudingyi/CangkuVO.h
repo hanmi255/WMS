@@ -21,8 +21,8 @@ class DeleteCangkuJsonVO : public JsonVO<oatpp::List<DeleteCangkuDTO::Wrapper>> 
 };
 
 // 获取仓库列表的显示JsonVO
-class CangkuListJsonVO : public JsonVO<oatpp::List<CangkuListDTO::Wrapper>> {
-	DTO_INIT(CangkuListJsonVO, JsonVO<oatpp::List<CangkuListDTO::Wrapper>>);
+class CangkuListPageJsonVO : public JsonVO<CangkuListPageDTO::Wrapper> {
+	DTO_INIT(CangkuListPageJsonVO, JsonVO<CangkuListPageDTO::Wrapper>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "CangKuDingYiController.h"
 #include "../../service/cangkudingyi/CangKuDingYiService.h"
+#include "service/cangkudingyi/StoreService.h"
 
 CangkuNameListJsonVO::Wrapper CangKuDingYiController::execListCangkuName(const PayloadDTO& payload) {
 	//	构建响应结果
@@ -54,6 +55,7 @@ StringJsonVO::Wrapper CangKuDingYiController::execDeleteCangku(const DeleteCangk
 	}
 }
 
+
 //	将仓库名称列表导出为Excel文件，返回下载路径
 StringJsonVO::Wrapper CangKuDingYiController::execDownLoadCangkuExcel(const ExportCangkuDTO::Wrapper& store_code_list, const PayloadDTO& payload) {
 	//	构建响应结果
@@ -72,9 +74,16 @@ StringJsonVO::Wrapper CangKuDingYiController::execDownLoadCangkuExcel(const Expo
     return jvo;
 }
 
-StringJsonVO::Wrapper CangKuDingYiController::execListCangku(const PayloadDTO& payload)
+
+CangkuListPageJsonVO::Wrapper CangKuDingYiController::execListCangku(const CangkuListQuery::Wrapper& query, const PayloadDTO& payload)
 {
-	return {};
+	StoreService service;
+
+	//查询
+	auto result = service.listAll(query);
+	auto jvo = CangkuListPageJsonVO::createShared();
+	jvo->success(result);
+	return jvo;
 }
 
 StringJsonVO::Wrapper CangKuDingYiController::execUpload(std::shared_ptr<IncomingRequest> request)
