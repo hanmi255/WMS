@@ -4,7 +4,6 @@
 #include "domain/GlobalInclude.h"
 
 class BinDO {
-
     CC_SYNTHESIZE(string, id, Id); // 唯一标识 主键
     CC_SYNTHESIZE(string, create_name, CreateName); // 创建人名称
     CC_SYNTHESIZE(string, create_by, CreateBy); // 创建人登录名称
@@ -43,13 +42,10 @@ class BinDO {
     CC_SYNTHESIZE(string, xnode, XNode); // X坐标
     CC_SYNTHESIZE(string, ynode, YNode); // Y坐标
     CC_SYNTHESIZE(string, znode, ZNode); // Z坐标
-<<<<<<< HEAD
+
 
 public:
 
-=======
-public:
->>>>>>> remotes/origin/c3-sheng
     BinDO() :
         id(""), create_name(""), create_by(""), create_date(""), update_name(""), update_by(""), update_date(""),
         sys_org_code(""), sys_company_code(""), ku_wei_ming_cheng(""), ku_wei_bian_ma(""), ku_wei_tiao_ma(""),

@@ -75,16 +75,10 @@ private:
 	//分页查询储位数据
 	ChuWeiPageJsonVO::Wrapper execQueryChuwei(const ChuWeiQuery::Wrapper& query, const PayloadDTO& payload);
 	//储位修改数据
-<<<<<<< HEAD
 	StringJsonVO::Wrapper execModifyChuwei(const ChuWeiDTO::Wrapper& dto);
 	//储位删除数据
 	StringJsonVO::Wrapper execRemoveChuwei(const String& id);
 	StringJsonVO::Wrapper execBatchRemoveChuwei(const BatchDeleteDTO::Wrapper& dto);
-=======
-	Uint64JsonVO::Wrapper execModifyChuwei(const ChuWeiDTO::Wrapper& dto);
-	//储位删除数据
-	Uint64JsonVO::Wrapper execRemoveChuwei(const String& id);
->>>>>>> remotes/origin/c3-sheng
 };
 
 #include OATPP_CODEGEN_END(ApiController) ///< End ApiController codegen section
