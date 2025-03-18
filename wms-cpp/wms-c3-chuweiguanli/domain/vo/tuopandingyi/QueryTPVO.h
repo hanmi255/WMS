@@ -7,10 +7,10 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
-* 获取托盘名称列表JsonVO
+* 获取托盘名称JsonVO
 */
-class QueryTPListJsonVO : public JsonVO<QueryTPListDTO::Wrapper> {
-	DTO_INIT(QueryTPListJsonVO, JsonVO<QueryTPListDTO::Wrapper>);
+class QueryTPListJsonVO : public JsonVO<oatpp::List<QueryTPDTO::Wrapper>> {
+	DTO_INIT(QueryTPListJsonVO, JsonVO<oatpp::List<QueryTPDTO::Wrapper>>);
 };
 
 #include OATPP_CODEGEN_END(DTO)

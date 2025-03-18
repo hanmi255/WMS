@@ -31,6 +31,7 @@
 #include "controller/kuneizhuanyi/MoveGoodsController.h"
 #include "controller/shengchengtuopanzhuanyi/TinTransferController.h"
 #include "controller/shengchengchuweizhuanyi/BinTransferController.h"
+#include"lihuorenwu/GettasklistController.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -60,6 +61,7 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(MoveGoodsController);
 	ROUTER_SIMPLE_BIND(TinTransferController);
 	ROUTER_SIMPLE_BIND(BinTransferController);
+	ROUTER_SIMPLE_BIND(GettasklistController);
 }
 
 #ifdef HTTP_SERVER_DEMO

@@ -86,6 +86,12 @@ private:
 	std::list<std::string> authorities;
 	// 数据状态系信息
 	PayloadCode code;
+	//登录名称
+	std::string realname;
+	//部门名称
+	std::string orgCode;
+	//公司名称
+	std::string companyCode;
 public:
 	PayloadDTO()
 	{
@@ -93,6 +99,9 @@ public:
 		this->exp = 0;
 		this->sub = "";
 		this->setCode(PayloadCode::SUCCESS);
+		this->realname = "admin";
+		this->orgCode = "A05";
+		this->companyCode = "A05";
 	}
 	PayloadDTO(std::string _sub, int64_t _exp, std::string _username, std::list<std::string> _authorities) :
 		sub(_sub), exp(_exp), username(_username), authorities(_authorities)
@@ -115,6 +124,13 @@ public:
 	void setId(std::string val) { id = val; }
 	std::string getToken() const { return token; }
 	void setToken(std::string val) { token = val; }
+	std::string getRealName() const { return realname; }
+	void setRealName(std::string val) { realname = val; };
+	std::string getOrgCode() const { return orgCode; }
+	void setOrgCode(std::string val) { orgCode = val; }
+	std::string getCompanyCode() const { return companyCode; }
+	void setCompanyCode(std::string val) { companyCode = val; }
+
 
 	// 添加权限
 	void putAuthority(std::string authstr) { authorities.push_back(authstr); }
@@ -131,6 +147,9 @@ public:
 		// 转换id
 		obj->add_claim("id", id);
 		// TIP：新增字段在后面补充即可
+		obj->add_claim("realname", realname);
+		obj->add_claim("orgCode", orgCode);
+		obj->add_claim("companyCode", companyCode);
 	}
 
 	// 将jwt_object的属性转换到Payload中
@@ -153,6 +172,9 @@ public:
 		else
 			setId(_payload["id"].get<std::string>());
 		// TIP：新增字段在后面补充即可
+		//setRealName(payload.get_claim_value<std::string>("real_name"));
+		//setOrgCode(payload.get_claim_value<std::string>("org_code"));
+		//setCompanyCode(payload.get_claim_value<std::string>("company_code"));
 	}
 };
 

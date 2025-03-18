@@ -12,8 +12,8 @@
 /**
  * 储位定义详情JsonVO，用于响应给客户端的Json对象
  */
-class xiangxixinxiJsonVO : public JsonVO<xiangxixinxi::Wrapper> {
-	DTO_INIT(xiangxixinxiJsonVO, JsonVO<xiangxixinxi::Wrapper>);
+class xiangxixinxiJsonVO : public JsonVO<xiangxixinxiDTO::Wrapper> {
+	DTO_INIT(xiangxixinxiJsonVO, JsonVO<xiangxixinxiDTO::Wrapper>);
 };
 
 /**

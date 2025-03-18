@@ -26,15 +26,15 @@ public:
         // 定义分页查询参数描述
         API_DEF_ADD_PAGE_PARAMS();
         // 定义其他查询参数描述
-        API_DEF_ADD_QUERY_PARAMS(String, "yidongdate", ZH_WORDS_GETTER("tuopanzhuanyi.field.yidongdate"), "2022/2/22", false);
+        //API_DEF_ADD_QUERY_PARAMS(String, "move_date", ZH_WORDS_GETTER("tuopanzhuanyi.field.move_date"), "2022/2/22", false);
         API_DEF_ADD_QUERY_PARAMS(String, "kuctype", ZH_WORDS_GETTER("tuopanzhuanyi.field.kuctype"), "1", false);
-        API_DEF_ADD_QUERY_PARAMS(String, "id", ZH_WORDS_GETTER("tuopanzhuanyi.field.id"), "1", false);
+        API_DEF_ADD_QUERY_PARAMS(String, "ku_wei_bian_ma", ZH_WORDS_GETTER("tuopanzhuanyi.field.ku_wei_bian_ma"), "1", false);
         API_DEF_ADD_QUERY_PARAMS(String, "bin_id", ZH_WORDS_GETTER("tuopanzhuanyi.field.bin_id"), "123", false);
         API_DEF_ADD_QUERY_PARAMS(String, "cus_code", ZH_WORDS_GETTER("tuopanzhuanyi.field.cus_code"), "123", false);
         API_DEF_ADD_QUERY_PARAMS(String, "zhong_wen_qch", ZH_WORDS_GETTER("tuopanzhuanyi.field.zhong_wen_qch"), "zhang san", false);
         API_DEF_ADD_QUERY_PARAMS(String, "goods_id", ZH_WORDS_GETTER("tuopanzhuanyi.field.goods_id"), "123", false);
         API_DEF_ADD_QUERY_PARAMS(String, "shp_ming_cheng", ZH_WORDS_GETTER("tuopanzhuanyi.field.shp_ming_cheng"), "kele", false);
-        API_DEF_ADD_QUERY_PARAMS(String, "goods_pro_date", ZH_WORDS_GETTER("tuopanzhuanyi.field.goods_pro_date"), "2022/2/2", false);
+        //API_DEF_ADD_QUERY_PARAMS(String, "goods_pro_date", ZH_WORDS_GETTER("tuopanzhuanyi.field.goods_pro_date"), "2022/2/2", false);
     }
 
     ENDPOINT(API_M_GET, "/kuneiguanli/shengchengtuopanzhuanyi/query-move-list", queryALL, QUERIES(QueryParams, queryParams), API_HANDLER_AUTH_PARAME) {
@@ -44,19 +44,6 @@ public:
         API_HANDLER_RESP_VO(execQueryAll(kezhuanyiQuery));
     }
 
-    //ENDPOINT_INFO(test) {
-    //    info->summary = ZH_WORDS_GETTER("api.summary");
-    //    //请求参数的描述信息
-    //    API_DEF_ADD_PAGE_PARAMS();
-    //    //响应格式描述
-    //    API_DEF_ADD_RSP_JSON_WRAPPER(StringJsonVO);
-    //}
-    //ENDPOINT("GET", "/test", test, QUERIES(QueryParams, params)) {
-    //    //解析查询参数
-    //    API_HANDLER_QUERY_PARAM(query, PageQuery, params);
-    //    //响应处理结果
-    //    API_HANDLER_RESP_VO(excuteTest(query));
-    //}
 private:
     HuoQuKeZhuanYiLieBiaoPageJsonVO::Wrapper execQueryAll(const HuoQuKeZhuanYiLieBiaoQuery::Wrapper& query);
 };

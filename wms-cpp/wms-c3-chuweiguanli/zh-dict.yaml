@@ -9,7 +9,7 @@ file:
 
 chuweixiangxixinxi:
  bs: 
-  bioashi: 唯一标识
+  id: 唯一id
  xinxi:
   cangku: 仓库
   kehu: 所属客户
@@ -70,6 +70,7 @@ tuopan:
   summary: 修改托盘
  delete:
   summary: 删除托盘（支持批量删除）
+
 TP:
  QueryTPSummary: 获取托盘名称列表
  AddTPSummary: 录入托盘
@@ -134,10 +135,76 @@ store:
   ynode: 列数
   ting_yong: 停用
   ku_wei_shu_xing: 储位属性
-  chp_shu_xing: 产品属性
+  zuidatuopan: 最大托盘
+  chang: 长
+  kuan: 宽
+  gao: 高
+  z_node: z坐标
 
-chuwei:
- add:
+
+bin:
+ xlsx:
+  summary: 导出可用储位
+  filename: 可用储位报表.xlsx
+  sheet:
+   s1: 导出信息
+ list:
+  summary: 获取可用储位列表（条件+分页）
+ file_path: xlsx文件的导出路径
+ id: 唯一id（主键）
+ ids : 唯一id（主键）请将所有需要导出为Excel的行的id列出来
+ bin_store: 仓库
+ ku_wei_shu_xing: 储位类型
+ ku_wei_shu_xing_example: 常温
+ ku_wei_bian_ma: 储位
+ shang_jia_ci_xu: 上架次序
+ gao: 高度CM
+ chang: 长度CM
+ kuan: 宽度CM
+ zui_da_ti_ji: 最大体积
+ zui_da_tuo_pan: 最大托盘
+ bin_store_example: 1仓库
+ suo_shu_ke_hu: 所属客户
+
+
+chuwei: 
+ id: 唯一标识
+ get: 
+  summary: 获取储位列表（条件+分页）
+ modify: 
+  summary: 修改储位
+ delete: 
+  summary: 删除储位（支持批量删除）
+ field: 
+  store: 仓库
+  store_code: 库位编码
+  store_barcode: 库位条码
+  store_type: 库位类型
+  store_attribute: 库位属性
+  x_axis: x轴
+  y_axis: y轴
+  z_axis: z轴
+  goods_type: 商品属性
+  customer: 所属客户
+  state: 停用
+  notes: 备注
+  notes1: 备注1
+  notes2: 备注2
+  store: 仓库
+  store_code: 库位编码
+  store_barcode: 库位条码
+  store_type: 库位类型
+  store_attribute: 库位属性
+  x_axis: x轴
+  y_axis: y轴
+  z_axis: z轴
+  goods_type: 商品属性
+  customer: 所属客户
+  state: 停用
+  notes: 备注
+  notes1: 备注1
+  notes2: 备注2
+ add: 
   summary: 录入储位
   kehu: 所属客户
   kuweibianma: 库位编码
@@ -167,58 +234,79 @@ chuwei:
   y_node: y坐标
   z_node: z坐标
 
-bin:
- xlsx:
-  summary: 导出可用储位
-  filename: 可用储位报表.xlsx
-  sheet:
-   s1: 导出信息
- list:
-  summary: 获取可用储位列表（条件+分页）
- file_path: xlsx文件的导出路径
- id: 唯一id（主键）
- ids : 唯一id（主键）请将所有需要导出为Excel的行的id列出来
- bin_store: 仓库
- # ku_wei_lei_xing: 库位类型
- ku_wei_shu_xing: 储位类型
- ku_wei_shu_xing_example: 常温
- ku_wei_bian_ma: 储位
- shang_jia_ci_xu: 上架次序
- gao: 高度CM
- chang: 长度CM
- kuan: 宽度CM
- zui_da_ti_ji: 最大体积
- zui_da_tuo_pan: 最大托盘
- bin_store_example: 1仓库
- # ku_wei_lei_xing_example: 存储储位
- suo_shu_ke_hu: 所属客户
- # ku_wei_bian_ma: 库位编码
- # ku_wei_tiao_ma: 库位条码
- # chp_shu_xing: 产品属性
- # xnode: x坐标
- # ynode: y坐标
- # znode: z坐标
 
-chuwei: 
+kongchuwei:
+ get: 获得空储位列表
+ quary:
+  id: 唯一标识
+  bin_store: 仓库
+  chp_shu_xing: 产品属性
+  suo_shu_ke_hu: 所属客户
+  zui_da_ti_ji: 最大体积
+  shang_jia_ci_XU: 上架次序
+  chang: 长度
+  kuan: 宽度
+  gao: 高度
+  zui_da_tuo_pan: 最大托盘
+  zhuang_tai: 是否停用
+  ku_wei_lei_xing: 库位类型
+  chuweishuxing: 储位属性
+  chuweibaima: 储位编码
+  item: 转移项
+
+
+excel:
+ sheet:
+  s1: 数据表1
+  s2: 数据表2
+ header:
+  h1: 表头1
+  h2: 表头2
+  h3: 表头3
+  h4: 表头4
+  h5: 表头5
+ content:
+  info: 坐标
+
+Chuwei: 
  id: 唯一标识
+ ids: ids
  get: 
   summary: 获取储位列表（条件+分页）
  modify: 
   summary: 修改储位
+  success: 修改成功
+  empty: 请选择要编辑的项目
+  fail: 修改失败
  delete: 
-  summary: 删除储位（支持批量删除）
+  summary: 通过单个id删除储位
+  batch_summary: 批量删除储位
+  success: 成功删除全部ID
+  fail: 所有删除操作失败
+  partly_success: 部分ID删除成功
  field: 
-  store: 仓库
-  store_code: 库位编码
-  store_barcode: 库位条码
-  store_type: 库位类型
-  store_attribute: 库位属性
-  x_axis: x轴
-  y_axis: y轴
-  z_axis: z轴
-  goods_type: 商品属性
-  customer: 所属客户
-  state: 停用
-  notes: 备注
-  notes1: 备注1
-  notes2: 备注2
+  bin_store: 仓库
+  ku_wei_bian_ma: 库位编码
+  ku_wei_tiao_ma: 库位条码
+  ku_wei_lei_xing: 库位类型
+  store_type1: 是/否
+  ku_wei_shu_xing: 库位属性
+  xnode: x坐标
+  ynode: y坐标
+  znode: z坐标
+  CHP_SHU_XING: 产品属性
+  shang_jia_ci_xu: 上架次序
+  qu_huo_ci_xu: 取货次序
+  suo_shu_ke_hu: 所属客户
+  zui_da_ti_ji: 最大体积
+  zui_da_zhong_liang: 最大重量
+  zui_da_tuo_pan: 最大托盘
+  chang: 长度
+  kuan: 宽度
+  gao: 高度
+  ting_yong: 停用
+  ming_xi: 备注
+  ming_xi1: 备注1
+  ming_xi2: 备注2
+  ming_xi3: 动线
+  LORA_bqid: 电子标签ID

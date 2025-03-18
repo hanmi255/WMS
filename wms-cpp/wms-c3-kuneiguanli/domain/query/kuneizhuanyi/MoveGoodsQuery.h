@@ -6,8 +6,8 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 分页查询转移任务列表
- */
+* 分页查询转移任务列表
+*/
 class MoveGoodsQuery : public PageQuery {
 	DTO_INIT(MoveGoodsQuery, PageQuery);
 	// 转移任务ID
@@ -78,14 +78,36 @@ class MoveGoodsQuery : public PageQuery {
 };
 
 /**
- * 查询转移任务基础信息
- */
+* 查询转移任务基础信息
+*/
 class MoveGoodsBaseQuery : public PageQuery {
 	DTO_INIT(MoveGoodsBaseQuery, PageQuery);
 	// 转移任务ID
+<<<<<<< HEAD
 	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("movegoods.field.id");
+=======
+	DTO_FIELD(oatpp::List<oatpp::String>, items);
+	DTO_FIELD_INFO(items) {
+		info->description = ZH_WORDS_GETTER("move-goods.field.items");
+	}
+};
+
+// 查询导出转移任务
+class MoveGoodsExcelQuery : public oatpp::DTO
+{
+	DTO_INIT(MoveGoodsExcelQuery, DTO);
+
+	DTO_FIELD(String, file_path);
+	DTO_FIELD_INFO(file_path) {
+		info->description = ZH_WORDS_GETTER("move-goods.field.file_path");
+	}
+
+	DTO_FIELD(String, ids);
+	DTO_FIELD_INFO(ids) {
+		info->description = ZH_WORDS_GETTER("move-goods.field.id");
+>>>>>>> 05f7ec7fb45d4bc1f52eea780440c95f076c61f0
 	}
 };
 

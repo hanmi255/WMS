@@ -8,11 +8,11 @@
 
 
 //唯一标识
-class weiyibaioshi :public oatpp::DTO
+class daochuchuweiDTO :public oatpp::DTO
 {
-	DTO_INIT(weiyibaioshi, DTO);
+	DTO_INIT(daochuchuweiDTO, DTO);
 	//标识
-	DTO_FIELD(String, biaoshi);
+	DTO_FIELD(List<String>, biaoshi);
 	DTO_FIELD_INFO(biaoshi)
 	{
 		info->description= ZH_WORDS_GETTER("chuweixiangxixinxi.bs.bioashi");
@@ -21,19 +21,13 @@ class weiyibaioshi :public oatpp::DTO
 
 
 //详细信息
-class xiangxixinxi : public weiyibaioshi
+class xiangxixinxiDTO : public oatpp::DTO
 {
-	DTO_INIT(xiangxixinxi, weiyibaioshi);
+	DTO_INIT(xiangxixinxiDTO, DTO);
 	// 仓库
 	DTO_FIELD(String, cangku);
 	DTO_FIELD_INFO(cangku) {
 		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.cangku");
-	}
-
-	//所属客户
-	DTO_FIELD(String, kehu);
-	DTO_FIELD_INFO(kehu) {
-		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.kehu");
 	}
 
 	// 库位编码
@@ -41,6 +35,7 @@ class xiangxixinxi : public weiyibaioshi
 	DTO_FIELD_INFO(bianma) {
 		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.bianma");
 	}
+
 
 	// 库位条码
 	DTO_FIELD(String, tiaoma);
@@ -54,13 +49,13 @@ class xiangxixinxi : public weiyibaioshi
 		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.leixing");
 	}
 
-	// 库位属性
+	// 库位属性5
 	DTO_FIELD(String, shuxing);
 	DTO_FIELD_INFO(shuxing) {
 		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.shuxing");
 	}
 
-	//产品属性
+	//产品属性6
 	DTO_FIELD(String, chanpinshuxing);
 	DTO_FIELD_INFO(chanpinshuxing) {
 		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.chanpinshuxing");
@@ -72,10 +67,47 @@ class xiangxixinxi : public weiyibaioshi
 		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.shangjiacixu");
 	}
 
-	// 取货次序
+	// 取货次序 8
 	DTO_FIELD(String, quhuocixu);
 	DTO_FIELD_INFO(quhuocixu) {
 		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.quhuocixu");
+	}
+
+	//所属客户
+	DTO_FIELD(String, kehu);
+	DTO_FIELD_INFO(kehu) {
+		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.kehu");
+	}
+
+	//最大面积
+	DTO_FIELD(String, zuidamianji);
+	DTO_FIELD_INFO(zuidamianji) {
+		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.zuidamianji");
+	}
+
+	// 体积单位
+	DTO_FIELD(String, tiji);
+	DTO_FIELD_INFO(tiji) {
+		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.tiji");
+	}
+
+
+	// 重量单位
+	DTO_FIELD(String, zhongliang);
+	DTO_FIELD_INFO(zhongliang) {
+		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.zhongliang");
+	}
+
+	// 面积单位
+	DTO_FIELD(String, mianji);
+	DTO_FIELD_INFO(mianji) {
+		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.minaji");
+	}
+
+	// 最大体积14
+	DTO_FIELD(String, zuidatiji);
+	DTO_FIELD_INFO(zuidatiji) {
+		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.zuidatiji");
 	}
 
 	// 最大重量
@@ -90,7 +122,7 @@ class xiangxixinxi : public weiyibaioshi
 		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.zuidatupan");
 	}
 
-	// 长
+	// 长17
 	DTO_FIELD(String, chang);
 	DTO_FIELD_INFO(chang) {
 		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.chang");
@@ -114,11 +146,7 @@ class xiangxixinxi : public weiyibaioshi
 		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.tingyong");
 	}
 
-	// 最大体积
-	DTO_FIELD(String, zuidatiji);
-	DTO_FIELD_INFO(zuidatiji) {
-		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.zuidatiji");
-	}
+
 
 	// 备注
 	DTO_FIELD(String, beizhu);
@@ -150,29 +178,6 @@ class xiangxixinxi : public weiyibaioshi
 		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.ID");
 	}
 
-	// 体积单位
-	DTO_FIELD(String, tiji);
-	DTO_FIELD_INFO(tiji) {
-		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.tiji");
-	}
-
-	// 重量单位
-	DTO_FIELD(String, zhongliang);
-	DTO_FIELD_INFO(zhongliang) {
-		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.zhongliang");
-	}
-
-	// 面积单位
-	DTO_FIELD(String, mianji);
-	DTO_FIELD_INFO(mianji) {
-		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.minaji");
-	}
-
-	//最大面积
-	DTO_FIELD(String, zuidamianji);
-	DTO_FIELD_INFO(zuidamianji) {
-		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.zuidamianji");
-	}
 
 	//x坐标
 	DTO_FIELD(String, x);
@@ -192,6 +197,7 @@ class xiangxixinxi : public weiyibaioshi
 		info->description = ZH_WORDS_GETTER("chuweixiangxixinxi.xinxi.z");
 	}
 };
+
 
 
 

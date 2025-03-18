@@ -6,29 +6,29 @@
 #include OATPP_CODEGEN_BEGIN(DTO)
 
 /**
- * 显示JsonVO
- */
+* 显示JsonVO
+*/
 class MoveGoodsJsonVO : public JsonVO<MoveGoodsDTO::Wrapper> {
 	DTO_INIT(MoveGoodsJsonVO, JsonVO<MoveGoodsDTO::Wrapper>);
 };
 
 /**
- * 分页显示JsonVO
- */
+* 分页显示JsonVO
+*/
 class MoveGoodsPageJsonVO : public JsonVO<MoveGoodsPageDTO::Wrapper> {
 	DTO_INIT(MoveGoodsPageJsonVO, JsonVO<MoveGoodsPageDTO::Wrapper>);
 };
 
 /**
- * 详细显示JsonVO
- */
+* 详细显示JsonVO
+*/
 class MoveGoodsDetailedJsonVO : public JsonVO<MoveGoodsDetailedDTO::Wrapper> {
 	DTO_INIT(MoveGoodsDetailedJsonVO, JsonVO<MoveGoodsDetailedDTO::Wrapper>);
 };
 
 /**
- * 导出JsonVO
- */
+* 导出JsonVO
+*/
 class MoveGoodsDownLoadJsonVO : public JsonVO<MoveGoodsDownLoadDTO::Wrapper> {
 	DTO_INIT(MoveGoodsDownLoadJsonVO, JsonVO<MoveGoodsDownLoadDTO::Wrapper>);
 };

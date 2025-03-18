@@ -22,7 +22,6 @@ public:
         // 定义其他查询参数描述
         API_DEF_ADD_QUERY_PARAMS(String, "bin_store", ZH_WORDS_GETTER("store.field.bin_store"), "1", false);
         API_DEF_ADD_QUERY_PARAMS(String, "ku_wei_bian_ma", ZH_WORDS_GETTER("store.field.ku_wei_bian_ma"), "123", false);
-        API_DEF_ADD_QUERY_PARAMS(String, "other", ZH_WORDS_GETTER("store.field.other"), "123", false);
         API_DEF_ADD_QUERY_PARAMS(String, "znode", ZH_WORDS_GETTER("store.field.znode"), "123", false);
         API_DEF_ADD_QUERY_PARAMS(String, "xnode", ZH_WORDS_GETTER("store.field.xnode"), "123", false);
         API_DEF_ADD_QUERY_PARAMS(String, "ynode", ZH_WORDS_GETTER("store.field.ynode"), "123", false);

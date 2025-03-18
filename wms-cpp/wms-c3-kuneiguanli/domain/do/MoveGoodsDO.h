@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _MOVEGOODS_DO_
+#define _MOVEGOODS_DO_
 #include "domain/do/DoInclude.h"
 
 class MoveGoodsDO {
@@ -68,3 +70,6 @@ public:
 		run_sta = "";
 	}
 };
+
+typedef std::shared_ptr<MoveGoodsDO> PtrMoveGoodsDO;
+#endif // !_MOVEGOODS_DO_

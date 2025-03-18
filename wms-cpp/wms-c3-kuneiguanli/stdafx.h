@@ -25,6 +25,9 @@
 #define STDAFX_H
 
 #ifndef LINUX
+// 在定义_HAS_STD_BYTE前导入需要用到类型的头
+#include "id/UuidFacade.h"
+
 // 解决std::byte类型重定义
 #define _HAS_STD_BYTE 0
 // 添加要在此处预编译的标头

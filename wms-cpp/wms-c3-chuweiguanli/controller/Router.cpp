@@ -35,9 +35,10 @@
 #include "tuopandingyi/TuopanController.h"
 #include "cangkudingyi/CangKuDingYiController.h"
 #include "tuopandingyi/TPController.h"
-#include "./chuweidingyi/chuweixaingxixinxidaorudaochuCONTROLLER.h"
 #include "controller/chuweidingyi/ChuWeiController.h"
 #include "controller/chuweidingyi/ChuWeiDingYiController.h"
+#include "kongchuwei/GetKongChuWeiListMycontroller.h"
+#include "controller/chuweidingyi/chuweixaingxixinxidaorudaochuCONTROLLER.h"
 
 // 如果定义了关闭Swagger文档宏
 #ifdef CLOSE_SWAGGER_DOC
@@ -66,13 +67,14 @@ void Router::initRouter()
 	ROUTER_SIMPLE_BIND(ChuWeiDingYiController);
 	ROUTER_SIMPLE_BIND(DaoChuKongChuWeiController);
 	ROUTER_SIMPLE_BIND(HuoQuCangWeiShuJuController);	
-	ROUTER_SIMPLE_BIND(apixiangxixinxi);
 	ROUTER_SIMPLE_BIND(CangKuDingYiController);
 	ROUTER_SIMPLE_BIND(TuopanController);	
 	ROUTER_SIMPLE_BIND(TPController);
 	ROUTER_SIMPLE_BIND(StoreController);
 	ROUTER_SIMPLE_BIND(BinController);
 	ROUTER_SIMPLE_BIND(ChuWeiController);
+	ROUTER_SIMPLE_BIND(GetKongChuWeiListMycontroller);
+	ROUTER_SIMPLE_BIND(apixiangxixinxi);
 }
 	
 #ifdef HTTP_SERVER_DEMO

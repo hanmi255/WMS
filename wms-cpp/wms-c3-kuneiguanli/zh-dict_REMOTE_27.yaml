@@ -1,0 +1,122 @@
+tuopanzhuanyi:
+ query-all:
+  summary: 查询所有可转移任务
+ field:
+  op: 操作
+  movedate: 移动日期
+  kuctype: 库存类型
+  id: 储位
+  bin_id: 托盘
+  cus_code: 货主
+  zhong_wen_qch: 货主名称
+  goods_id: 商品编码
+  goods_qua: 商品数量
+  shp_ming_cheng: 商品名称
+  goods_pro_date: 生产日期
+  bzhi_qi: 保质期
+  goods_unit: 单位
+
+move-goods:
+ get:
+  summary: 分页获取转移任务
+ getdetailed:
+  summary: 获取转移任务详细信息
+ getdownload:
+  summary: 库内转移-导出数据 
+ put:
+  modify:
+   summary: 修改转移任务
+  batch:
+   summary: 批量转移任务
+ delete:
+  move-sta:
+   del: 已删除
+  batch: 
+   summary: 批量删除转移任务
+ field:
+  create-by: 创建人登录名称
+  create-date: 创建日期
+  order-id-i: 原始单据行项目
+  id: 转移任务ID
+  items: 转移项
+  goods-id: 商品编码
+  goods-name: 商品名称
+  cus-code: 客户编码
+  cus-name: 客户名称
+  to-cus-code: 转移客户
+  to-cus-name: 转移客户名称
+  tin-from: 源托盘
+  tin-id: 到托盘
+  bin-from: 源储位
+  bin-to: 到储位
+  move-sta: 状态
+  run-sta: 执行状态
+  move-num: 移动数量
+  produce-date: 生产日期
+  to-produce-date: 到生产日期
+  goods-unit: 单位
+  goods-base-unit: 基本单位
+  now-num: 现有数量
+  down-load-move-goods: 导出转移任务文件
+  file-path: xlsx导出路径
+ xlsx:
+  sheet:
+   s1: 导出信息
+
+assignment: 
+ get:
+  tin:
+   summary: 分页获取托盘可转移列表  
+  bin:
+   summary: 分页获取储位可转移列表  
+ put:
+  tin:
+   modify:
+    summary: 生成托盘转移任务(支持批量)
+  bin:
+   modify:
+    summary: 生成储位转移任务(支持批量)
+ field:
+  id: 唯一标识
+  move-date: 移动日期
+  to-move-date: 到移动日期
+  inventory-type: 库存类型
+  bin: 储位
+  tin: 托盘
+  cus-code: 货主
+  cus-name: 货主名称
+  goods-id: 商品编码
+  goods-num: 商品数量
+  goods-name: 商品名称
+  produce-date: 生产日期
+  to-produce-date: 到生产日期
+  produce-shelf-life: 保质期
+  produce-unit: 单位
+  move-sta: 状态
+  bin-to: 转移托盘
+  iteams: 转移项
+
+guanli:
+ task:
+  get: 获取任务列表
+  data: 理货任务-导出数据
+output:
+ con:
+  inventoryType: 库内类型
+  goods_qua: 数量
+  shl_dan_wei: 单位
+  base_goodscount: 基本单位数量
+  base_unit: 基本单位
+  bin: 储位
+  cusCode: 货主
+  cusName: 货主名称
+  commodity: 商品
+  shp_ming_cheng: 商品名称
+  goods_pro_data : 生产日期
+  bzhi_qi: 保质期
+  to_goods_pro_data: 到期日
+  bin_store: 仓库
+  tin: 托盘
+  lihuo: 理货任务
+
+     

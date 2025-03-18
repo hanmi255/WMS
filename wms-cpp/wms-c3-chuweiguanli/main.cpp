@@ -40,8 +40,8 @@ void parseServerArgs(int argc, char* argv[]) {
 	// 数据库连接信息
 	std::string dbUsername = "root";
 	std::string dbPassword = "123456";
-	std::string dbName = "test";
-	std::string dbHost = "192.168.220.128";
+	std::string dbName = "jeewms";
+	std::string dbHost = "192.168.44.167";
 	int dbPort = 3306;
 	int dbMax = 5;
 #ifdef LINUX

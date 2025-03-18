@@ -13,7 +13,7 @@ class CangkuNameListDTO : public oatpp::DTO
 	DTO_INIT(CangkuNameListDTO, DTO);
 
 	//	²Ö¿âID
-	DTO_FIELD(Int64, id);
+	DTO_FIELD(String, id);
 	DTO_FIELD_INFO(id) {
 		info->description = ZH_WORDS_GETTER("Cangku.info.id");
 	}
