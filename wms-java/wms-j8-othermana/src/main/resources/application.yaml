@@ -1,0 +1,5 @@
+server:
+  port: ${sp.othermana}
+spring:
+  application:
+    name: ${sn.othermana}

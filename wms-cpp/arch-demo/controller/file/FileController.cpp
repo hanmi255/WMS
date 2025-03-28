@@ -28,10 +28,10 @@
 
 StringJsonVO::Wrapper FileController::execUploadOne(std::shared_ptr<IncomingRequest> request)
 {
-	// 1 初始化-----容器名字，读取容器变量名
+	// 1 初始化
 	API_MULTIPART_INIT(container, reader);
 
-	// 2 配置读取器----------读取器，-1默认读取全部
+	// 2 配置读取器
 	API_MULTIPART_CONFIG_MEMO_DEFAULT(reader, -1);
 	//API_MULTIPART_CONFIG_MEMO(reader, "file", -1);
 	//API_MULTIPART_CONFIG_MEMO(reader, "nickname", -1);
@@ -44,16 +44,14 @@ StringJsonVO::Wrapper FileController::execUploadOne(std::shared_ptr<IncomingRequ
 
 	// 4 解析数据
 	/* TODO: 解析的数据具体逻辑，需要根据你的业务需求来，下面是使用示例而已。 */
-	/* 获取表单数据 *///--------------容器名，字段名，存储变量名称
-	API_MULTIPART_PARSE_FORM_FIELD_STR(container, "nickname", nickname);//解析字符串类型表单
+	/* 获取表单数据 */
+	API_MULTIPART_PARSE_FORM_FIELD_STR(container, "nickname", nickname);
 	API_MULTIPART_PARSE_FORM_FIELD_NUM(container, "age", Int32, age, stoi);
 	/* 打印表单数据 */
-	//														--------返回值 or 空返回默认值
 	if (nickname) OATPP_LOGD("Multipart", "nickname='%s'", nickname.getValue({}).c_str());
 	if (age) OATPP_LOGD("Multipart", "age=%d", age.getValue({}));
 	/* 获取文件数据 */
 	API_MULTIPART_PARSE_FILE_FIELD(container, "file", file);
-
 	if (file)
 	{
 		/* 打印文件名称 */
@@ -75,7 +73,6 @@ StringJsonVO::Wrapper FileController::execUploadOne(std::shared_ptr<IncomingRequ
 		// 上传文件
 		string downloadUrl = dfs.uploadFile(file->data(), file->size(), suffix);
 		downloadUrl = urlPrefix + downloadUrl;
-		/* 打印下载地址 */
 		OATPP_LOGD("Multipart", "download url='%s'", downloadUrl.c_str());
 	}
 

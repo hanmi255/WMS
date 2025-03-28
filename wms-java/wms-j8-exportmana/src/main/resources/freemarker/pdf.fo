@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format"
+         xmlns:fox="http://xmlgraphics.apache.org/fop/extensions"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:xe="http://www.x-easypdf.cn/ns">
+    <fo:layout-master-set>
+        <fo:simple-page-master master-name="A4" page-width="21cm" page-height="29.7cm">
+            <fo:region-body margin="2cm"/>
+        </fo:simple-page-master>
+    </fo:layout-master-set>
+
+    <fo:page-sequence font-family="微软雅黑" master-reference="A4">
+        <fo:flow flow-name="xsl-region-body">
+
+            <!-- 系统名称、日期和二维码 -->
+            <fo:block font-size="12pt" space-after="5mm">
+                <fo:table table-layout="fixed" width="100%">
+                    <fo:table-column column-width="55%"/>
+                    <fo:table-column column-width="45%"/>
+                    <fo:table-body>
+                        <fo:table-row>
+                            <!-- 左侧系统名称 -->
+                            <fo:table-cell display-align="center" height="20mm">
+                                <fo:block vertical-align="bottom" text-align="center">仓储管理系统</fo:block>
+                            </fo:table-cell>
+                            <!-- 右侧日期和二维码 -->
+                            <fo:table-cell>
+                                <fo:block text-align="right">
+                                    <fo:inline vertical-align="bottom">日期：${date}</fo:inline>
+                                    <fo:instream-foreign-object
+                                            vertical-align="bottom"
+                                            margin-left="5mm"
+                                            margin-bottom="1mm">
+                                        <xe:barcode
+                                                content="${orderNumber}"
+                                                type="qr_code"
+                                                width="18mm"
+                                                height="18mm"
+                                                error-level="M"/>
+                                    </fo:instream-foreign-object>
+                                </fo:block>
+                            </fo:table-cell>
+                        </fo:table-row>
+                    </fo:table-body>
+                </fo:table>
+            </fo:block>
+
+            <fo:block font-size="12pt" space-after="5mm">
+                <fo:table table-layout="fixed" width="100%">
+                    <fo:table-column column-width="50%"/>
+                    <fo:table-column column-width="50%"/>
+                    <fo:table-body>
+                        <fo:table-row>
+                            <!-- 左侧系统名称 -->
+                            <fo:table-cell text-align="center">
+                                <fo:block>波次拣货单</fo:block>
+                            </fo:table-cell>
+                            <!-- 右侧日期和二维码 -->
+                            <fo:table-cell>
+                                <!-- 其余内容保持原样 -->
+                                <fo:block font-size="12pt" space-after="5mm">
+                                    波次拣货单号：${orderNumber}
+                                </fo:block>
+                            </fo:table-cell>
+                        </fo:table-row>
+                    </fo:table-body>
+                </fo:table>
+            </fo:block>
+
+            <!-- 数据表格 -->
+            <fo:table table-layout="fixed" width="100%" border="1pt solid black">
+
+                <!-- 优化后的列宽分配 -->
+                <fo:table-column column-width="18%"/>  <!-- 储位（含长编码） -->
+                <fo:table-column column-width="12%"/>  <!-- 商品（短名称） -->
+                <fo:table-column column-width="6%"/>   <!-- 单位（空列） -->
+                <fo:table-column column-width="15%"/>  <!-- 生产日期（日期格式） -->
+                <fo:table-column column-width="7%"/>   <!-- 数量（数字） -->
+                <fo:table-column column-width="7%"/>   <!-- 货主（编码） -->
+                <fo:table-column column-width="7%"/>   <!-- 备注（数字） -->
+                <fo:table-column column-width="7%"/>   <!-- 托盘（字母） -->
+                <fo:table-column column-width="21%"/>  <!-- 二维码（需要更多空间） -->
+
+                <fo:table-header>
+                    <fo:table-row border="1 solid black">
+                        <!-- 表头单元格增加padding控制 -->
+                        <fo:table-cell border="1 solid black" padding="2pt" text-align="center">
+                            <fo:block font-size="10pt">储位</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center"><fo:block>商品</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center"><fo:block>单位</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center"><fo:block>生产日期</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center"><fo:block>数量</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center"><fo:block>货主</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center"><fo:block>备注</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center"><fo:block>托盘</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center"><fo:block>二维码</fo:block></fo:table-cell>
+                    </fo:table-row>
+                </fo:table-header>
+
+                <fo:table-body>
+                    <fo:table-row border="1 solid black" >
+                        <fo:table-cell border="1 solid black" text-align="center" ><fo:block vertical-align="middle" text-align="center">${location}</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center" ><fo:block vertical-align="middle" text-align="center">${product}</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center"><fo:block vertical-align="middle" text-align="center">${unit}</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center"><fo:block vertical-align="middle" text-align="center">${productionDate}</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center"><fo:block vertical-align="middle" text-align="center">${quantity}</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center"><fo:block vertical-align="middle" text-align="center">${owner}</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center"><fo:block vertical-align="middle" text-align="center">${remark}</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center"><fo:block vertical-align="middle" text-align="center">${pallet}</fo:block></fo:table-cell>
+                        <fo:table-cell border="1 solid black" text-align="center">
+                            <fo:block>
+                                <fo:instream-foreign-object>
+                                    <xe:barcode content="${keywords}" height="40px" type="qr_code" width="40px" />
+                                </fo:instream-foreign-object>
+
+                            </fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </fo:table-body>
+            </fo:table>
+
+            <!-- 签名区域 -->
+            <fo:block space-before="5mm">
+                <fo:table table-layout="fixed" width="100%">
+                    <fo:table-column column-width="25%"/>
+                    <fo:table-column column-width="25%"/>
+                    <fo:table-column column-width="25%"/>
+                    <fo:table-column column-width="25%"/>
+                    <fo:table-body>
+                        <fo:table-row>
+                            <fo:table-cell><fo:block>主管：<fo:leader leader-pattern="space"/></fo:block></fo:table-cell>
+                            <fo:table-cell><fo:block>制单：<fo:leader leader-pattern="space"/></fo:block></fo:table-cell>
+                            <fo:table-cell><fo:block>仓管：<fo:leader leader-pattern="space"/></fo:block></fo:table-cell>
+                            <fo:table-cell><fo:block>叉车：<fo:leader leader-pattern="space"/></fo:block></fo:table-cell>
+                        </fo:table-row>
+                    </fo:table-body>
+                </fo:table>
+            </fo:block>
+        </fo:flow>
+    </fo:page-sequence>
+</fo:root>

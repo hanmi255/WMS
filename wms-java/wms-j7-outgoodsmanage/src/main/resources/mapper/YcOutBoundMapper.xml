@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.outgoodsmanage.mapper.YcOutBoundMapper">
+    <select id="selectYcOutBoundDTO" resultType="com.zeroone.star.project.dto.j7.ycoutbound.YcOutBoundDTO">
+        SELECT
+        h.om_notice_id,
+        h.im_cus_code,
+        h.ocus_code,
+        h.ocus_name,
+        h.om_beizhu,
+        i.goods_id,
+        i.goods_name,
+        i.base_goodscount,
+        i.base_unit,
+        i.plan_sta,
+        COALESCE(SUM(qm.base_goodscount), 0) AS thirdGoodsCount
+        FROM
+        wm_om_notice_i i
+        JOIN wm_om_notice_h h ON i.om_notice_id = h.om_notice_id
+        LEFT JOIN wm_om_qm_i qm ON i.id = qm.iom_notice_item
+        <where>
+            ${ew.sqlSegment}
+        </where>
+        GROUP BY
+        i.id,
+        h.om_notice_id,
+        h.im_cus_code,
+        h.ocus_code,
+        h.ocus_name,
+        h.om_beizhu,
+        i.goods_id,
+        i.goods_name,
+        i.base_goodscount,
+        i.base_unit,
+        i.plan_sta
+    </select>
+
+    <select id="getPageSize" resultType="java.lang.Long">
+        SELECT count(*)
+        FROM
+            wm_om_notice_i i
+        JOIN wm_om_notice_h h ON i.om_notice_id = h.om_notice_id
+        LEFT JOIN wm_om_qm_i qm ON i.id = qm.iom_notice_item
+    </select>
+</mapper>

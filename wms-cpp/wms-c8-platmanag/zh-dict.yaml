@@ -1,0 +1,47 @@
+def:
+    del:
+        description: 月台删除
+        id: 月台id
+    put:
+        description: 月台导出
+        code: 月台代码
+        name: 月台名称
+        data: 月台数据
+        putter: 导出人
+    edit:
+        id: 要修改的月台id
+        code: 修改后的月台代码
+        description: 月台修改
+        name: 修改后的月台名  
+plc:
+    file:
+        id: 唯一ID
+        plcport: PLC端口
+        plctype: PLC型号
+        remark: 指令备注
+        time: 执行时间
+        seq: 执行顺序
+        insset: 指令集
+        standby: 备用1
+        number: 指令编号
+        sys1: 单步参数1
+        sys2: 单步参数2
+        steptime: 单步时间
+        step: 步数
+    query: 
+        type1: PLC型号1
+        type2: PLC型号2
+        remark1: 指令备注1
+        remark2: 指令备注2
+        com_no: 指令编号
+    query-all:
+        summary: 查询所有指令
+        detail: 查看详情
+        add: 录入PLC指令
+        edit: 修改PLC指令
+        delete: 删除
+        uploadfiles: 上传excel多文件
+        downloadfile: 文件下载
+        filename: PLC指令
+
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.baseConfig.mapper.MeasurementUnitMapper">
+
+    <!--    获取计量单位列表（条件+分页）-->
+    <select id="queryMeasurementUnitList" parameterType="com.zeroone.star.project.query.j4.measurementUnit.MeasurementListQuery"
+            resultType="com.zeroone.star.project.vo.j4.measurementUnit.MeasurementUnitVO">
+        SELECT
+        id,
+        create_name as createName,
+        create_by as createBy,
+        create_date as createDate,
+        update_name as updateName,
+        update_by as updateBy,
+        update_date as updateDate,
+        sys_org_code as sysOrgCode,
+        sys_company_code as sysCompanyCode,
+        unit_code as unitCode,
+        unit_zh_name as unitZhName,
+        unit_en_name as unitEnName,
+        unit_change as unitChange,
+        unit_type as unitType,
+        unit_del as unitDel
+        FROM ba_unit
+        WHERE 1=1
+        <if test="unitCode != null and unitCode != ''">
+            AND unit_code LIKE CONCAT('%', #{unitCode}, '%')
+        </if>
+        <if test="unitZhName != null and unitZhName != ''">
+            AND unit_zh_name LIKE CONCAT('%', #{unitZhName}, '%')
+        </if>
+        <if test="unitEnName != null and unitEnName != ''">
+            AND unit_en_name LIKE CONCAT('%', #{unitEnName}, '%')
+        </if>
+        ORDER BY create_date DESC
+        LIMIT #{pageSize} OFFSET #{pageIndex}
+    </select>
+
+    <!-- 获取计量单位名称列表 -->
+    <select id="queryMeasurementUnitNameList" parameterType="String" resultType="String">
+        SELECT 
+            unit_zh_name as unitZhName
+        FROM ba_unit
+        WHERE 1=1
+        <if test="unitZhName != null and unitZhName != ''">
+            AND unit_zh_name LIKE CONCAT('%', #{unitZhName}, '%')
+        </if>
+        ORDER BY unit_zh_name
+    </select>
+
+    <!-- 获取总记录数 -->
+    <select id="countTotal" resultType="long">
+        SELECT COUNT(1)
+        FROM (
+            SELECT DISTINCT id
+            FROM ba_unit
+            WHERE 1=1
+            <if test="unitCode != null and unitCode != ''">
+                AND unit_code LIKE CONCAT('%', #{unitCode}, '%')
+            </if>
+            <if test="unitZhName != null and unitZhName != ''">
+                AND unit_zh_name LIKE CONCAT('%', #{unitZhName}, '%')
+            </if>
+            <if test="unitEnName != null and unitEnName != ''">
+                AND unit_en_name LIKE CONCAT('%', #{unitEnName}, '%')
+            </if>
+        ) t
+    </select>
+</mapper>

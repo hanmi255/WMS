@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.daycheck.mapper.YichangDownMapper">
+
+    <resultMap id="yichangDownResultMap" type="com.zeroone.star.daycheck.entity.YichangDown">
+        <result property="create_date" column="create_date" />
+        <result property="create_name" column="create_name" />
+        <result property="update_name" column="update_name" />
+        <result property="ku_wei_bian_ma" column="ku_wei_bian_ma" />
+        <result property="bin_id_from" column="bin_id_from" />
+        <result property="bin_id_to" column="bin_id_to" />
+        <result property="cus_code" column="cus_code" />
+        <result property="sys_company_code" column="sys_company_code" />
+        <result property="goods_id" column="goods_id" />
+        <result property="shp_ming_cheng" column="shp_ming_cheng" />
+        <result property="goods_pro_data" column="goods_pro_data" />
+        <result property="base_unit" column="base_unit" />
+        <result property="goods_qua" column="goods_qua" />
+        <result property="goods_quaok" column="goods_quaok" />
+        <result property="zhong_wen_qch" column="zhong_wen_qch" />
+    </resultMap>
+
+    <!-- 分页查询 -->
+    <select id="getYichangDownPage" resultMap="yichangDownResultMap">
+        SELECT * FROM wm_to_down_goods wtdg
+        LEFT JOIN md_goods ON wtdg.goods_id = md_goods.shp_bian_ma
+        LEFT JOIN md_cus ON wtdg.sys_company_code = md_cus.sys_company_code
+        <where>
+            <if test="query.bin_id != null">
+                AND wtdg.bin_id_from = #{query.bin_id}
+            </if>
+            <if test="query.zhong_wen_qch != null">
+                AND md_cus.zhong_wen_qch = #{query.zhong_wen_qch}
+            </if>
+            <if test="query.ku_wei_bian_ma != null">
+                AND wtdg.ku_wei_bian_ma = #{query.ku_wei_bian_ma}
+            </if>
+            <if test="query.update_name != null">
+                AND wtdg.update_name = #{query.update_name}
+            </if>
+            <if test="query.create_name != null">
+                AND wtdg.create_name = #{query.create_name}
+            </if>
+            <if test="query.create_date != null">
+                AND DATE(wtdg.create_date) = DATE(#{query.create_date})
+            </if>
+
+            AND wtdg.goods_qua != wtdg.goods_quaok
+
+        </where>
+    </select>
+
+</mapper>

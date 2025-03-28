@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.outgoodsmanage.mapper.LoadCheckMapper">
+
+    <update id="updateBatchCheck">
+        <foreach collection="checkDTOs" item="checkDTO" separator=";">
+        UPDATE wm_to_down_goods AS a
+        JOIN wm_om_notice_h AS b ON a.order_id = b.om_notice_id
+        SET
+            a.goods_quaok = #{checkDTO.goodsQuaok},
+            a.update_by = NOW(),
+            b.update_date = NOW(),
+            b.om_sta = '复核完成'
+        WHERE a.id = #{checkDTO.id}
+        </foreach>
+    </update>
+
+</mapper>

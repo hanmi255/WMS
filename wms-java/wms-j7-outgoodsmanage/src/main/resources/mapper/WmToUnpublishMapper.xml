@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.outgoodsmanage.mapper.WmToUnpublishMapper">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, create_name, create_by, create_date, update_name, update_by, update_date, 
+        sys_org_code, sys_company_code, goods_id, goods_qua, goods_quaok, order_id, 
+        order_id_i, order_type, goods_unit, goods_pro_data, goods_batch, act_type_code, 
+        ku_wei_bian_ma, bin_id_to, bin_id_from, cus_code, down_sta, base_unit, 
+        base_goodscount, goods_name, im_cus_code, om_bei_zhu
+    </sql>
+    
+    <!-- 分页查询下架列表 -->
+    <select id="selectUnpublishList" resultType="com.zeroone.star.project.dto.j7.downgoods.UnpublishDTO">
+        SELECT 
+            <include refid="Base_Column_List"/>
+        FROM wm_to_down_goods u
+        <where>
+            <if test="query.goodsBatch != null and query.goodsBatch != ''">
+                AND u.goods_batch LIKE CONCAT('%', #{query.goodsBatch}, '%')
+            </if>
+            <if test="query.binIdTo != null and query.binIdTo != ''">
+                AND u.bin_id_to LIKE CONCAT('%', #{query.binIdTo}, '%')
+            </if>
+            <if test="query.goodsId != null and query.goodsId != ''">
+                AND u.goods_id LIKE CONCAT('%', #{query.goodsId}, '%')
+            </if>
+            <if test="query.goodsName != null and query.goodsName != ''">
+                AND u.goods_name LIKE CONCAT('%', #{query.goodsName}, '%')
+            </if>
+            <if test="query.orderId != null and query.orderId != ''">
+                AND u.order_id LIKE CONCAT('%', #{query.orderId}, '%')
+            </if>
+            <if test="query.orderIdI != null and query.orderIdI != ''">
+                AND u.order_id_i LIKE CONCAT('%', #{query.orderIdI}, '%')
+            </if>
+            <if test="query.omBeiZhu != null and query.omBeiZhu != ''">
+                AND u.om_bei_zhu LIKE CONCAT('%', #{query.omBeiZhu}, '%')
+            </if>
+            <if test="query.binIdFrom != null and query.binIdFrom != ''">
+                AND u.bin_id_from LIKE CONCAT('%', #{query.binIdFrom}, '%')
+            </if>
+            <if test="query.kuWeiBianMa != null and query.kuWeiBianMa != ''">
+                AND u.ku_wei_bian_ma LIKE CONCAT('%', #{query.kuWeiBianMa}, '%')
+            </if>
+            <if test="query.downSta != null and query.downSta != ''">
+                AND u.down_sta LIKE CONCAT('%', #{query.downSta}, '%')
+            </if>
+            <if test="query.cusCode != null and query.cusCode != ''">
+                AND u.cus_code LIKE CONCAT('%', #{query.cusCode}, '%')
+            </if>
+        </where>
+        ORDER BY u.create_date DESC
+    </select>
+    
+    <!-- 获取下架详情 -->
+    <select id="getUnpublishById" resultType="com.zeroone.star.project.dto.j7.downgoods.UnpublishDTO">
+        SELECT 
+            <include refid="Base_Column_List"/>
+        FROM wm_to_down_goods u
+        WHERE u.id = #{id}
+    </select>
+</mapper>

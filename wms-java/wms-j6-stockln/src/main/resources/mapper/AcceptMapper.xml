@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.stockln.mapper.AcceptMapper">
+
+    <resultMap id="BaseResultMap" type="com.zeroone.star.project.dto.j6.stockln.AcceptDTO">
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="createName" column="create_name" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+        <result property="updateName" column="update_name" jdbcType="VARCHAR"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+        <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+        <result property="sysOrgCode" column="sys_org_code" jdbcType="VARCHAR"/>
+        <result property="sysCompanyCode" column="sys_company_code" jdbcType="VARCHAR"/>
+        <result property="imNoticeId" column="im_notice_id" jdbcType="VARCHAR"/>
+        <result property="imNoticeItem" column="im_notice_item" jdbcType="VARCHAR"/>
+        <result property="goodsId" column="goods_id" jdbcType="VARCHAR"/>
+        <result property="imQuat" column="im_quat" jdbcType="VARCHAR"/>
+        <result property="qmOkQuat" column="qm_ok_quat" jdbcType="VARCHAR"/>
+        <result property="itemText" column="item_text" jdbcType="VARCHAR"/>
+        <result property="proData" column="pro_data" jdbcType="VARCHAR"/>
+        <result property="tinId" column="tin_id" jdbcType="VARCHAR"/>
+        <result property="goodsUnit" column="goods_unit" jdbcType="VARCHAR"/>
+        <result property="goodsBatch" column="goods_batch" jdbcType="VARCHAR"/>
+        <result property="binId" column="bin_id" jdbcType="VARCHAR"/>
+        <result property="tinTj" column="tin_tj" jdbcType="VARCHAR"/>
+        <result property="tinZhl" column="tin_zhl" jdbcType="VARCHAR"/>
+        <result property="binSta" column="bin_sta" jdbcType="VARCHAR"/>
+        <result property="cusCode" column="cus_code" jdbcType="VARCHAR"/>
+        <result property="recDeg" column="rec_deg" jdbcType="VARCHAR"/>
+        <result property="baseUnit" column="base_unit" jdbcType="VARCHAR"/>
+        <result property="baseGoodscount" column="base_goodscount" jdbcType="VARCHAR"/>
+        <result property="baseQmcount" column="base_qmcount" jdbcType="VARCHAR"/>
+        <result property="cusName" column="cus_name" jdbcType="VARCHAR"/>
+        <result property="goodsName" column="goods_name" jdbcType="VARCHAR"/>
+        <result property="imCusCode" column="IM_CUS_CODE" jdbcType="VARCHAR"/>
+        <result property="baseInGoodscount" column="base_in_goodscount" jdbcType="VARCHAR"/>
+        <result property="baseOutGoodscount" column="base_out_goodscount" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,create_name,create_by,
+        create_date,update_name,update_by,
+        update_date,sys_org_code,sys_company_code,
+        im_notice_id,im_notice_item,goods_id,
+        im_quat,qm_ok_quat,item_text,
+        pro_data,tin_id,goods_unit,
+        goods_batch,bin_id,tin_tj,
+        tin_zhl,bin_sta,cus_code,
+        rec_deg,base_unit,base_goodscount,
+        base_qmcount,cus_name,goods_name,
+        IM_CUS_CODE,base_in_goodscount,base_out_goodscount
+    </sql>
+</mapper>

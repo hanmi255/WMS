@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zeroone.star.outgoodsmanage.mapper.TaskConfirMapper">
+<!--修改任务-->
+    <update id="modifyTask">
+        UPDATE wm_om_qm_i
+        <set>
+            <if test="assignTo != null">
+                assign_to = #{assignTo},
+            </if>
+            <if test="proData != null">
+                pro_data = #{proData},
+            </if>
+            <if test="tinId != null">
+                tin_id = #{tinId},
+            </if>
+            <if test="binId != null">
+                bin_id = #{binId},
+            </if>
+            <if test="baseGoodsCount != null">
+                base_goodscount = #{baseGoodsCount},
+            </if>
+            <if test="qmOkQuat != null">
+                qm_ok_quat = #{qmOkQuat},
+            </if>
+            <if test="itemText != null">
+                item_text = #{itemText},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+<!--批量设置任务任务接收人-->
+    <update id="batchSetReceiver">
+        UPDATE wm_om_qm_i
+        SET assign_to = #{assignTo}
+        WHERE task_id IN
+        <foreach item="taskId" collection="taskIds" open="(" separator="," close=")">
+            #{taskId}
+        </foreach>
+    </update>
+<!--批量确认任务-->
+    <update id="batchConfirmTask">
+        UPDATE wm_om_qm_i
+        SET bin_sta = #{binSta}
+        WHERE task_id IN
+        <foreach item="taskId" collection="taskIds" open="(" separator="," close=")">
+            #{taskId}
+        </foreach>
+    </update>
+</mapper>

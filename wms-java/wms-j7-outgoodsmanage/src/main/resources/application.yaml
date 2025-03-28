@@ -1,0 +1,21 @@
+server:
+  port: ${sp.outgoodsmanage}
+spring:
+  application:
+    name: ${sn.outgoodsmanage}
+#    name: ${j7name.test}
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: 59.110.136.15:9876
+          group: ExcelGroup
+pdf:
+  # fop配置文件路径
+  conf: F:\wms-j7\zero-one-10wms\wms-java\wms-j7-outgoodsmanage\src\main\resources\fop.xconf
+  # xsl-fo模板路径（目录）
+  template: F:\wms-j7\zero-one-10wms\wms-java\wms-j7-outgoodsmanage\src\main\resources\freemarker
+
+
+
+

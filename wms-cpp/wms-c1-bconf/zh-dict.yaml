@@ -1,0 +1,230 @@
+﻿
+qcd:
+    delete:
+        summary: 删除品质代码（支持批量删除）
+    upload:
+        summary: 导入品质代码
+    download:
+        summary: 导出品质代码
+    name: 品质代码表
+    # 下面是ba_qm_qa表中的字段，先暂时全写出来
+    id: 主键
+    ids : 批量删除
+    create_name: 创建人名称
+    create_by: 创建人登录名称	
+    create_date: 创建日期
+    update_name: 更新人名称
+    update_by: 更新人登录名称	
+    update_date: 更新日期
+    sys_org_code: 所属部门
+    sys_company_code: 所属公司
+    qm_qa_code: 品质代码
+    qm_qa_name: 品质代码名称
+
+file: 
+    field: 
+        filename: 品质代码文件名
+goods:
+    excel: 
+        summary: 商品类目表
+    get:
+        summary: 获取商品类目名称树
+    getbyid:
+        summary: 获取商品类目列表
+    getnoid:
+        summary: 获取商品类目列表(无需id)
+    upload:
+        summary: 导入商品类目
+    download:
+        summary: 导出商品类目
+        summary2: 文件名
+        info1: 商品编码
+        info2: 商品名称
+        info3: 商品等级
+        info4: 父id
+        info5: 是否为顶级节点
+
+    id: 数据唯一标识
+    create_time: 创建时间
+    category_code: 类目编码
+    category_name: 类目名称
+    category_level: 类名等级
+    pid: 父节点
+    top_node: 顶级节点
+    add:
+        summary: 录入产品属性
+    field:
+        name: 产品属性名称
+        code: 产品属性编码
+        id: 编号
+    
+pis:
+ get:
+  summary: 查询品检状态列表（分页+条件）
+ post:
+  summary: 录入品检状态数据
+ put:
+  summary: 修改品检状态数据
+ query-by-code:
+  summary: 通过品检状态代码查询列表数据
+ query-by-name:
+  summary: 通过品检状态名称查询列表数据
+ field:
+  id: id
+  create_name: 创建人名称
+  create_by: 创建人登录名称
+  create_date: 创建日期
+  update_name: 更新人名称
+  update_by: 更新人登录名称
+  update_date: 更新日期
+  sys_org_code: 所属部门
+  sys_company_code: 所属公司
+  qm_sta_code: 品检状态代码 大写字母+数字 例：QS001
+  qm_sta_name: 品检状态名称 例：合格 待检中 不合格
+  qm_sta_name_ex: 合格
+ dao:
+  create_name: 管理员
+  create_by: admin
+  sys_org_code: A05
+  sys_company_code: A05
+
+ba_work_st:
+ get:
+  summary: 获取工作状态列表
+ post:
+  summary: 录入工作状态
+ put:
+  summary: 修改工作状态
+ field:
+  id: id
+  create_name: 创建人名称
+  create_by: 创建人登录名称
+  create_date: 创建日期
+  update_name: 更新人名称
+  update_by: 更新人登录名称
+  update_date: 更新日期
+  sys_org_code: 所属部门
+  sys_company_code: 所属公司
+  work_sta_code: 工作状态代码
+  work_sta_name: 工作状态名称
+
+ba_goods_type:
+ example: 电缆
+ get:
+  summary: 
+    name: 获取产品属性名称列表
+    list: 获取产品属性列表
+ field:
+  id: id
+  create_name: 创建人名称
+  create_by: 创建人登录名称
+  create_date: 创建日期
+  update_name: 更新人名称
+  update_by: 更新人登录名称
+  update_date: 更新日期
+  sys_org_code: 所属部门
+  sys_company_code: 所属公司
+  goods_type_code: 产品属性编码
+  goods_type_name: 产品属性名称
+shuxing:
+ excel: 产品属性_ba_goods_types.xlsx
+ xiugai:
+  miaoshu: 修改产品属性
+ shanchu:
+  miaoshu: 删除产品属性  
+ daochu:
+  miaoshu: 导出产品属性   
+  shuoming: 随便传个数就行
+  lieming1: 产品属性编码
+  lieming2: 产品属性名称
+ daoru:
+  miaoshu: 导入产品属性  
+ shanchuchenggong: 删除成功
+ shanchushibai: 删除失败
+ daoruchenggong: 导入成功
+ daorushibai: 导入失败
+ xiugaichenggong: 修改成功
+ xiugaishibai: 修改失败
+ 
+ShuxingDTO:
+ update_name: 更新人名称
+ update_by: 更新人登录名称
+ goods_type_code: 产品属性编码
+ goods_type_name: 产品属性名称
+ create_name: 创建人名称
+ create_by: 创建人登录名称
+ sys_org_code: 所属部门
+ sys_company_code: 所属公司
+ file: 文件
+ sheet_name: 页签名称
+ id: 唯一编码
+ShuxingShanChuDTO:
+ ids: 要删除的属性编码列表
+quality:
+    query:
+        summary: 查询品质代码
+        bycode: 通过品质代码查询
+        byname: 通过品质代码名称查询
+    add:
+        summary: 录入品质代码
+    update:
+        summary: 修改品质代码
+    delete:
+        summary: 删除品质代码
+    upload:
+        summary: 导入品质代码
+    download:
+        summary: 导出品质代码
+    id: 主键
+    create_name: 创建人名称
+    create_by: 创建人登录名称	
+    create_date: 创建日期
+    update_name: 更新人名称
+    update_by: 更新人登录名称	
+    update_date: 更新日期
+    sys_org_code: 所属部门
+    sys_company_code: 所属公司
+    qm_qa_code: 品质代码
+    qm_qa_name: 品质代码名称
+    qm_qa_id: 品质代码id
+
+goodsstate:
+    ids: 批量删除
+    batch:
+        delete:
+            summary: 删除品检状态
+    delete:
+        summary: 删除品检状态
+    upload:
+        summary: 导入品检状态
+    download:
+        summary: 导出品检状态
+    name: 品检状态表
+    id: 编号
+    create_name: 创建姓名
+    create_by: 创建者	
+    create_date: 创建日期
+    update_name: 更新姓名
+    update_by: 更新者	
+    update_date: 更新日期
+    sys_org_code: 所属部门
+    sys_company_code: 所属公司
+    qm_qa_code: 品质代码
+    qm_qa_name: 品质代码名称
+
+product:
+ query-all: 
+  summary: 查询所有商品
+ modify:
+  summary: 修改商品类目
+ add:
+  summary: 录入商品类目
+ delete:
+  summary: 删除商品类目
+ field:
+  categoryname: 类目名称
+  creattime: 创建时间
+  categorynum: 类目编码
+  categorylevel: 类目等级
+  topnode: 顶级目录
+  pid: 父级目录

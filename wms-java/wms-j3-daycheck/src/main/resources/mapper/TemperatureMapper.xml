@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.daycheck.mapper.TemperatureMapper">
+
+    <insert id="saveTemp" parameterType="com.zeroone.star.daycheck.entity.Temperature">
+        insert into zo_wms.wm_wendu
+        (id, create_name, create_by, create_date, update_name, update_by, update_date, sys_org_code, sys_company_code,
+         bpm_status, wendu_dd, wendu_cjsj, wendu_zhi, wendu_bz)
+        values (#{id}, #{createName}, #{createBy}, #{createDate}, #{updateName}, #{updateBy}, #{updateDate}, #{sysOrgCode},
+                #{sysCompanyCode}, #{bpmStatus}, #{wenduDd}, #{wenduCjsj}, #{wenduZhi}, #{wenduBz})
+    </insert>
+    <insert id="saveBatch" parameterType="java.util.List">
+        insert into zo_wms.wm_wendu
+        (id, create_name, create_by, create_date, update_name, update_by, update_date, sys_org_code, sys_company_code,
+         bpm_status, wendu_dd, wendu_cjsj, wendu_zhi, wendu_bz)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id}, #{item.createName}, #{item.createBy}, #{item.createDate}, #{item.updateName}, #{item.updateBy},
+            #{item.updateDate}, #{item.sysOrgCode}, #{item.sysCompanyCode}, #{item.bpmStatus}, #{item.wenduDd},
+            #{item.wenduCjsj}, #{item.wenduZhi}, #{item.wenduBz})
+        </foreach>
+    </insert>
+    <update id="updateTemp">
+        update zo_wms.wm_wendu 
+        <set>
+            <if test="updateName != null">
+                update_name = #{updateName},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy},
+            </if>
+            <if test="updateDate != null">
+                update_date = #{updateDate},
+            </if>
+            <if test="wenduDd != null">
+                wendu_dd = #{wenduDd},
+            </if>
+            <if test="wenduCjsj != null">
+                wendu_cjsj = #{wenduCjsj},
+            </if>
+            <if test="wenduZhi != null">
+                wendu_zhi = #{wenduZhi},
+            </if>
+            <if test="wenduBz != null">
+                wendu_bz = #{wenduBz},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <delete id="deleteTemps">
+        delete from zo_wms.wm_wendu where id in
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="pageQueryAll" resultType="com.zeroone.star.project.vo.j3.daycheck.tem.TemperatureVO">
+        select id, wendu_dd, wendu_cjsj, wendu_zhi, wendu_bz from zo_wms.wm_wendu;
+    </select>
+    <select id="selectAll" resultType="com.zeroone.star.daycheck.entity.Temperature">
+        select * from zo_wms.wm_wendu;
+    </select>
+
+</mapper>

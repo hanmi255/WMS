@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.oauth2.mapper.TSRoleMapper">
+
+    <select id="selectRoleByUserId" resultType="com.zeroone.star.oauth2.entity.TSRole">
+        SELECT
+            r.ID,
+            r.rolecode,
+            r.rolename
+        FROM
+            t_s_role r
+                JOIN
+            t_s_role_user ru ON r.ID = ru.roleid
+        WHERE
+            ru.userid = #{id}
+    </select>
+    <select id="selectRoleByFunctionUrl" resultType="com.zeroone.star.oauth2.entity.TSRole">
+        SELECT
+            r.ID,
+            r.rolecode
+        FROM
+            t_s_role r
+        WHERE
+            EXISTS (
+                SELECT 1
+                FROM t_s_role_function rf
+                         JOIN t_s_function f ON rf.functionid = f.ID
+                WHERE
+                    rf.roleid = r.ID
+                  AND f.functionurl = #{functionurl}
+            )
+    </select>
+</mapper>

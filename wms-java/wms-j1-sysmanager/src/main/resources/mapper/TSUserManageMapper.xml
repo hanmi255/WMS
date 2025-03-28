@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.j1.sysmanager.mapper.TSUserManageMapper">
+
+
+    <select id="listUserManage" resultType="com.zeroone.star.j1.sysmanager.entity.TSUserManage">
+        SELECT
+        u.id AS id,
+        bu.username AS username,
+        bu.userkey AS userkey,
+        d.departname AS departname,
+        r.rolename AS rolename,
+        u.create_date AS create_date,
+        bu.status AS status
+        FROM
+        t_s_user u
+        INNER JOIN t_s_base_user bu ON u.id = bu.id
+        INNER JOIN t_s_depart d ON bu.departid = d.id
+        INNER JOIN t_s_role_user ru ON u.id = ru.userId
+        INNER JOIN t_s_role r ON ru.roleid = r.id
+        <where>
+            <if test="query.username != null and query.username != '' ">
+                AND bu.username LIKE CONCAT('%',#{query.username},'%')
+            </if>
+            <if test="query.realname != null and query.realname != '' ">
+                AND bu.realname LIKE CONCAT('%',#{query.realname},'%')
+            </if>
+            <if test="query.department != null and query.department != '' ">
+                AND d.departname LIKE CONCAT('%',#{query.department},'%')
+            </if>
+        </where>
+    </select>
+
+</mapper>

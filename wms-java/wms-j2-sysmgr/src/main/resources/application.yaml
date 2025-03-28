@@ -1,0 +1,34 @@
+server:
+  port: ${sp.sysmgr}
+spring:
+  application:
+#    name: sysmgr
+    name: ${sn.sysmgr}
+  redis:
+    host: ${spring.redis.host}
+    port: ${spring.redis.port}
+    password: ${spring.redis.password}
+seata:
+  tx-service-group: tx-business
+  enabled: true
+  service:
+  #seata服务地址
+    grouplist:
+      default: ${seata.default}
+      #虚拟组和分组映射，key的名字与tx-service-group一致
+    vgroup-mapping:
+      tx-business: default
+      #开启全局事务
+    disable-global-transaction: false
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 47.94.0.110:8848
+      namespace: public
+      group: SEATA_GROUP
+easy-es:
+  enable: true
+  address: ${easy-es.address}
+  global-config:
+    process-index-mode: manual
+  username: ${easy-es.username}

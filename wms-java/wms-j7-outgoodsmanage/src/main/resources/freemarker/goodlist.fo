@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format"
+         xmlns:fox="http://xmlgraphics.apache.org/fop/extensions"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:xe="http://www.x-easypdf.cn/ns"
+
+>
+    <fo:layout-master-set>
+        <fo:simple-page-master master-name="A4" page-height="29.7cm" page-width="21cm" margin-top="1cm" margin-bottom="1cm" margin-left="1cm" margin-right="1cm">
+            <fo:region-body margin-top="1cm" margin-bottom="1cm"/>
+            <fo:region-before extent="1cm"/>
+            <fo:region-after extent="1cm"/>
+        </fo:simple-page-master>
+    </fo:layout-master-set>
+
+    <fo:page-sequence font-family="微软雅黑" master-reference="A4">
+        <fo:flow flow-name="xsl-region-body">
+            <!-- 标题 -->
+            <fo:block font-size="16pt" font-weight="bold" text-align="center" space-after="5mm">
+                出库单
+            </fo:block>
+
+
+            <fo:table table-layout="fixed" width="100%">
+                <fo:table-column column-width="50%"/>
+                <fo:table-column column-width="50%"/>
+                <fo:table-body>
+                    <fo:table-row>
+                        <fo:table-cell>
+                            <fo:block font-size="10pt" text-align="left">
+                                备注：<fo:inline font-weight="bold">${omBeizhu!}</fo:inline>
+                            </fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell>
+                            <fo:block font-size="10pt" text-align="right">
+                                <fo:instream-foreign-object>
+                                    <!-- 二维码 -->
+                                    <xe:barcode content="${url!'未知URL'}" height="50px" type="qr_code" width="50px"/>
+                                </fo:instream-foreign-object>
+                            </fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </fo:table-body>
+            </fo:table>
+
+            <fo:table table-layout="fixed" width="100%">
+                <fo:table-column column-width="50%"/>
+                <fo:table-column column-width="50%"/>
+                <fo:table-body>
+                    <fo:table-row>
+                        <fo:table-cell>
+                            <fo:block font-size="10pt" text-align="left">
+                                客户单号：<fo:inline font-weight="bold">${cusCode!}</fo:inline>
+                            </fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell>
+                            <fo:block font-size="10pt" text-align="right">
+                                出库单号：<fo:inline font-weight="bold">${omNoticeId!}</fo:inline>
+                            </fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </fo:table-body>
+            </fo:table>
+
+            <fo:table table-layout="fixed" width="100%">
+                <fo:table-column column-width="50%"/>
+                <fo:table-column column-width="50%"/>
+                <fo:table-body>
+                    <fo:table-row>
+                        <fo:table-cell>
+                            <fo:block font-size="10pt" text-align="left">
+                                收货地址：<fo:inline font-weight="bold">${delvAddr!}</fo:inline>
+                            </fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell>
+                            <fo:block font-size="10pt" text-align="right">
+                                收货人：<fo:inline font-weight="bold">${delvMember!}</fo:inline>
+                                电话：<fo:inline font-weight="bold">${delvMobile!}</fo:inline>
+                            </fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </fo:table-body>
+            </fo:table>
+
+
+
+
+            <!-- 表格 -->
+            <fo:table table-layout="fixed" width="100%" border-collapse="collapse" space-after="5mm">
+                <fo:table-column column-width="15%"/>
+                <fo:table-column column-width="15%"/>
+                <fo:table-column column-width="10%"/>
+                <fo:table-column column-width="10%"/>
+                <fo:table-column column-width="10%"/>
+                <fo:table-column column-width="10%"/>
+                <fo:table-column column-width="10%"/>
+                <fo:table-column column-width="10%"/>
+                <fo:table-column column-width="10%"/>
+                <fo:table-body>
+                    <!-- 表头 -->
+                    <fo:table-row>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block font-weight="bold">商品</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block font-weight="bold">名称</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block font-weight="bold">单价</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block font-weight="bold">批次</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block font-weight="bold">规格</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block font-weight="bold">数量</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block font-weight="bold">重量</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block font-weight="bold">库区</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block font-weight="bold">备注</fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+
+                    <!-- 表格内容 -->
+                    <fo:table-row>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block>${goodsId!}</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block>${goodsText!}</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block></fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block>${goodsBatch!}</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block>${shpGuiGe!}</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block>${qmOkQuat!}</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block>${tinZhl!}</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block>${binId!}</fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="1pt solid black" padding="2pt">
+                            <fo:block>${itemText!}</fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </fo:table-body>
+            </fo:table>
+
+            <!-- 注意事项 -->
+            <fo:block font-size="10pt" space-after="5mm">
+                重要提示：尊敬的客户，因您购买的商品为贵重易碎物品，请您认真确认送达产品的完好性以及产品的型号、颜色、数量是否与您购买时一致，配件是否齐全。验收并核对无误后请当面签字确认，若有发现破损或缺件商品，可对该商品予以拒收。客户签收后，我们对产品质量以外的问题可予以积极协助，但不作退货处理或承担相关损失。
+            </fo:block>
+
+            <fo:table table-layout="fixed" width="100%">
+                <fo:table-column column-width="33%"/>
+                <fo:table-column column-width="33%"/>
+                <fo:table-column column-width="33%"/>
+                <fo:table-body>
+                    <fo:table-row>
+                        <fo:table-cell>
+                            <fo:block font-size="10pt" text-align="left">
+                                换货员：<fo:inline font-weight="bold"></fo:inline>
+                            </fo:block>
+                        </fo:table-cell>
+
+                        <fo:table-cell>
+                            <fo:block font-size="10pt" text-align="center">
+                                复核员：<fo:inline font-weight="bold">${fhUser!}</fo:inline>
+                            </fo:block>
+                        </fo:table-cell>
+
+                        <fo:table-cell>
+                            <fo:block font-size="10pt" text-align="right">
+                                司机：<fo:inline font-weight="bold"></fo:inline>
+                            </fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </fo:table-body>
+            </fo:table>
+
+            <fo:table table-layout="fixed" width="100%">
+                <fo:table-column column-width="100%"/>
+                <fo:table-body>
+                    <fo:table-row>
+                        <fo:table-cell>
+                            <fo:block font-size="10pt">
+                                白联：<fo:inline font-weight="bold"></fo:inline>
+                                红联：<fo:inline font-weight="bold"></fo:inline>
+                                蓝联：<fo:inline font-weight="bold"></fo:inline>
+                                绿联：<fo:inline font-weight="bold"></fo:inline>
+                                黄联：<fo:inline font-weight="bold"></fo:inline>
+                            </fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </fo:table-body>
+            </fo:table>
+
+
+
+
+        </fo:flow>
+    </fo:page-sequence>
+</fo:root>

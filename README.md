@@ -205,6 +205,30 @@ https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#requirem
 
 同时也感谢其他没有明确写出来的开源组件提供给与维护者。
 
+## 效果预览图
+
+系统登录
+
+![login](./documents/00、preview-pic/login.png)
+
+首页
+
+![dashboard](./documents/00、preview-pic/dashboard.png)
+
+公告
+
+![dashboard](./documents/00、preview-pic/notice.png)
+
+资源管理
+
+![dashboard](./documents/00、preview-pic/menu.png)
+
+角色管理
+
+![dashboard](./documents/00、preview-pic/role.png)
+
+![dashboard](./documents/00、preview-pic/role-user.png)
+
 ## 支持一下
 
 如果觉得框架和项目还不错，点个⭐Star，这将是对**01星球**极大的鼓励与支持。

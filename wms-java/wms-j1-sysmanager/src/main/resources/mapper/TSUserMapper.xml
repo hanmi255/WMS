@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.j1.sysmanager.mapper.TSUserMapper">
+    <resultMap id="UserDetail" type="com.zeroone.star.project.vo.j1.sysmanager.usermanager.UserDetailVO">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="realname" column="realname"/>
+        <result property="userType" column="user_type"/>
+        <result property="mobilePhone" column="mobilePhone"/>
+        <result property="officePhone" column="officePhone"/>
+        <result property="email" column="email"/>
+        <collection property="departmentVO" ofType="com.zeroone.star.project.vo.j1.sysmanager.usermanager.DepartmentVO" >
+            <id property="id" column="depId"/>
+            <result property="departname" column="departname"/>
+        </collection>
+        <collection property="roleVO" ofType="com.zeroone.star.project.vo.j1.sysmanager.usermanager.RoleVO">
+            <id property="id" column="roleId"/>
+            <result property="rolename" column="rolename"/>
+        </collection>
+
+    </resultMap>
+
+    <select id="selectUserDetail" resultMap="UserDetail">
+    select tsbu.id,tsbu.username,tsbu.realname,
+           dep.id depId,dep.departname,role.ID roleId,role.rolename,
+    tsu.user_type,tsu.mobilePhone,tsu.officePhone,tsu.email
+    from t_s_base_user tsbu
+        left join t_s_user_org tsuo on tsbu.id = tsuo.user_id
+        left join t_s_depart dep on tsuo.org_id = dep.ID
+        left join  t_s_role_user  tsru on tsbu.id= tsru.userid
+        left join t_s_role role on tsru.roleid = role.ID
+        left join  t_s_user tsu on  tsbu.ID = tsu.id
+    where tsbu.ID=#{userId}
+
+
+    </select>
+</mapper>

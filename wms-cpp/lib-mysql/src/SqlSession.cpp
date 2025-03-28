@@ -1,15 +1,13 @@
 /*
  Copyright Zero One Star. All rights reserved.
- 
+
  @Author: awei
  @Date: 2022/10/24 12:11:29
- 
+
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
- 
-      https://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -44,6 +42,8 @@ int SqlSession::update(const string& sql, const char* fmt, va_list args)
 		//2 处理参数
 		std::string curr(fmt);
 		SQL_ARG_EXEC_1(pstmt, curr, args);
+
+
 		//3 执行数据操作
 		int row = pstmt->executeUpdate();
 		//4 释放State
@@ -90,7 +90,7 @@ bool SqlSession::execute(const string& sql)
 		[=] {
 			releaseStatement();
 		}
-		);
+	);
 	return result;
 }
 
@@ -102,6 +102,54 @@ int SqlSession::executeUpdate(const string& sql, const char* fmt, ...)
 	va_end(args);
 	return row;
 }
+
+
+// 新增：支持批量参数的 executeUpdate
+int SqlSession::executeUpdate(const string& sql, const std::vector<std::string>& params) {
+	try {
+		NULL_PTR_CHECK(conn, "connection is null");
+		// 1. 创建 PreparedStatement 对象
+		pstmt = conn->prepareStatement(sql);
+		// 2. 设置参数
+		for (size_t i = 0; i < params.size(); ++i) {
+			pstmt->setString(i + 1, params[i]);
+		}
+		// 3. 执行更新
+		int row = pstmt->executeUpdate();
+		// 4. 释放资源
+		releasePreparedStatement();
+		return row;
+	}
+	catch (const std::exception& e) {
+		// 4. 释放资源
+		releasePreparedStatement();
+		cerr << "ExecuteUpdate Exception. " << e.what() << endl;
+	}
+	return 0;
+}
+int SqlSession::executeUpdate(const string& sql, const std::vector<const char*>& params) {
+	try {
+		NULL_PTR_CHECK(conn, "connection is null");
+		// 1. 创建 PreparedStatement 对象
+		pstmt = conn->prepareStatement(sql);
+		// 2. 设置参数
+		for (size_t i = 0; i < params.size(); ++i) {
+			pstmt->setString(i + 1, params[i]);
+		}
+		// 3. 执行更新
+		int row = pstmt->executeUpdate();
+		// 4. 释放资源
+		releasePreparedStatement();
+		return row;
+	}
+	catch (const std::exception& e) {
+		// 4. 释放资源
+		releasePreparedStatement();
+		cerr << "ExecuteUpdate Exception. " << e.what() << endl;
+	}
+	return 0;
+}
+
 
 int SqlSession::executeUpdate(const string& sql)
 {
@@ -197,7 +245,7 @@ uint64_t SqlSession::executeInsert(const string& sql, const SqlParams& params)
 				releaseResultSet();
 				releaseStatement();
 			}
-			);
+		);
 	}
 	return id;
 }

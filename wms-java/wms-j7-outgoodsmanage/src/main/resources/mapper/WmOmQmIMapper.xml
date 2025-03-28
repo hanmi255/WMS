@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.outgoodsmanage.mapper.WmOmQmIMapper">
+
+    <update id="waveGen" >
+      update wm_om_qm_i
+        set wave_id = #{WaveId},bin_sta="N",update_by=#{username},update_name=#{realname},update_date=#{updateTime}
+      where id in
+      <foreach collection="ids" item="it" separator="," open="(" close=")">
+          #{it}
+      </foreach>
+    </update>
+    <delete id="delMission">
+        delete from wm_om_qm_i
+        where id in
+        <foreach collection="ids" item="it" separator="," open="(" close=")">
+            #{it}
+        </foreach>
+        and bin_sta="I"
+    </delete>
+    <select id="expoAll" resultType="com.zeroone.star.outgoodsmanage.entity.WmOmQmI">
+        select id, create_name, create_by, create_date, update_name, update_by, update_date, sys_org_code, sys_company_code, om_notice_id, iom_notice_item, goods_id, om_quat, qm_ok_quat, item_text, pro_data, tin_id, goods_unit, goods_batch, bin_id, tin_tj, tin_zhl, bin_sta, cus_code, rec_deg, assign_to, base_unit, base_goodscount, cus_name, goods_name, wave_id, im_cus_code, om_bei_zhu, BARCODE, baozhiqi, shp_gui_ge, pick_notice, first_rq, second_rq, sku from wm_om_qm_i
+    </select>
+
+    <select id="selectByNoticeId" resultType="com.zeroone.star.outgoodsmanage.entity.WmOmQmI">
+        select t1.* from zo_wms.wm_om_qm_i as t1,
+        (select id from zo_wms.wm_om_qm_i where om_notice_id = #{omNoticeId}
+        ) as t2
+        where t1.id=t2.id;
+    </select>
+
+</mapper>

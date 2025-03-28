@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.exportmana.mapper.InTransitStockMapper">
+
+    <select id="select" resultType="com.zeroone.star.exportmana.entity.InTransitStock">
+        select '在途'  as kuctype,
+        wd.order_id,                                                                           # 原始单据编码
+        wd.create_date,                                                                        # 创建日期
+        wd.cus_code,                                                                           # 货主，客户编码
+        mc.zhong_wen_qch,                                                                      # 中文全称, 客户名称
+        wd.goods_id,                                                                           # 商品编码
+        CONCAT(mg.shp_bian_ma, '-', mg.shp_ming_cheng, '-', mg.shl_dan_wei) as shp_ming_cheng, # 商品名称
+        mg.shl_dan_wei,                                                                        # 单位
+        wd.goods_pro_data,                                                                     # 生产日期
+        wd.ku_wei_bian_ma,                                                                     # 库位编码,出货储位
+        wd.goods_quaok                                                                         # 完成数量，出货数量
+        from wm_to_down_goods wd,
+        md_goods mg,
+        md_cus mc
+        <where>
+            wd.cus_code = mc.ke_hu_bian_ma
+            and wd.goods_id = mg.shp_bian_ma
+            and wd.order_id not in (select wm_notice_id from wm_notice_conf)
+            <if test="query.orderId != null and query.orderId != ''">
+                and wd.order_id = #{query.orderId}
+            </if>
+            <!-- 可以添加更多的查询条件 -->
+            <if test="query.createDateBegin != null">
+                and wd.create_date &gt; #{query.createDateBegin}
+            </if>
+            <if test="query.createDateEnd != null">
+                and wd.create_date &lt; #{query.createDateEnd}
+            </if>
+            <if test="query.cusCode != null and query.cusCode != ''">
+                and wd.cus_code = #{query.cusCode}
+            </if>
+            <if test="query.zhongWenQch != null and query.zhongWenQch != ''">
+                and mc.zhong_wen_qch = #{query.zhongWenQch}
+            </if>
+            <if test="query.goodsId != null and query.goodsId != ''">
+                and wd.goods_id = #{query.goodsId}
+            </if>
+            <if test="query.shpMingCheng != null and query.shpMingCheng != ''">
+                and CONCAT(mg.shp_bian_ma, '-', mg.shp_ming_cheng, '-', mg.shl_dan_wei) like concat('%', #{query.shpMingCheng}, '%')
+            </if>
+            <if test="query.kuWeiBianMa != null and query.kuWeiBianMa != ''">
+                and wd.ku_wei_bian_ma = #{query.kuWeiBianMa}
+            </if>
+        </where>
+    </select>
+</mapper>

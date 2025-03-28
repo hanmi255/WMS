@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.outgoodsmanage.mapper.WmOmNoticeHMapper">
+
+
+    <sql id="dynamicConditions">
+        <!-- 定义动态条件 -->
+        <where>
+
+            <!-- 出库单号 -->
+            <if test="query.omNoticeId != null">
+                AND t.om_notice_id = #{query.omNoticeId}
+            </if>
+            <!-- 第三方单号 -->
+            <if test="query.imCusCode != null">
+                AND h.IM_CUS_CODE = #{query.imCusCode}
+            </if>
+            <!-- 第三方客户 -->
+            <if test="query.cusCode != null">
+                AND h.ocus_code = #{query.cusCode}
+            </if>
+            <!-- 第三方客户名称 -->
+            <if test="query.ocusName != null">
+                AND h.ocus_name = #{query.ocusName}
+            </if>
+            <!-- 备注 -->
+            <if test="query.omBeizhu != null">
+                AND h.om_beizhu = #{query.omBeizhu}
+            </if>
+            <!-- 地址 -->
+            <if test="query.delvAddr != null">
+                AND h.delv_addr = #{query.delvAddr}
+            </if>
+            <!-- 商品编码 -->
+            <if test="query.goodsId != null">
+                AND t.goods_id = #{query.goodsId}
+            </if>
+            <!-- 商品名称 -->
+            <if test="query.goodsName != null">
+                AND t.goods_name = #{query.goodsName}
+            </if>
+        </where>
+    </sql>
+
+    <!-- 分页查询 -->
+    <select id="getOrderDetailsByPage" resultType="com.zeroone.star.outgoodsmanage.entity.OutDetailDO" >
+        SELECT
+        t.id AS id,
+        h.om_sta AS omSta,
+        t.om_notice_id AS omNoticeId,
+        h.IM_CUS_CODE AS imCusCode,
+        h.ocus_code AS cusCode,
+        h.ocus_name AS ocusName,
+        h.om_beizhu AS omBeizhu,
+        h.delv_addr AS delvAddr,
+        t.goods_id AS goodsId,
+        t.goods_name AS goodsName,
+        t.base_goodscount AS baseGoodscount,
+        t.goods_unit AS goodsUnit,
+        (SELECT SUM(om.base_goodscount)
+        FROM wm_om_qm_i om
+        WHERE om.iom_notice_item = t.id) AS sumGoodscount
+        FROM wm_om_notice_i t
+        JOIN wm_om_notice_h h ON t.om_notice_id = h.om_notice_id
+        <!-- 默认条件 -->
+        WHERE (h.om_sta != '已删除' OR h.om_sta IS NULL)
+        <!-- 动态条件 -->
+        <include refid="dynamicConditions" />
+        ORDER BY h.create_date DESC
+        <!-- 分页 -->
+        LIMIT #{pageSize} OFFSET #{offset}
+    </select>
+
+    <!-- 计数查询 -->
+    <select id="getOrderDetailsCount" resultType="int" parameterType="com.zeroone.star.project.query.j7.outdetail.OutDetailQuery">
+        SELECT COUNT(1)
+        FROM wm_om_notice_i t
+        JOIN wm_om_notice_h h ON t.om_notice_id = h.om_notice_id
+        <!-- 默认条件 -->
+        WHERE (h.om_sta != '已删除' OR h.om_sta IS NULL)
+        <!-- 动态条件 -->
+        <include refid="dynamicConditions" />
+    </select>
+
+    <!--查询出库通知列表-->
+    <select id="selectNoticeList" resultType="com.zeroone.star.outgoodsmanage.entity.WmOmNoticeH">
+        select * from wm_om_notice_h
+        <where>
+            <!-- 修正printSta为printStatus保持命名一致 -->
+            <if test="query.omSta != null and query.omSta != ''"> and om_sta = #{query.omSta}</if>
+            <if test="query.printStatus != null and query.printStatus != ''"> and print_status = #{query.printStatus}</if>
+            <if test="query.omNoticeId != null and query.omNoticeId != ''"> and om_notice_id = #{query.omNoticeId}</if>
+
+            <!-- 新增查询条件 -->
+            <if test="query.cusCode != null and query.cusCode != ''"> and cus_code = #{query.cusCode}</if>
+            <if test="query.imCusCode != null and query.imCusCode != ''"> and im_cus_code = #{query.imCusCode}</if>
+            <if test="query.ocusCode != null and query.ocusCode != ''"> and ocus_code = #{query.ocusCode}</if>
+            <if test="query.ocusName != null and query.ocusName != ''"> and ocus_name LIKE CONCAT('%',#{query.ocusName},'%')</if>
+            <if test="query.delvData != null"> and delv_data = #{query.delvData}</if>
+            <if test="query.delvMember != null and query.delvMember != ''"> and delv_member = #{query.delvMember}</if>
+            <if test="query.delvMobile != null and query.delvMobile != ''"> and delv_mobile = #{query.delvMobile}</if>
+            <if test="query.reMember!= null and query.reMember!= ''"> and re_member = #{query.reMember}</if>
+            <if test="query.reCarno!= null and query.reCarno!= ''"> and re_carno = #{query.reCarno}</if>
+        </where>
+    </select>
+
+    <update id="saveFujian">
+        update wm_om_notice_h set fu_jian=#{fuJian} where om_notice_id=#{omNoticeId}
+    </update>
+
+    <!-- 查询excel表数据  -->
+    <select id="selectAll" resultType="com.zeroone.star.outgoodsmanage.entity.OutDetailExcelDO">
+        SELECT
+        t.id AS id,
+        h.om_sta AS omSta,
+        t.om_notice_id AS omNoticeId,
+        h.IM_CUS_CODE AS imCusCode,
+        h.ocus_code AS cusCode,
+        h.ocus_name AS ocusName,
+        h.om_beizhu AS omBeizhu,
+        h.delv_addr AS delvAddr,
+        t.goods_id AS goodsId,
+        t.goods_name AS goodsName,
+        t.base_goodscount AS baseGoodscount,
+        t.goods_unit AS goodsUnit,
+        (SELECT SUM(om.base_goodscount)
+        FROM wm_om_qm_i om
+        WHERE om.iom_notice_item = t.id) AS sumGoodscount
+        FROM wm_om_notice_i t
+        JOIN wm_om_notice_h h ON t.om_notice_id = h.om_notice_id
+        <!-- 默认条件 -->
+        WHERE (h.om_sta != '已删除' OR h.om_sta IS NULL)
+    </select>
+
+    <select id="selectByNoticeId" resultType="com.zeroone.star.outgoodsmanage.entity.WmOmNoticeH">
+        select t1.* from wm_om_notice_h as t1,
+        (select id from wm_om_notice_h
+        <where>
+            <if test="omNoticeId!=null">
+                om_notice_id=#{omNoticeId}
+            </if>
+        </where>) as t2
+        where t1.id=t2.id
+
+    </select>
+
+
+</mapper>

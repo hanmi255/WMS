@@ -189,7 +189,7 @@ std::string xiangxixinxiDAO::addchuweiDAO(const BinDO& bindo, const PayloadDTO& 
 	UuidFacade uf;
 	auto id = uf.genUuid();
 	auto result = sqlSession->executeUpdate(sql, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s", \
-		ids, payload.getUsername() , payload.getRealName(), sql_time ,payload.getOrgCode(),payload.getCompanyCode(), \
+		ids, payload.getUsername() , payload.getRealname(), sql_time ,payload.getOrgcode(),payload.getCompanycode(), \
 		bindo.getKuWeiBianMa(), bindo.getKuWeiTiaoMa(), bindo.getKuWeiLeiXing(), bindo.getKuWeiShuXing(), bindo.getShangJiaCiXu(), bindo.getQuHuoCiXu(), \
 		bindo.getSuoShuKeHu() , bindo.getTiJiDanWei(),bindo.getZhongLiangDanWei(), bindo.getMianJiDanWei(), bindo.getZuiDaTiJi(), bindo.getZuiDaZhongLiang(), \
 		bindo.getZuiDaMianJi(), bindo.getZuiDaTuoPan(), bindo.getChang(), bindo.getKuan(), bindo.getGao(), bindo.getTingYong(),\

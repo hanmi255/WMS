@@ -1,0 +1,42 @@
+cost:
+  get:
+    list:
+      summary: "获取费用类型名称列表"
+      condition:
+        summary: "获取费用类型列表(分页)"
+  put:
+    summary: "录入费用类型"
+  modify:
+    summary: "修改费用类型"
+  field:
+    id: "主键"
+    cost_code: "费用代码"
+    cost_name: "名字"
+    cost_type: "费用类型"
+    create_name: "创建人名称"
+    create_date: "创建日期"
+    update_name: "更新人名称"
+    update_date: "更新日期"
+
+expense:
+    excel:
+         s1: 导出信息
+    upload:
+        summary: "导入费用类型(单个文件)"
+    download:
+        summary: "导出费用类型"
+    field:
+        id: "主键"
+        cost_code: "费用代码"
+        create_by: "创建人登录名称"
+        update_by: "更新人登录名称"
+        create_name: "创建人名称"
+        create_date: "创建日期"
+        update_name: "更新人名称"
+        update_date: "更新日期"
+        sys_org_code: "所属部门"
+        sys_company_code: "所属公司"
+        cost_type_name: "费用名称"
+        cost_type_del: "操作"
+        
+

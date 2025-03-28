@@ -1,0 +1,99 @@
+employed:
+  delete:
+    summary: 删除在职状态（支持批量删除）
+  import:
+    summary: 导入在职状态
+  export:
+    summary: 导出在职状态
+  field:
+    id: 编号
+    code: 在职状态代码
+    name: 在职状态名称
+goods:
+  enter:
+    summary: 录入产品属性
+onocc: 
+ query: 获取在职状态列表
+ insert: 录入在职状态
+ update: 修改在职状态
+test: 获取成功
+es:
+ query-all:
+  summary: 获取在职状态列
+ add: 
+  summary: 录入在职状态
+ modify: 
+  summary: 修改在职状态
+ field:
+  pos_sta_code: 在职状态代码
+  pos_sta_name: 在职状态名称
+  id: 唯一标识
+ default-name: 在职  
+field:
+    filename: 文件名   
+    
+ba_work_st:
+ get:
+  summary: 获取工作状态列表
+ post:
+  summary: 录入工作状态
+ put:
+  summary: 修改工作状态
+ delete:
+  summary: 删除工作状态（支持批量删除）
+ field:
+  id: id
+  create_name: 创建人名称
+  create_by: 创建人登录名称
+  create_date: 创建日期
+  update_name: 更新人名称
+  update_by: 更新人登录名称
+  update_date: 更新日期
+  sys_org_code: 所属部门
+  sys_company_code: 所属公司
+  work_sta_code: 工作状态代码
+  work_sta_name: 工作状态名称
+ upload:
+  summary: 导入工作状态
+ download:
+  summary: 导出工作状态
+  filename: 下载文件的名称
+  info1: 工作状态代码
+  info2: 工作状态名称
+
+ba_goods_type:
+ example: 电缆
+ get:
+  summary: 获取产品属性列表
+ field:
+  id: id
+  create_name: 创建人名称
+  create_by: 创建人登录名称
+  create_date: 创建日期
+  update_name: 更新人名称
+  update_by: 更新人登录名称
+  update_date: 更新日期
+  sys_org_code: 所属部门
+  sys_company_code: 所属公司
+  goods_type_code: 产品属性编码
+  goods_type_name: 产品属性名称
+
+excel:
+ sheet:
+  s1: ba_work_state工作状态1
+  s2: ba_work_state工作状态2
+ header:
+  workstate:
+   h1: 工作状态代码
+   h2: 工作状态名称
+   h3: 表头3
+   h4: 表头4
+   h5: 表头5
+ content:
+  info: 坐标
+file:
+  field:
+    filename: 文件名    
+wsf:
+    excel:
+        summary: Sheet1

@@ -168,7 +168,10 @@ private:
 public:
 	SqlSession();
 	~SqlSession();
-
+	// 新增：支持批量参数的 executeUpdate
+	int executeUpdate(const string& sql, const std::vector<const char*>& params);
+	// 新增：支持批量参数的 executeUpdate
+	int executeUpdate(const string& sql, const std::vector<std::string>& params);
 	//************************************
 	// Method:    execute
 	// FullName:  SqlSession::execute

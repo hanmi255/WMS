@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.j1.sysmanager.mapper.TSFunctionMapper">
+
+    <update id="update" parameterType="com.zeroone.star.j1.sysmanager.entity.TSFunction">
+        UPDATE t_s_function
+        <set>
+            <if test="functionname != null">functionname = #{functionname},</if>
+            <if test="functiontype != null">functiontype = #{functiontype},</if>
+            <if test="functionorder != null">functionorder = #{functionorder},</if>
+            <if test="functionurl != null">functionurl = #{functionurl},</if>
+            <if test="functionlevel != null">functionlevel = #{functionlevel},</if>
+            <if test="parentfunctionid != null">parentfunctionid = #{parentfunctionid},</if>
+            <if test="iconid != null">iconid = #{iconid},</if>
+            <if test="deskIconid != null">desk_iconid = #{deskIconid},</if>
+            <if test="functionIconStyle != null">function_icon_style = #{functionIconStyle},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+
+
+</mapper>

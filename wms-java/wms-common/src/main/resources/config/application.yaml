@@ -1,0 +1,51 @@
+﻿# 应用版本描述
+application:
+  title: 零壹WMS
+  version: 1.0.0-SNAPSHOT
+  company: 01星球
+
+# 自定义starter配置
+zo:
+  cloud:
+    starter:
+      # oauth2 stater 配置
+      oauth2:
+        # 管理端客户端名称
+        mgr-id: wms-manager
+        # 管理端客户端密钥
+        mgr-password: 123456
+        # 用户端客户端名称
+        user-id: wms-app
+        # 用户端客户端密钥
+        user-password: 123456
+        # 授权支持类型
+        grant-types:
+          - password
+          - refresh_token
+          - authorization_code
+          - mobile
+
+spring:
+  # 全局jackson配置
+  jackson:
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+  servlet:
+    multipart:
+      # 上传文件总的最大值
+      max-request-size: 20MB
+      # 单个文件的最大值
+      max-file-size: 10MB
+management:
+  # 端点检查
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  # 健康检查
+  endpoint:
+    health:
+      show-details: always

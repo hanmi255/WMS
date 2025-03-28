@@ -1,0 +1,52 @@
+cost:
+  get:
+    list:
+      summary: "获取费用名称列表"
+      condition:
+        summary: "获取费用名称列表（条件+分页）"
+  post:
+    summary: "录入费用名称"
+  put:
+    summary: "修改费用名称"
+  field:
+    id: "主键"
+    name: "名字"
+    code: "费用代码"
+    type_code: "费用类型"
+    create_name: "创建人名称"
+    create_by: "创建人登录名称"
+    create_date: "创建日期"
+    update_name: "更新人名称"
+    update_by: "更新人登录名称"
+    update_date: "更新日期"
+    sys_org_code: "所属部门"
+    sys_company_code: "所属公司"
+  cost_name:
+    Billed_per_pallet: "按托盘计费"
+   
+costtype:
+ delete: 费用类型删除
+ mdelete: 批量费用类型删除
+
+file:
+ upload: 
+  summary: 单文件上传
+ download:
+  summary: 单文件下载
+billing-name:
+ delete:
+  batchdelete: 批量删除费用名称
+ field:
+  cost_code: 费用代码
+  cost_name: 费用名称
+  cost_type_code: 费用类型代码
+  id: 唯一主键
+ filedownload:
+  excel: 导出费用名称报表
+ fileupload:
+  excel: 导入费用名称报表
+ excelname:
+  s1: 数据表1
+ filename:
+  s2: 费用名称报表
+

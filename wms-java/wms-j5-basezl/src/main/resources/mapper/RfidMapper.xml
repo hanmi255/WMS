@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zeroone.star.j5.basezl.mapper.RFIDMapper">
+
+<!--    <insert id="insertRfid"> insert into rfid_buse-->
+<!--                             (id,create_name,rfid_type,rfid_buseno,rfid_id1,rfid_busecont,rfid_id2,rfid_id3)-->
+<!--                             values (#{id},#{createName},#{Type},#{buseCode},#{rfid1},#{buseContent},#{rfid2},#{rfid3})</insert>-->
+
+
+    <select id="selectAll" resultType="com.zeroone.star.j5.basezl.entity.rfid.RfidBuseExcelDO">
+        select create_name,create_date,rfid_type,rfid_buseno,rfid_busecont,rfid_id1,rfid_id2,rfid_id3
+        from rfid_buse
+    </select>
+
+
+</mapper>

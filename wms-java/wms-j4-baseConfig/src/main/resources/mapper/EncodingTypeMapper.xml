@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.baseConfig.mapper.EncodingTypeMapper">
+
+    <delete id="removeAll">
+        delete from ba_snro_type where id in
+        <foreach collection="ids" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </delete>
+
+    <resultMap id="encodingTypeNameListMap" type="com.zeroone.star.project.dto.j4.encodingType.EncodingTypeNameListDTO">
+        <result column="snro_type_name" property="snroTypeName"/>
+    </resultMap>
+    <select id="encodingTypeNameList" parameterType="String" resultMap="encodingTypeNameListMap">
+        SELECT snro_type_name
+        FROM `ba_snro_type`
+        WHERE 1=1
+        <if test="query != null and query != ''">
+            AND snro_type_name LIKE CONCAT('%', #{query}, '%')
+        </if>
+        ORDER BY snro_type_name
+    </select>
+</mapper>
+
+
+
+

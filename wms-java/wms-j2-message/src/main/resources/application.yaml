@@ -1,0 +1,37 @@
+server:
+  port: ${sp.message} # 需要在nacos配置中心配置
+spring:
+  application:
+    name: ${sn.message} # 需要在nacos配置中心配置
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: ${rocket-mq.name-server}
+        bindings:
+          #输入通道
+          realtime-msg-input:
+            consumer:
+              tags: "login||announcement||message||logout"
+              group: ${rocketmq.message.group.realtime.consumer}
+          testOutput:
+            producer:
+              group: ${rocketmq.message.group.realtime.producer}
+      bindings:
+        # 输入通道的统一配置
+        realtime-msg-input:
+          destination: ${rocketmq.message.topic}
+          content-type: application/json
+        # 输出通道的统一配置
+        testOutput:
+          destination: ${rocketmq.message.topic}
+          content-type: application/json
+
+###########################################################################
+#  发送消息的格式
+#  {
+#  "type": "login || announcement || message || logout",  // 对应Tag
+#  "target": "client1",
+#  "content": "您有一条新的系统通知"
+#  }
+###########################################################################

@@ -1,0 +1,11 @@
+server:
+  port: ${sp.exportmana}
+spring:
+  application:
+    name: ${sn.exportmana}
+
+pdf:
+  # fop配置文件路径
+  conf: wms-j8-exportmana/src/main/resources/fop.xconf
+  # xsl-fo模板路径（目录）
+  template: wms-j8-exportmana/src/main/resources/freemarker

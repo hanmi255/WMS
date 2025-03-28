@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.sysmgr.mapper.TSUserMapper">
+
+    <resultMap id="BaseResultMap" type="com.zeroone.star.sysmgr.entity.TSUser">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="mobilephone" column="mobilePhone" jdbcType="VARCHAR"/>
+            <result property="officephone" column="officePhone" jdbcType="VARCHAR"/>
+            <result property="signaturefile" column="signatureFile" jdbcType="VARCHAR"/>
+            <result property="updateName" column="update_name" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="createName" column="create_name" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+            <result property="userType" column="user_type" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,email,mobilePhone,
+        officePhone,signatureFile,update_name,
+        update_date,update_by,create_name,
+        create_date,create_by,user_type
+    </sql>
+</mapper>

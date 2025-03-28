@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.exportmana.mapper.ManyReceiptsMapper">
+
+    <resultMap id="BaseResultMap" type="com.zeroone.star.exportmana.entity.ManyReceipts">
+            <id property="id" column="id" />
+            <result property="createName" column="create_name" />
+            <result property="createBy" column="create_by" />
+            <result property="createDate" column="create_date" />
+            <result property="updateName" column="update_name" />
+            <result property="updateBy" column="update_by" />
+            <result property="updateDate" column="update_date" />
+            <result property="sysOrgCode" column="sys_org_code" />
+            <result property="sysCompanyCode" column="sys_company_code" />
+            <result property="cusCode" column="cus_code" />
+            <result property="delvData" column="delv_data" />
+            <result property="delvMember" column="delv_member" />
+            <result property="delvMobile" column="delv_mobile" />
+            <result property="delvAddr" column="delv_addr" />
+            <result property="reMember" column="re_member" />
+            <result property="reMobile" column="re_mobile" />
+            <result property="reCarno" column="re_carno" />
+            <result property="omPlatNo" column="om_plat_no" />
+            <result property="omBeizhu" column="om_beizhu" />
+            <result property="omSta" column="om_sta" />
+            <result property="omNoticeId" column="om_notice_id" />
+            <result property="imCusCode" column="IM_CUS_CODE" />
+    </resultMap>
+</mapper>

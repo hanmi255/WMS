@@ -55,7 +55,7 @@ SampleDTO::Wrapper SampleService::getById(uint64_t id)
 	SampleDAO dao;
 	auto res = dao.selectById(id);
 	
-	// 没有查询到数据 
+	// 没有查询到数据
 	if (!res)
 		return nullptr;
 

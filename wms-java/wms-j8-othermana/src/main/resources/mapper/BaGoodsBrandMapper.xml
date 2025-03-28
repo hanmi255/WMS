@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.goodsbrand.mapper.BaGoodsBrandMapper">
+
+    <resultMap id="BaseResultMap" type="com.zeroone.star.project.vo.j8.other.goodsbrand.GoodsBrandVO">
+        <id property="id" column="id"/>
+        <result property="createName" column="create_name"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createDate" column="create_date"/>
+        <result property="updateName" column="update_name"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateDate" column="update_date"/>
+        <result property="sysOrgCode" column="sys_org_code"/>
+        <result property="sysCompanyCode" column="sys_company_code"/>
+        <result property="goodsBrandCode" column="goods_brand_code"/>
+        <result property="goodsBrandName" column="goods_brand_name"/>
+        <result property="goodsBrandWww" column="goods_brand_www"/>
+        <result property="goodsBrandPic" column="goods_brand_pic"/>
+        <result property="goodsBrandText" column="goods_brand_text"/>
+        <result property="goodsBrandDel" column="goods_brand_del"/>
+    </resultMap>
+    <insert id="addGoodsBrand" parameterType="com.zeroone.star.project.dto.j8.other.goodsbrand.GoodsBrandDTO">
+        insert into ba_goods_brand(id, goods_brand_code, goods_brand_name, goods_brand_www, goods_brand_pic,
+                                   goods_brand_text, goods_brand_del)
+        values (#{id}, #{goodsBrandCode}, #{goodsBrandName}, #{goodsBrandWww}, #{goodsBrandPic}, #{goodsBrandText},
+                #{goodsBrandDel})
+    </insert>
+
+</mapper>

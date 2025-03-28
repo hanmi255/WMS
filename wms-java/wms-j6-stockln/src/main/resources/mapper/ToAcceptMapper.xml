@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.stockln.mapper.ToAcceptMapper">
+
+    <resultMap id="BaseResultMap" type="com.zeroone.star.project.dto.j6.stockln.ToAcceptDTO">
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="createName" column="create_name" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+        <result property="updateName" column="update_name" jdbcType="VARCHAR"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+        <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+        <result property="sysOrgCode" column="sys_org_code" jdbcType="VARCHAR"/>
+        <result property="sysCompanyCode" column="sys_company_code" jdbcType="VARCHAR"/>
+        <result property="imNoticeId" column="im_notice_id" jdbcType="VARCHAR"/>
+        <result property="imNoticeItem" column="im_notice_item" jdbcType="VARCHAR"/>
+        <result property="goodsCode" column="goods_code" jdbcType="VARCHAR"/>
+        <result property="goodsCount" column="goods_count" jdbcType="VARCHAR"/>
+        <result property="goodsPrdData" column="goods_prd_data" jdbcType="TIMESTAMP"/>
+        <result property="goodsBatch" column="goods_batch" jdbcType="VARCHAR"/>
+        <result property="binPre" column="bin_pre" jdbcType="VARCHAR"/>
+        <result property="goodsFvol" column="goods_fvol" jdbcType="VARCHAR"/>
+        <result property="goodsWeight" column="goods_weight" jdbcType="VARCHAR"/>
+        <result property="binPlan" column="bin_plan" jdbcType="VARCHAR"/>
+        <result property="goodsUnit" column="goods_unit" jdbcType="VARCHAR"/>
+        <result property="goodsWqmCount" column="goods_wqm_count" jdbcType="VARCHAR"/>
+        <result property="goodsQmCount" column="goods_qm_count" jdbcType="VARCHAR"/>
+        <result property="noticeiSta" column="noticei_sta" jdbcType="VARCHAR"/>
+        <result property="baseUnit" column="base_unit" jdbcType="VARCHAR"/>
+        <result property="baseGoodscount" column="base_goodscount" jdbcType="VARCHAR"/>
+        <result property="baseQmcount" column="base_qmcount" jdbcType="VARCHAR"/>
+        <result property="goodsName" column="goods_name" jdbcType="VARCHAR"/>
+        <result property="otherId" column="other_id" jdbcType="VARCHAR"/>
+        <result property="imCusCode" column="im_cus_code" jdbcType="VARCHAR"/>
+        <result property="imBeizhu" column="im_beizhu" jdbcType="VARCHAR"/>
+        <result property="barcode" column="barcode" jdbcType="VARCHAR"/>
+        <result property="shpGuiGe" column="shp_gui_ge" jdbcType="VARCHAR"/>
+        <result property="bzhiQi" column="BZHI_QI" jdbcType="VARCHAR"/>
+        <result property="chpShuXing" column="chp_shu_xing" jdbcType="VARCHAR"/>
+        <result property="tinId" column="tin_id" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,create_name,create_by,
+        create_date,update_name,update_by,
+        update_date,sys_org_code,sys_company_code,
+        im_notice_id,im_notice_item,goods_code,
+        goods_count,goods_prd_data,goods_batch,
+        bin_pre,goods_fvol,goods_weight,
+        bin_plan,goods_unit,goods_wqm_count,
+        goods_qm_count,noticei_sta,base_unit,
+        base_goodscount,base_qmcount,goods_name,
+        other_id,im_cus_code,im_beizhu,
+        barcode,shp_gui_ge,BZHI_QI,
+        chp_shu_xing,tin_id
+    </sql>
+</mapper>

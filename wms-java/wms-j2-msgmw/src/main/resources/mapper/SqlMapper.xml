@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.msgmw.mapper.SqlMapper">
+
+    <resultMap id="SqlListDTOResultMap" type="com.zeroone.star.project.dto.j2.msgmw.SQL.SqlListDTO">
+        <id property="sqlId" column="id" />
+        <result property="sqlName" column="sql_name" />
+        <result property="sqlContent" column="sql_content" />
+    </resultMap>
+
+    <!-- 实现 selectSqlList 方法的 SQL 查询 -->
+    <select id="selectSqlList" resultMap="SqlListDTOResultMap">
+        SELECT
+        id,
+        sql_name,
+        sql_content
+        FROM
+        t_s_sms_sql
+        <where>
+            <if test="query.sqlName != null and query.sqlName != ''">
+                AND sql_name LIKE CONCAT('%', #{query.sqlName}, '%')
+            </if>
+            <if test="query.sqlContent != null and query.sqlContent != ''">
+                AND sql_content LIKE CONCAT('%', #{query.sqlContent}, '%')
+            </if>
+        </where>
+        ORDER BY id ASC
+    </select>
+
+</mapper>

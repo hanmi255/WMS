@@ -1,0 +1,18 @@
+EWM:
+  id: 唯一标识
+  bzhi_qi: 保质期天
+  res_date: 剩余天数
+  theremainingratio: 剩余比例
+  getthewarninglist: 获取预警列表
+  productcode: 商品编码
+  customerproductcode: 客户商品编码
+  productname: 商品名称
+  customercode: 客户编码
+  customername: 客户名称
+  productiondate: 生产日期
+  expirationdate: 到期日
+  The lower value of the remaining ratio: 剩余比例的较小值
+  The upper value of the remaining ratio: 剩余比例的较大值
+  inventorytype: 库存类型
+  basicquantity: 基本数量
+  basicunit: 基本单位

@@ -1,4 +1,4 @@
-﻿# CMakeList.txt: 顶层 CMake 项目文件，在此处执行全局配置
+# CMakeList.txt: 顶层 CMake 项目文件，在此处执行全局配置
 # 并包含子项目。
 #
 cmake_minimum_required (VERSION 3.8)
@@ -169,7 +169,22 @@ if(DEFINED UNIT_TEST)
 	add_subdirectory ("arch-tests")
 endif()
 # 这是示例模块，后期可以不编译它
-add_subdirectory ("arch-demo")
+#add_subdirectory ("arch-demo")
 # 在后面添加你的模块
+add_subdirectory ("wms-c1-bconf")
+add_subdirectory ("wms-c1-persalloc")
+add_subdirectory ("wms-c2-comconfig")
 add_subdirectory ("wms-c3-chuweiguanli")
 add_subdirectory ("wms-c3-kuneiguanli")
+add_subdirectory ("wms-c4-icmanagement")
+add_subdirectory ("wms-c4-billingconfig")
+add_subdirectory ("wms-c4-billingtype")
+add_subdirectory ("wms-c5-costmanagement")
+add_subdirectory ("wms-c5-warningmanagement")
+add_subdirectory ("wms-c5-costconfig")
+add_subdirectory ("wms-c6-areaconf")
+add_subdirectory ("wms-c6-staffconf")
+add_subdirectory ("wms-c7-reposity")
+add_subdirectory ("wms-c8-platmanag")
+add_subdirectory ("wms-c8-wconfig")
+

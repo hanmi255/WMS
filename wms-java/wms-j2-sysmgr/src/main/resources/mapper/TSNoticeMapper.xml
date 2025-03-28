@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.sysmgr.mapper.TSNoticeMapper">
+
+<!--
+    <resultMap id="BaseResultMap" type="com.zeroone.star.sysmgr.entity.TSNotice">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="noticeTitle" column="notice_title" jdbcType="VARCHAR"/>
+            <result property="noticeContent" column="notice_content" jdbcType="VARCHAR"/>
+            <result property="noticeType" column="notice_type" jdbcType="VARCHAR"/>
+            <result property="noticeLevel" column="notice_level" jdbcType="VARCHAR"/>
+            <result property="noticeTerm" column="notice_term" jdbcType="TIMESTAMP"/>
+            <result property="createUser" column="create_user" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,notice_title,notice_content,
+        notice_type,notice_level,notice_term,
+        create_user,create_time
+    </sql>
+-->
+
+
+</mapper>

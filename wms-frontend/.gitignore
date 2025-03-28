@@ -1,0 +1,79 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+.DS_Store
+dist
+dist-ssr
+coverage
+*.local
+
+/cypress/videos/
+/cypress/screenshots/
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+*.tsbuildinfo
+
+# 不提交仓库中的依赖包
+node_modules
+
+# 不提供自动生成的类型文件
+auto-imports.d.ts
+typed-router.d.ts
+
+# 满足特定命名规则的文件，认定为自动生成的类型文件，不予提交
+components.d.ts
+components-instance.d.ts
+# 名称多一个短横线的文件，认定为主动生成的类型文件，不予提交
+components-*.ts
+
+
+# 忽略自动生成的依赖锁文件 不提供包管理器的依赖锁文件
+pnpm-lock.yaml
+package-lock.json
+
+# 忽略自动生成vercel部署配置文件
+.vercel
+vercel.null.def.json
+
+# 忽略生成的构建缓存
+.vite
+
+# 忽略vite的中间构建文件 防止其他人误提交此文件
+vite.config.ts.*.mjs
+
+# 忽略掉自定义的环境变量
+.env.*
+
+# 环境变量文件 提交
+!.env.development
+!.env.production
+!.env
+.vercel
+
+# 忽略 vitepress 项目生成的缓存
+*/**/.vitepress/dist
+*/**/.vitepress/cache
+
+# 忽略typedoc生成的md文件
+/src/docs/typedoc-md
+
+# 忽略被移动到此处的变更集文件
+/src/CHANGELOG.md
+
+# 忽略turbo任务调度产生的缓存目录
+.turbo
+

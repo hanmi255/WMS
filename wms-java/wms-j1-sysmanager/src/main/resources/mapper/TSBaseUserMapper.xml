@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.j1.sysmanager.mapper.TSBaseUserMapper">
+
+    <select id="getUserList" resultType="com.zeroone.star.project.vo.j1.sysmanager.rolemanager.UserVO">
+        SELECT
+            a.ID,
+            a.username,
+            a.realname,
+            a.`status`
+        FROM
+            t_s_base_user a LEFT JOIN t_s_role_user b on a.ID = b.userid
+        <where>
+            b.roleid != #{query.roleId}
+            <if test="query.username != null and query.username != '' ">
+                AND a.username LIKE CONCAT('%',#{query.username},'%')
+            </if>
+            <if test="query.realname != null and query.realname != '' ">
+                AND a.realname LIKE CONCAT('%',#{query.realname},'%')
+            </if>
+        </where>
+
+    </select>
+
+
+    <select id="getUserList2" resultType="com.zeroone.star.project.vo.j1.sysmanager.rolemanager.RoleUserVO">
+        SELECT
+            a.ID,
+            a.username,
+            a.realname,
+            a.`status`
+        FROM
+            t_s_base_user a LEFT JOIN t_s_role_user b on a.ID = b.userid
+        <where>
+            b.roleid = #{query.id}
+            <if test="query.username != null and query.username != '' ">
+                AND a.username LIKE CONCAT('%',#{query.username},'%')
+            </if>
+            <if test="query.realname != null and query.realname != '' ">
+                AND a.realname LIKE CONCAT('%',#{query.realname},'%')
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

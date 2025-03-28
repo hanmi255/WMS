@@ -1,0 +1,279 @@
+reposity:
+ temperature:
+  field:
+   id: 唯一ID
+   deg_type_code: 温层代码
+   deg_type_name: 温层名称
+   create_name: 创建人名称
+   create_by: 创建人登陆名称
+   create_date: 创建日期
+   update_by: 更新人登录名称
+   update_name: 更新人名称
+   update_date: 更新日期
+   sys_org_code: 所属部门
+   sys_company_code: 所属公司
+   sheet: 温度属性
+  modify:
+   summary: 修改温度属性
+  remove:
+   summary: 删除温度属性
+  excelout:
+   summary: 温度属性导出
+  excelin:
+   summary: 温度属性导入
+  queryname:
+   summary: 获取温度属性名称列表
+  queryall:
+   summary: 获取温度属性列表
+  add:
+   summary: 录入温度属性
+
+business-link:
+  post:
+    summary: 新增业务环节列表
+    import: 导入业务环节
+  put:
+    modify: 修改业务环节
+  get:
+    namelist: 获取业务环节名称列表
+    businesslink: 获取业务环节列表
+    export: 导出业务环节
+  del:
+    delete: 删除业务环节
+  field:
+    create-name: 创建人名称
+    create-by: 创建人登录名
+    create-date: 创建时间
+    update-name: 更新人名称
+    update-by: 更新人登录名
+    update-date: 更新时间
+    oper-step-code: 业务环节代码
+    oper-step-name: 业务环节名称
+    sys-org-code: 所属部门
+    sys-company-code: 所属公司
+    ID: 业务环节录入ID
+    ids: 业务环节录入ID列表
+  example:
+    create-name: 初始
+
+
+act_type:
+ field:
+  act_type_code: 作业类型代码
+  act_type_name: 作业类型名称
+  oper_step_code: 业务环节
+  act_type_id: 作业类型ID
+  create_name: 创建人名称
+  create_by: 创建人登录名称
+  create_date: 创建日期
+  update_name: 更新人名称
+  update_by: 更新人登录名称
+  update_date: 更新日期
+  sys_org_code: 所属部门
+  sys_company_code: 所属公司
+ get:
+  act_type_list: 获取作业类型列表
+ post:
+  act_type_add: 新增作业类型
+
+act-type:
+    field:
+        test: 测试字段
+
+user:
+ query-all: 
+  summary: 查询所有用户
+
+
+
+ba_act_type:
+  query-all:
+    summary: 查询所有作业类型
+  modify:
+    summary: 修改作业类型信息
+  add:
+    summary: 录入新的作业类型
+  delete:
+    summary: 删除作业类型
+  field:
+    act_type_code: 作业类型代码
+    act_type_name: 作业类型名称
+    oper_step_code: 业务环节
+    create_name: 创建人名称
+    create_by: 创建人登录名称
+    create_date: 创建日期
+    update_name: 更新人名称
+    update_by: 更新人登录名称
+    update_date: 更新日期
+    sys_org_code: 所属部门
+    sys_company_code: 所属公司 
+    id: 主键
+  export:
+    summary: 导出作业类型
+    sheet: 作业类型导出
+cangku:
+ code: 库位类型代码
+ name: 库位类型名称
+ id: id名称
+ queryall:
+  summary: 查询全部库位类型
+ add:
+  summary: 新增库位类型
+
+ba_bin_type:
+  excelout:
+    summary: 库位类型导出excel
+  modify:
+    summary: 修改库位类型信息
+  excelin:
+    summary: 库位类型excel导入
+  remove:
+    summary: 删除库位类型
+  field:
+    bin_type_code: 库位类型代码
+    act_type_name: 库位类型名称
+    create_name: 创建人名称
+    create_by: 创建人登录名称
+    create_date: 创建日期
+    update_name: 更新人名称
+    update_by: 更新人登录名称
+    update_date: 更新日期
+    sys_org_code: 所属部门
+    sys_company_code: 所属公司
+    id: 唯一id
+ba_bin_type:
+  query-all:
+    summary: 查询所有库位类型
+  modify:
+    summary: 修改库位类型信息
+  add:
+    summary: 录入新的库位类型
+  delete:
+    summary: 删除库位类型
+  field:
+    bin_type_code: 库位类型代码
+    bin_type_name: 库位类型名称
+    oper_step_code: 业务环节
+    create_name: 创建人名称
+    create_by: 创建人登录名称
+    create_date: 创建日期
+    update_name: 更新人名称
+    update_by: 更新人登录名称
+    update_date: 更新日期
+    sys_org_code: 所属部门
+    sys_company_code: 所属公司 
+
+
+
+
+dictionary:
+  order:
+    id:
+      summary: 订单类型id
+    code:
+      summary: 订单类型代码
+    type:
+      summary: 订单类型名称
+  ope:
+    modify:
+      summary: 修改订单类型
+    delete:
+      summary: 删除订单类型
+    delete-all:
+      summary: 删除所有订单类型
+    import:
+      summary: 导入订单类型
+    export:
+      summary: 导出订单类型
+  file:
+    data:
+      summary: 导入的文件数据
+    impath:
+      summary: 导入文件
+    expath:
+      summary: 导出文件
+    sheet:
+      summary: 订单类型
+  library:
+    id:
+      summary: 库位类型id
+    code:
+      summary: 库位类型代码
+    type:
+      summary: 库位类型名称
+  libraryope:
+    modify:
+      summary: 修改库位类型
+    delete:
+      summary: 删除库位类型
+    delete-all:
+      summary: 删除所有库位类型
+    import:
+      summary: 导入库位类型
+    export:
+      summary: 导出库位类型
+  libraryfile:
+    data:
+      summary: 导入的文件数据
+    impath:
+      summary: 导入文件
+    expath:
+      summary: 导出文件
+    sheet:
+      summary: 库位类型
+
+
+buss-type:
+ field:
+  id: 唯一标识
+  create-name: 创建人名称
+  create-by: 创建人登录名称
+  create-date: 创建日期
+  update-name: 更新人名称
+  update-by: 更新人登录名称
+  update-date: 更新日期
+  sys-org-code: 所属部门
+  sys-company-code: 所属公司
+  buss-type-code: 业务类型代码
+  buss-type-name: 业务类型名称
+  buss-type-text: 业务类型备注
+ get:
+  query: 查询所有业务类型
+  add: 添加业务类型
+  modify: 修改业务类型
+ sample: 
+  type: 进货
+
+tydel:
+    name1: 业务类型单个删除    
+    name2: 业务类型批量删除
+    id: 编号
+tylead:
+    name1: 业务类型导入
+    name2: 业务类型导出
+    num: 业务类型代码
+    name: 业务类型名称
+    desc: 业务类型备注
+    id: 编号
+excel:
+ sheet:
+  s1: 数据表1
+  s2: 数据表2
+ header:
+  h1: 表头1
+  h2: 表头2
+  h3: 表头3
+  h4: 表头4
+  h5: 表头5
+
+order_type:
+ field:
+  order_type_id: 订单类型ID
+  order_type_code: 订单类型代码
+  order_type_name: 订单类型名称
+ get:
+  order_type_list: 获取订单类型列表
+  order_type_name_list: 获取订单类型名称列表
+  test: 测试接口
+ post:
+  order_type_add: 新增订单类型

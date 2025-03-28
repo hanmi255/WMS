@@ -1,0 +1,141 @@
+{
+	// 将npm的脚本显示出来 确保大家可以快速预览到npm命令，用界面点击实现项目启动、打包等行为。
+	"npm.enableRunFromFolder": true,
+	// 参考资料 https://github.com/mhutchie/vscode-git-graph/blob/develop/README.md
+	"git-graph.customBranchGlobPatterns": [
+		{
+			"name": "f1小组分支",
+			// 参考资料 https://stackoverflow.com/questions/45439796/globbing-in-git-log-to-show-certain-branches
+			"glob": "*f1*"
+		}
+	],
+	// Enable the ESlint flat config support
+	// (remove this if your ESLint extension above v3.0.5)
+	"eslint.experimental.useFlatConfig": true,
+	"[vue]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[markdown]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.quickSuggestions": {
+			"other": "on",
+			"comments": "on",
+			"strings": "on"
+		}
+	},
+	// 在项目内，我们指定格式化工具默认为 prettier
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	// Disable the default formatter, use eslint instead
+	// 与antfu不同的是，我们使用prettier作为格式化工具。
+	"prettier.enable": true,
+	"editor.formatOnSave": true,
+	// "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+	// Auto fix
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit",
+		"source.organizeImports": "never"
+	},
+	/** 
+    - https://www.cnblogs.com/sq800/p/17484485.html
+  */
+	"eslint.format.enable": true,
+	"eslint.workingDirectories": [
+		{
+			"mode": "auto"
+		}
+	],
+	// Silent the stylistic rules in you IDE, but still auto fix them
+	"eslint.rules.customizations": [
+		{
+			"rule": "style/*",
+			"severity": "off"
+		},
+		{
+			"rule": "format/*",
+			"severity": "off"
+		},
+		{
+			"rule": "*-indent",
+			"severity": "off"
+		},
+		{
+			"rule": "*-spacing",
+			"severity": "off"
+		},
+		{
+			"rule": "*-spaces",
+			"severity": "off"
+		},
+		{
+			"rule": "*-order",
+			"severity": "off"
+		},
+		{
+			"rule": "*-dangle",
+			"severity": "off"
+		},
+		{
+			"rule": "*-newline",
+			"severity": "off"
+		},
+		{
+			"rule": "*quotes",
+			"severity": "off"
+		},
+		{
+			"rule": "*semi",
+			"severity": "off"
+		}
+	],
+	// Enable eslint for all supported languages
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"vue",
+		"html",
+		"markdown",
+		"json",
+		"jsonc",
+		"yaml",
+		"toml",
+		"xml",
+		"gql",
+		"graphql",
+		"astro"
+	],
+	/** 为全局类型导入的智能跳转提供配置 */
+	"editor.gotoLocation.multipleDefinitions": "goto",
+	"picgo": {
+		"picBed": {
+			"current": "github",
+			"uploader": "github",
+			"github": {
+				/**
+					图片上传到专门的嵌套子文件夹
+					这个上传路径是专门用于阮喵喵的github图床的 绝大多数人员几乎不会使用 vs-picgo 插件
+					故该配置属于专属配置
+					图床信息将用于为大家展示文档。
+				*/
+				"path": "01s-docs/10wms/"
+			}
+		}
+	},
+	"i18n-ally.localesPaths": []
+}

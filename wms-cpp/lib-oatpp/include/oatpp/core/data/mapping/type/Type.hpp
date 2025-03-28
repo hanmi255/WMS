@@ -260,6 +260,9 @@ public:
    * @return
    */
   const Type* getValueType() const {
+      if (!this) {
+          throw std::runtime_error("this pointer is null in getValueType");
+      }
     return m_valueType;
   }
   

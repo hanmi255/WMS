@@ -1,0 +1,12 @@
+server:
+  port: ${sp.stockln}
+spring:
+  application:
+    name: ${sn.stockln}
+
+# pdf配置
+pdf:
+  # fop配置文件路径
+  conf: ${pdf.conf}
+  # xsl-fo模板路径（目录）
+  template: ${pdf.template}

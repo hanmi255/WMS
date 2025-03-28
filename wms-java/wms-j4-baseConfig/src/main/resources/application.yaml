@@ -1,0 +1,22 @@
+server:
+  port: ${sp.parameterType}
+spring:
+  application:
+    name: ${sn.parameterType}
+#seata:
+#  tx-service-group: tx-business
+#  enabled: true
+#  service:
+#    #seata服务地址
+#    grouplist:
+#      default: ${seata.default}
+#    #虚拟组和分组映射，key的名字与tx-service-group一致
+#    vgroup-mapping:
+#      tx-business: default
+#    #开启全局事务
+#    disable-global-transaction: false
+knife4j:
+  enableAggregation: true
+  nacos:
+    enable: true
+    serviceUrl: http://${nacos.addr}/${nacos.contextPath}/

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.sysmgr.mapper.DepartMapper">
+
+    <!-- 定义公共的查询字段 -->
+    <sql id="Base_Column_List">
+        d.ID AS id,
+        d.departname AS departName,
+        d.description AS description,
+        d.parentdepartid AS parentDepartId,
+        d.org_code AS orgCode,
+        d.org_type AS orgType,
+        d.mobile AS mobile,
+        d.fax AS fax,
+        d.address AS address,
+        CASE WHEN EXISTS (SELECT 1 FROM t_s_depart WHERE parentdepartid = d.ID) THEN true ELSE false END AS hasChildren
+    </sql>
+
+    <!-- 查询所有部门信息 -->
+    <select id="selectAllDeparts" resultType="com.zeroone.star.project.dto.j2.sysmgr.DepartTreeListDTO">
+        SELECT
+            ID AS id,
+            departname AS departName,
+            description AS description,
+            parentdepartid AS parentDepartId,
+            org_code AS orgCode,
+            org_type AS orgType,
+            mobile AS mobile,
+            fax AS fax,
+            address AS address,
+            depart_order AS departOrder
+        FROM
+            t_s_depart
+    </select>
+
+    <!-- 查询所有部门信息，包含是否有子节点 -->
+    <select id="selectAllDepartsWithChildren" resultType="com.zeroone.star.project.dto.j2.sysmgr.DepartTreeListDTO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        t_s_depart d
+    </select>
+
+    <!-- 查询根级节点，包含是否有子节点 -->
+    <select id="selectRootDepartmentsWithChildren" resultType="com.zeroone.star.project.dto.j2.sysmgr.DepartTreeListDTO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        t_s_depart d
+        WHERE
+        d.parentdepartid IS NULL
+    </select>
+
+    <!-- 查询指定父部门下的子节点，包含是否有子节点 -->
+    <select id="selectChildDepartmentsWithChildren" resultType="com.zeroone.star.project.dto.j2.sysmgr.DepartTreeListDTO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        t_s_depart d
+        WHERE
+        d.parentdepartid = #{parentDepartId}
+    </select>
+
+    <select id="selectListDeparts" resultType="com.zeroone.star.sysmgr.entity.Depart">
+        SELECT
+            d.ID AS id,
+            d.departname AS departName,
+            d.description AS description,
+            d.org_code AS orgCode,
+            d.org_type AS orgType,
+            d.mobile AS mobile,
+            d.fax AS fax,
+            d.address AS address
+        FROM
+            t_s_depart d
+        ORDER BY org_code ASC
+    </select>
+
+
+    <select id="selectByIds" resultType="com.zeroone.star.sysmgr.entity.Depart">
+        SELECT * FROM t_s_depart WHERE id IN
+        <foreach collection="departIds" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+        ORDER BY org_code ASC
+    </select>
+
+
+
+    <!-- 根据 org_code 查询记录 -->
+    <select id="selectByOrgCodes" resultType="com.zeroone.star.sysmgr.entity.Depart">
+        SELECT
+        d.ID AS id,
+        d.departname AS departName,
+        d.description AS description,
+        d.parentdepartid AS parentDepartId,
+        d.org_code AS orgCode,
+        d.org_type AS orgType,
+        d.mobile AS mobile,
+        d.fax AS fax,
+        d.address AS address
+        FROM t_s_depart d
+        WHERE d.org_code IN
+        <foreach collection="orgCodes" item="orgCode" open="(" separator="," close=")">
+            #{orgCode}
+        </foreach>
+    </select>
+
+    <!-- 批量插入记录 -->
+    <insert id="savedepartList" parameterType="java.util.List">
+        INSERT INTO t_s_depart
+        (ID, departname, description, parentdepartid, org_code, org_type, mobile, fax, address)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.id},
+            #{item.departName},
+            #{item.description},
+            #{item.parentDepartId},
+            #{item.orgCode},
+            #{item.orgType},
+            #{item.mobile},
+            #{item.fax},
+            #{item.address}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 批量更新记录 -->
+    <update id="updateBatch">
+        <foreach collection="list" item="item" separator=";">
+            UPDATE t_s_depart
+            SET
+            departname = #{item.departName},
+            description = #{item.description},
+            parentdepartid = #{item.parentDepartId},
+            org_code = #{item.orgCode},
+            org_type = #{item.orgType},
+            mobile = #{item.mobile},
+            fax = #{item.fax},
+            address = #{item.address}
+            WHERE ID = #{item.id}
+        </foreach>
+    </update>
+
+    <!-- 单条更新记录 -->
+    <update id="update" parameterType="com.zeroone.star.project.dto.j2.sysmgr.DepartTreeListDTO">
+        UPDATE t_s_depart
+        SET
+            departname = #{departName},
+            description = #{description},
+            parentdepartid = #{parentDepartId},
+            org_code = #{orgCode},
+            org_type = #{orgType},
+            mobile = #{mobile},
+            fax = #{fax},
+            address = #{address}
+        WHERE ID = #{id}
+    </update>
+
+    <select id="getDeparDTOList" resultType="com.zeroone.star.project.dto.j2.sysmgr.DepartTreeListDTO">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        t_s_depart d
+    </select>
+
+
+
+</mapper>

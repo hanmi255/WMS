@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.login.mapper.TSFunctionMapper">
+
+    <resultMap id="functionMap" type="com.zeroone.star.project.vo.login.FunctionTreeVO">
+        <id column="id" jdbcType="VARCHAR" property="id"></id>
+        <result column="parentfunctionid" jdbcType="VARCHAR" property="parentfunctionid"></result>
+        <result column="functionname" jdbcType="VARCHAR" property="functionname"></result>
+        <result column="functionlevel" jdbcType="SMALLINT" property="functionlevel"></result>
+        <result column="functionurl" jdbcType="VARCHAR" property="functionurl"></result>
+        <result column="iconname" jdbcType="VARCHAR" property="iconName" ></result>
+        <result column="desk_iconname" jdbcType="VARCHAR" property="deskIconName"></result>
+    </resultMap>
+
+    <select id="selectFunctionsByRoleName" resultMap="functionMap">
+        SELECT
+            f.ID,
+            f.parentfunctionid,
+            f.functionname,
+            f.functionlevel,
+            f.functionurl,
+            i.`name` iconname,
+            di.`name` desk_iconname
+        FROM
+            t_s_role r
+                JOIN t_s_role_function rf ON r.ID = rf.roleid
+                JOIN t_s_function f ON f.ID = rf.functionid
+                JOIN t_s_icon i ON i.ID = f.iconid
+                JOIN t_s_icon di ON di.ID = f.desk_iconid
+        WHERE
+            r.rolecode = #{roleName};
+    </select>
+
+
+</mapper>
+
+
+
+
+
+

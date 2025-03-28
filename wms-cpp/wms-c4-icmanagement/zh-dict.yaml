@@ -1,0 +1,497 @@
+removal-adjustment:
+ query:
+  order_id: 原始单据编码
+  goods_id: 商品编码
+  goods_name: 商品名称
+  goods_qua: 数量
+  id: 唯一标识
+ get:
+  summary: 分页查询下架货物 
+  order_id: 原始单据编码
+  goods_id: 商品编码
+  detail: 查询下架货物详细信息
+  goods_name: 商品名称
+  modify_goods: 修改下架货物信息
+  success_post: 修改成功
+  fail_post: 修改失败
+ inv:
+  name: 盘点人
+  storagelocation: 储位
+  plt: 托盘
+  gtin: 商品编号
+  tn: 商品名称
+  co: 货主
+  custid: 货主编码
+  day: 盘点日期
+  number: 账目数量
+  unit: 单位
+  birth: 生产日期
+  countedquantity: 盘点数量
+  inventorystatus: 盘点状态
+  askinventoryvariance: 查询盘点差异列表
+  queryinventory: 查询盘点列表 
+  addinventoryvariance: 添加盘点差异列表
+  addinventory: 添加盘点数据
+  batch: 批次
+  coname: 货主名称
+  datecreat: 创建日期
+  num: 数量
+  createname: 创建人名称
+  updatername: 更新人名称
+  username: 更新人登录名称
+  updatetime: 更新日期
+addition-adjustment:
+ post:
+  batchmodify_goods: 批量修改上架货物信息
+  order_id: 原始单据编码
+  goods_id: 商品编码
+  goods_name: 商品名称
+  id: 唯一标识
+  modify_goods: 修改下架货物信息
+
+ inv:
+  name: 盘点人
+  storagelocation: 储位
+  plt: 托盘
+  gtin: 商品编号
+  tn: 商品名称
+  co: 货主
+  custid: 货主编码
+  day: 盘点日期
+  number: 账目数量
+  unit: 单位
+  birth: 生产日期
+  countedquantity: 盘点数量
+  inventorystatus: 盘点状态
+  askinventoryvariance: 查询盘点差异列表
+  queryinventory: 查询盘点列表 
+  addinventoryvariance: 添加盘点差异列表
+  addinventory: 添加盘点数据
+  batch: 批次
+  coname: 货主名称
+  datecreat: 创建日期
+  num: 数量
+  createname: 创建人名称
+  updatername: 更新人名称
+  username: 更新人登录名称
+  updatetime: 更新日期
+
+mql:
+ creat: 
+  create_name: 创建人名称
+  create_by: 创建人登录名称
+  create_date: 创建日期
+ update:
+  update_date: 更新日期
+  update_name: 更新人名称
+  update_by: 更新人登录名称
+ sys:
+  sys_org_code: 所属部门
+  sys_company_code: 所属公司
+ goods:
+  goods_id: 商品编码
+  goods_name: 商品名称
+  goods_qua: 数量
+  goods_unit: 单位
+  goods_pro_data: 生产日期
+  goods_batch: 批次
+  goods_code: 商品统一编码
+ base:
+  base_unit: 基本单位
+  base_goodscount: 基本单位数量
+ stt:
+  stt_qua: 盘点数量
+  stt_sta: 盘点状态
+  stt_type: 盘点类型
+  stt_name: 盘点人
+  stt_date: 盘点日期
+ cus:
+  cus_name: 货主名称
+  cus_code: 货主
+ rest:
+  bin_id: 储位
+  tin_id: 托盘
+  dong_xian: 动线
+  id: 唯一标识
+  cane: 蔗糖
+  going: 计划中
+ ask:
+  check: 获取盘点任务列表（条件+分页）
+  inventory: 查询盘点差异列表
+ add:
+  check: 添加盘点列表
+  inventory: 添加盘点差异列表
+ export: 
+  check: 导出盘点列表
+
+
+
+lis:
+ excel:
+  sheet:
+   s1: 导出信息
+ exportData:
+  detail: 导出上架调整数据
+ query-all: 
+  summary: 分页查询所有上架货物
+  detail: 查询上架货物的详细信息
+ modify-list:
+  summary: 修改上架货物信息
+ field:
+  id: id
+  credate_start: 创建日期起始
+  credate_end: 创建日期终止
+  crename: 创建人名称
+  creloginame: 创建人登录名称
+  credate: 创建日期
+  updname: 更新人名称
+  updloginame: 更新人登录名称
+  upddate: 更新日期
+  sysorgcode: 所属部门
+  syscompanycode: 所属公司
+  goodscode: 商品编码
+  goodsqua: 商品数量
+  goodsname: 商品名称
+  orgbilltype: 原始单据类型
+  orgbillcode: 原始单据编码
+  orgbillrow: 原始单据行项目
+  goodsupid: 上架id
+  goodsunit: 单位
+  goodsbatch: 批次
+  goodscredata: 生产日期
+  acttypecode: 作业类型
+  kuweicode: 库位编码
+  tuobancode: 托盘码
+  huozhu: 货主
+  baseunit: 基本单位
+  basegoodscount: 基本单位数量
+  box: 箱
+  meat: 牛羊肉半成品
+  company: 有限公司
+
+
+overall:
+ inventorylist:
+  huoqupandianlist: 获取盘点列表（条件+分页）
+  shengchenpdtest: 生成盘点任务（支持批量）
+
+  yidongriqi: 移动日期
+  cktype: 库存类型
+  chuwei: 储位
+  tuopan: 托盘
+  huozhu: 货主
+  huozhumingcheng: 货主名称
+  shangpinbianma: 商品编码
+  shangpinshuliang: 商品数量
+  shangpinmincheng: 商品名称
+  shengchanriqi: 生产日期
+
+goods:
+    query-all: 
+        summary: 查询所有用户
+    download:
+        summary: 导出下架货物报表
+        excelname: 下架货物报表
+    modify:
+        summary: 批量修改下架货物
+    field:
+       id: 唯一标识 
+       sammry: 选择修改
+       create_name: 创建人名称	  
+       create_date: 创建日期  
+       create_by: 创建人登录名称  
+       update_name: 更新人名称	  
+       update_by: 更新人登录名称  
+       update_date: 更新日期  
+       sys_org_code: 所属部门  
+       sys_company_code: 所属公司  
+       goods_id: 商品编码  
+       goods_qua: 数量  
+       goods_quaok: 完成数量     
+       order_id: 原始单据编码
+       order_id_i: 原始单据行项目
+       goods_unit: 单位  
+       goods_pro_date: 生产日期  
+       goods_batch: 批次
+       act_type_code: 作业类型
+       ku_wei_bian_ma: 库位编码
+       bin_id_to: 目标托盘  
+       bin_id_from: 源托盘码  
+       cus: 货主  
+       down_sta: 状态  
+       base_unit: 基本单位  
+       base_goodscount: 基本单位数量   
+       goods_name: 商品名称  
+       stt_qua: 盘点数量  
+       stt_type: 盘点类型  
+bin:
+    get:
+        summary: 分页查询动仓列表数据
+    download:
+        summary: 导出动仓盘点报表
+        excelname: 动仓盘点报表
+        mql: 导出盘点任务报表
+    field:
+        id: 唯一标识
+        bin_id: 储位
+        tin_id: 托盘
+        goods_id: 商品编码
+        goods_name: 商品名称
+        goods_pro_date: 生产日期
+        goods_save_date: 保质期
+        goods_batch: 批次
+        goods_qua: 数量
+        goods_unit: 单位
+        total_stock: 总库存
+        avail_stock: 可用库存
+        to_be_taken_down: 待下架
+        due_date: 到期日
+        specification: 规格
+        original_code: 原始单据编码
+        customer_order_id: 客户订单号
+        last_pick_time: 最后拣货时间
+        last_pick_time_start: 最后拣货时间段起始时间
+        last_pick_time_end: 最后拣货时间段结束时间
+        remark: 备注
+        number: 数量
+        recheck_num: 复核数量
+        basical_unit: 基本单位
+        original_pallet_code: 源托盘码
+        stock_code: 库位编码
+        cosignor: 货主
+        xiang: 箱
+        zhi: 支
+excel:
+ sheet:
+  s1: 数据表1
+  s2: 数据表2
+  s3: 数据表3
+ header:
+  h1: 表头1
+  h2: 表头2
+  h3: 表头3
+  h4: 表头4
+  h5: 表头5
+ content:
+  info: 坐标
+
+sttOnMove:
+ summary:
+  queryAll: 查询动碰盘视图列表（分页）
+  queryOne: 查询单项动碰盘详情数据
+  insert_stt_task_multi: 生成盘点任务（支持批量）
+ field:
+  id: 动碰盘点唯一标识
+  kuctype: 库存类型
+  kuWeiBianMa: 储位
+  binId: 托盘
+  cusCode: 货主
+  zhongWenQch: 货主名称
+  goodsId: 商品编码
+  goodsQua: 商品数量
+  shpMingCheng: 商品名称
+  goodsProData: 生产日期
+  bzhiQi: 保质期
+  goodsUnit: 单位
+  baseUnit: 基本单位
+  sttSta: 盘点状态
+  lastMove: 移动日期
+  lastMoveStart: 最早移动日期
+  lastMoveEnd: 最晚移动日期
+  goodsQuaMin: 最小商品数量
+  goodsQuaMax: 最大商品数量
+  goodsProDataStart: 最早生产日期
+  goodsProDataEnd: 最晚生产日期
+  ids: id数组
+  move_sta: 移动状态
+  sys_org_code: 所属部门  
+  sys_company_code: 所属公司  
+ exampleVal:
+  kuc: 库存
+
+sttTask:
+ summary:
+  del: 删除盘点任务
+ field:
+  id: 盘点任务唯一标识
+ val:
+  inPlan: 计划中
+  deleted: 已删除
+
+diff-post:
+ excel:
+  path:
+   good-diff-post: 盘点差异过账信息
+  headers:
+   stt_id: 盘点单号  
+   bin_id: 储位  
+   tin_id: 托盘  
+   goods_id: 商品编码  
+   goods_name: 商品名称  
+   goods_pro_date: 生产日期  
+   goods_batch: 批次  
+   cus_name: 货主名称   
+   cus: 货主  
+   stt_sta: 盘点状态  
+   create_date_start: 创建日期--起始  
+   create_date_end: 创建日期--终止  
+   goods_qua: 数量  
+   goods_unit: 单位  
+   stt_qua: 盘点数量  
+   stt_type: 盘点类型  
+   create_name: 创建人名称	  
+   create_date: 创建日期  
+   create_by: 创建人登录名称  
+   update_name: 更新人名称	  
+   update_by: 更新人登录名称  
+   update_date: 更新日期  
+   sys_org_code: 所属部门  
+   sys_company_code: 所属公司  
+   cus_code: 客户  
+   base_unit: 基本单位  
+   base_goodscount: 基本单位数量   
+   goods_code: 商品统一编码  
+   dong_xian: 动线
+  sheet:
+   s1: 导出信息
+   s2: 页表2
+  content:
+   info: 坐标
+ goods:
+  name:
+   demo1: 蔗糖
+   demo2: XXXX-KH有限公司
+  query-all: 
+   summary: 查询所有盘点差异过账信息
+  diff-post:
+   summary: 差异过账
+  export-diff-post:
+   summary: 导出差异过账信息
+  export-up-load:
+   summary: 导出上架调整信息,要重写到另一个接口分类里，应该是/lis/exportData
+  query-menu:
+   summary: 查询所有菜单
+  stt_sta:
+   sta1: 已完成
+   sta2: 已过账
+  field:
+   id: 唯一标识
+   bin_id: 储位  
+   tin_id: 托盘  
+   goods_id: 商品编码  
+   goods_name: 商品名称  
+   goods_pro_date: 生产日期  
+   goods_batch: 批次  
+   cus_name: 货主名称 
+   cus: 货主  
+   stt_sta: 盘点状态  
+   create_date_start: 创建日期--起始  
+   create_date_end: 创建日期--终止
+   goods_qua: 数量
+   goods_unit: 单位
+   stt_qua: 盘点数量
+   stt_type: 盘点类型
+   create_name: 创建人名称	
+   create_date: 创建日期
+   create_by: 创建人登录名称
+   update_name: 更新人名称	
+   update_by: 更新人登录名称
+   update_date: 更新日期
+   sys_org_code: 所属部门
+   sys_company_code: 所属公司
+   cus_code: 客户
+   base_unit: 基本单位
+   base_goodscount: 基本单位数量
+   stt_id: 盘点id
+   goods_code: 商品统一编码
+   dong_xian: 动线
+
+
+review-stt:
+ excel:
+  path:
+   good-diff-post: 盘点差异过账信息
+  headers:
+   stt_id: 盘点单号  
+   bin_id: 储位  
+   tin_id: 托盘  
+   goods_id: 商品编码  
+   goods_name: 商品名称  
+   goods_pro_date: 生产日期  
+   goods_batch: 批次  
+   cus_name: 货主名称   
+   cus: 货主  
+   stt_sta: 盘点状态  
+   create_date_start: 创建日期--起始  
+   create_date_end: 创建日期--终止  
+   goods_qua: 数量  
+   goods_unit: 单位  
+   stt_qua: 盘点数量  
+   stt_type: 盘点类型  
+   create_name: 创建人名称	  
+   create_date: 创建日期  
+   create_by: 创建人登录名称  
+   update_name: 更新人名称	  
+   update_by: 更新人登录名称  
+   update_date: 更新日期  
+   sys_org_code: 所属部门  
+   sys_company_code: 所属公司  
+   cus_code: 客户  
+   base_unit: 基本单位  
+   base_goodscount: 基本单位数量   
+   goods_code: 商品统一编码  
+   dong_xian: 动线
+  sheet:
+   s1: 导出信息
+   s2: 页表2
+  content:
+   info: 坐标
+ goods:
+  name:
+   demo1: 蔗糖
+   demo2: XXXX-KH有限公司
+  query-all: 
+   summary: 查询所有复盘信息
+  review:
+   summary: 复盘
+  export-review-stt:
+   summary: 导出复盘信息
+  export-up-load:
+   summary: 导出上架调整信息,要重写到另一个接口分类里，应该是/lis/exportData
+  query-menu:
+   summary: 查询所有菜单
+  stt_sta:
+   sta1: 已完成
+   sta2: 已过账
+   sta3: 计划中
+  field:
+   id: 唯一标识
+   bin_id: 储位  
+   tin_id: 托盘  
+   goods_id: 商品编码  
+   goods_name: 商品名称  
+   goods_pro_date: 生产日期  
+   goods_batch: 批次  
+   cus_name: 货主名称 
+   cus: 货主  
+   stt_sta: 盘点状态  
+   create_date_start: 创建日期--起始  
+   create_date_end: 创建日期--终止
+   goods_qua: 数量
+   goods_unit: 单位
+   stt_qua: 盘点数量
+   stt_type: 盘点类型
+   create_name: 创建人名称	
+   create_date: 创建日期
+   create_by: 创建人登录名称
+   update_name: 更新人名称	
+   update_by: 更新人登录名称
+   update_date: 更新日期
+   sys_org_code: 所属部门
+   sys_company_code: 所属公司
+   cus_code: 客户
+   base_unit: 基本单位
+   base_goodscount: 基本单位数量
+   stt_id: 盘点id
+   goods_code: 商品统一编码
+   dong_xian: 动线

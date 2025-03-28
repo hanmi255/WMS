@@ -1,0 +1,182 @@
+pronut_code: 计费方式代码
+pronut_name: 计费方式名称
+id: 编号
+method:
+ queryall: 查询全部
+ modify: 修改计费方式
+ add: 录入计费方式
+ query: 查询
+filed:
+ upload:
+  summary: "Excel数据导入"
+file:
+ field:
+  excel-filename: "文件名"
+  excel-alt: "excel文字描述"
+  excel-href: "excel链接地址"
+  download: "计费方式-导出excel"
+  upload: "计费方式-导入excel"
+cost-way:
+ delete: 计费方式-删除
+ excel: 计费方式
+ id: 计费方式id
+ deleteall: 计费方式-批量删除
+
+
+
+
+CostGoodsQuery:
+ way:
+  code: "计费商品类代码"
+  name: "计费商品类名称"
+  id: "唯一编号,主键"
+  create_name: "创建人名称"
+  create_by: "创建人登录名称"
+  create_date: "创建日期"
+  update_name: "更新人名称"
+  update_by: "更新人登录名称"
+  update_date: "更新日期"
+  sys_org_code: "所属部门"
+  sys_company_code: "所属公司"
+  goods_class_code: "计费商品类代码"
+  goods_class_name: "计费商品类名称"
+  create_name1: "admin"
+ delete:
+  query: "删除一条计费商品类"
+ file:
+  upload: "计费商品类-Excel数据导入"
+  download: "计费商品类-Excel数据导出"
+  sheetname: "导出信息"
+
+
+goodsclass:
+ query-name:
+  summary: 获取计费商品分类名称列表
+ query-page: 
+  summary: 获取计费商品分类列表（条件+分页）
+ post:
+  summary: 新增计费商品分类
+ put:
+  summary: 修改计费商品分类
+ example:
+  summary: 计费吨
+ field:
+  id: 唯一标识
+  code: 计费商品类代码
+  name: 计费商品类名称
+  goods_class_code: "计费商品类编码"
+  goods_class_name: "计费商品类名称"
+  create_name: "创建人名称"
+  create_by: "创建人登录名称"
+  create_date: "创建日期"
+  update_name: "更新人名称"
+  update_by: "更新人登录名称"
+  update_date: "更新日期"
+  sys_org_code: "所属部门"
+  sys_company_code: "所属公司"
+GoodsClassMethod:
+  add: "录入计费商品类"
+  modify: "修改计费商品类"
+  queryName: "查询计费商品类名称"
+  queryPage: "查询计费商品类(分页)"
+  example:
+    add:
+      id: 1
+      code: "10"
+      name: "计费商品类"
+      create_name: "张三"
+      create_by: "zhangsan"
+      create_date: "2023-10-01 12:00:00"
+      update_name: "李四"
+      update_by: "lisi"
+      update_date: "2023-10-02 14:00:00"
+      sys_org_code: "DEPT001"
+      sys_company_code: "COMP001"
+
+
+CostSxQuery :
+  filed:
+    code: "客户属性编码"
+    name: "客户属性名称"
+    id: "记录ID"
+    uid: "客户属性对应数据表uid"
+    kehushuxing_code: "客户属性编码"
+    kehushuxing_name: "客户属性名称"
+    create_name: "创建人名称"
+    create_by: "创建人登录名称"
+    create_date: "创建日期"
+    update_name: "更新人名称"
+    update_by: "更新人登录名称"
+    update_date: "更新日期"
+    sys_org_code: "所属部门"
+    sys_company_code: "所属公司"
+CostSxMethod:
+  add: "录入客户属性"
+  modify: "修改客户属性"
+  queryName: "查询客户属性名称"
+  queryPage: "查询客户属性(分页)"
+  example:
+    add:
+      id: 1
+      code: "CUST001"
+      name: "计费属性"
+      create_name: "张三"
+      create_by: "zhangsan"
+      create_date: "2023-10-01 12:00:00"
+      update_name: "李四"
+      update_by: "lisi"
+      update_date: "2023-10-02 14:00:00"
+      sys_org_code: "DEPT001"
+      sys_company_code: "COMP001"
+
+
+
+
+cost:
+      field:
+        code: "客户属性编码"
+        name: "客户属性名称"
+        id: "记录ID"
+        uid: "客户属性对应数据表uid"
+        kehushuxing_code: "客户属性编码"
+        kehushuxing_name: "客户属性名称"
+        create_name: "创建人名称"
+        create_by: "创建人登录名称"
+        create_date: "创建日期"
+        update_name: "更新人名称"
+        update_by: "更新人登录名称"
+        update_date: "更新日期"
+        sys_org_code: "所属部门"
+        sys_company_code: "所属公司"
+      attribute:
+        name: 计费属性名称
+        code: 计费属性编码
+        delete: 删除客户属性
+        export: 导出客户属性
+        import: 导入客户属性
+        successImport: 成功导入的客户属性列表
+        deleteCodes: 要删除的客户属性编码
+        deleteName: 要删除的客户属性名称
+        importCodes: 要导入的客户属性编码
+        importFile: 要导入的excel文件 (仅支持 multipart/form-data 形式)
+manager:
+    id: 管理员id
+
+excel:
+    import: 导入客户计费属性
+    export: 导出客户计费属性
+    name:
+        import: 导入的 excel 文件名
+        export: 导出的 excel 文件名
+    url: 
+        export: 导出的 excel 文件下载地址
+error: 错误
+CostConfigQuery :
+ way:
+  code: "计费方式代码"
+  number: "计费方式编码"
+ delete:
+  query: "删除一条计费方式"
+ file:
+  daoru: "/cost-method/excel/upload 计费方式-导入excel"
+

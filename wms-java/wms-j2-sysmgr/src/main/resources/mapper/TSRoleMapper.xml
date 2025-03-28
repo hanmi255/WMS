@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.sysmgr.mapper.TSRoleMapper">
+
+    <select id="selectListByIds" resultType="com.zeroone.star.sysmgr.entity.TSRole">
+        select ID,rolename
+        from t_s_role
+        where ID in
+        <foreach collection="roleIds" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+
+    </select>
+</mapper>

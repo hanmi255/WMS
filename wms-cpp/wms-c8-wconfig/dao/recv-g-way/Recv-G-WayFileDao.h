@@ -1,0 +1,55 @@
+#pragma once
+/*
+ Copyright Zero One Star. All rights reserved.
+
+ @Author: 猫头大蒜
+ @Date: 2025/03/10 16:09:12
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+	  https://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.ations under the License.
+*/
+#ifndef _RECV_G_WAY_DAO_
+#define _RECV_G_WAY_DAO_
+#include "BaseDAO.h"
+#include "../../domain/do/recv-g-way/Recv-G-WayFileDo.h"
+#include "../../domain/query/recv-g-way/Recv-G-Way-FileQuery.h"
+
+/**
+ * 示例表数据库操作实现
+ */
+class Recv_G_WayDAO : public BaseDAO
+{
+private:
+	//************************************
+	// Method:      queryConditionBuilder
+	// FullName:    SampleDAO::queryConditionBuilder
+	// Access:      private 
+	// Returns:     std::string 返回条件SQL语句，即WHERE部分的语句
+	// Parameter:   const SampleQuery::Wrapper& query 查询数据对象
+	// Parameter:   SqlParams& params 存放查询数据的参数对象
+	// Description: 查询条件构建器，根据SampleQuery对象动态构建查询条件相关参数
+	//************************************
+	inline std::string Recv_G_WayqueryConditionBuilder(const Recv_G_WayQuery::Wrapper& query, SqlParams& params);
+	std::string getCurrentDateTime();
+public:
+	// 统计数据条数
+	uint64_t count(const Recv_G_WayQuery::Wrapper& query);
+	// 分页查询数据
+	std::list<Recv_G_WayDO> selectWithPage(const Recv_G_WayQuery::Wrapper& query);
+	// 插入数据
+	int insert(const Recv_G_WayDO& iObj, string name, string realname, string orgcode, string companycode);
+	// 修改数据
+	int update(const Recv_G_WayDO& uObj);
+	// 通过ID删除数据
+	int deleteById(string id);
+};
+#endif // !_SAMPLE_DAO_

@@ -1,0 +1,12 @@
+server:
+  port: ${sp.basezl}
+spring:
+  application:
+    name: ${sn.basezl}
+
+# pdf配置
+pdf:
+  # 配置文件路径
+  conf: D:/zeroone/wms-branch/zero-one-10wms/wms-java/wms-j5-basezl/src/main/resources/fop.xconf
+  # xsl-fo模版路径
+  template: D:/zeroone/wms-branch/zero-one-10wms/wms-java/wms-j5-basezl//src/main/resources/freemarker

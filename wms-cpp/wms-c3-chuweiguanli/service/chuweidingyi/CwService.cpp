@@ -28,10 +28,10 @@ string CwService::addCW(const AddCWDTO::Wrapper dto, const PayloadDTO& payload)
 		YNode, ynode,                  // Y×ø±ê
 		ZNode, znode                   // Z×ø±ê
 	);
-	data.setCreateName(payload.getRealName());
+	data.setCreateName(payload.getRealname());
 	data.setCreateBy(payload.getUsername());
-	data.setSysOrgCode(payload.getOrgCode());
-	data.setSysCompanyCode(payload.getCompanyCode());
+	data.setSysOrgCode(payload.getOrgcode());
+	data.setSysCompanyCode(payload.getCompanycode());
 	data.setCreateDate(GetTimeStr());
 	CwDAO dao;
 	return dao.add(data);

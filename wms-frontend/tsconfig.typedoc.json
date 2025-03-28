@@ -1,0 +1,85 @@
+{
+	// 为全部的md文件提供识别配置
+	"extends": "./tsconfig.app.json",
+	"compilerOptions": {
+		"baseUrl": "./",
+		"module": "ESNext",
+		"skipLibCheck": true,
+		"allowImportingTsExtensions": true,
+		"lib": [
+			"ES2020",
+			"DOM",
+			"DOM.Iterable"
+		],
+		"paths": {
+			"@/*": [
+				"src/*"
+			],
+			"components/*": [
+				"src/components/*"
+			],
+			"types/*": [
+				"src/types/*"
+			],
+			"views/*": [
+				"src/views/*"
+			],
+			"apis/*": [
+				"src/apis/*"
+			],
+			"stores/*": [
+				"src/stores/*"
+			],
+			"routers/*": [
+				"src/routers/*"
+			],
+			"utils/*": [
+				"src/utils/*"
+			],
+			"tools/*": [
+				"src/tools/*"
+			],
+			"composables/*": [
+				"src/composables/*"
+			],
+			"models/*": [
+				"src/models/*"
+			],
+		},
+		"moduleResolution": "bundler",
+		"noUnusedLocals": false,
+		// 关闭掉检查 避免typedoc文档生成失败
+		"noUnusedParameters": false,
+		// 本文件被其他的 tsconfig.json 组合 ，用于提供md配置，避免其他包的md文件报错。
+		"composite": true,
+		"allowJs": false,
+		"types": [
+			// "./types/auto-imports.d.ts"
+		]
+	},
+	"include": [
+		// "types/**/*.ts",
+		// 全部的 pinia状态存储
+		// "src/stores/**/*.ts",
+		// 全部的 类型
+		"src/types/**/*.ts",
+		// 全部的 api接口
+		// "src/apis/**/*.ts",
+		// 全部的 组合式工具
+		// "src/composables/**/*.ts",
+	],
+	"exclude": [
+		"node_modules",
+		// 全部的vue文件不参与识别
+		"**/*.vue",
+		// 全部的md文档不参与识别
+		"**/*.md",
+		"**/*.example.ts",
+		"**/*.test.ts",
+		"src/**/*.test.ts",
+		"src/main.ts",
+		"src/routers/index.ts",
+		"src/routers/**/*.ts",
+		"src/components/**/*",
+	],
+}

@@ -1,0 +1,5 @@
+server:
+  port: ${sp.notice} # 需要在nacos配置中心配置
+spring:
+  application:
+    name: ${sn.notice} # 需要在nacos配置中心配置

@@ -1,0 +1,5 @@
+server:
+  port: ${sp.msgmw} # 需要在nacos配置中心配置
+spring:
+  application:
+    name: ${sn.msgmw} # 需要在nacos配置中心配置

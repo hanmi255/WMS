@@ -82,16 +82,16 @@ private:
 	std::string id;
 	// 用户名
 	std::string username;
+	//用户真实姓名
+	std::string realname;
+	//用户所属部门
+	std::string orgCode;
+	//用户所属公司
+	std::string companyCode;
 	// 用户拥有的权限
 	std::list<std::string> authorities;
 	// 数据状态系信息
 	PayloadCode code;
-	//登录名称
-	std::string realname;
-	//部门名称
-	std::string orgCode;
-	//公司名称
-	std::string companyCode;
 public:
 	PayloadDTO()
 	{
@@ -99,9 +99,6 @@ public:
 		this->exp = 0;
 		this->sub = "";
 		this->setCode(PayloadCode::SUCCESS);
-		this->realname = "admin";
-		this->orgCode = "A05";
-		this->companyCode = "A05";
 	}
 	PayloadDTO(std::string _sub, int64_t _exp, std::string _username, std::list<std::string> _authorities) :
 		sub(_sub), exp(_exp), username(_username), authorities(_authorities)
@@ -116,6 +113,12 @@ public:
 	void setExp(int64_t val) { exp = val; }
 	std::string getUsername() const { return username; }
 	void setUsername(std::string val) { username = val; }
+	std::string getRealname() const { return realname; }
+	void setRealname(std::string val) { realname = val; }
+	std::string getOrgcode() const { return orgCode; }
+	void setOrgcode(std::string val) { orgCode = val; }
+	std::string getCompanycode() const { return companyCode; }
+	void setCompanycode(std::string val) { companyCode = val; }
 	const std::list<std::string>& getAuthorities() const { return authorities; }
 	void setAuthorities(std::list<std::string> val) { authorities = val; }
 	PayloadCode getCode() const { return code; }
@@ -124,13 +127,6 @@ public:
 	void setId(std::string val) { id = val; }
 	std::string getToken() const { return token; }
 	void setToken(std::string val) { token = val; }
-	std::string getRealName() const { return realname; }
-	void setRealName(std::string val) { realname = val; };
-	std::string getOrgCode() const { return orgCode; }
-	void setOrgCode(std::string val) { orgCode = val; }
-	std::string getCompanyCode() const { return companyCode; }
-	void setCompanyCode(std::string val) { companyCode = val; }
-
 
 	// 添加权限
 	void putAuthority(std::string authstr) { authorities.push_back(authstr); }
@@ -147,8 +143,12 @@ public:
 		// 转换id
 		obj->add_claim("id", id);
 		// TIP：新增字段在后面补充即可
+	
+		//转换用户真实姓名
 		obj->add_claim("realname", realname);
+		//转换用户所属部门
 		obj->add_claim("orgCode", orgCode);
+		//转换用户所属公司
 		obj->add_claim("companyCode", companyCode);
 	}
 
@@ -172,9 +172,16 @@ public:
 		else
 			setId(_payload["id"].get<std::string>());
 		// TIP：新增字段在后面补充即可
-		//setRealName(payload.get_claim_value<std::string>("real_name"));
-		//setOrgCode(payload.get_claim_value<std::string>("org_code"));
-		//setCompanyCode(payload.get_claim_value<std::string>("company_code"));
+
+		//转换用户真实姓名
+		if (_payload.contains("realname"))
+			setRealname(payload.get_claim_value<std::string>("realname"));
+		//转换用户所属部门
+		if (_payload.contains("orgCode"))
+			setOrgcode(payload.get_claim_value<std::string>("orgCode"));
+		//转换用户所属公司
+		if (_payload.contains("companyCode"))
+			setCompanycode(payload.get_claim_value<std::string>("companyCode"));
 	}
 };
 

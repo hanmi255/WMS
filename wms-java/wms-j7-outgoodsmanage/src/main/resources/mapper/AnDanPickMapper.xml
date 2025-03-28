@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.outgoodsmanage.mapper.AnDanPickMapper">
+
+    <!-- 更新单个拣货信息 -->
+    <update id="updateAdPick" parameterType="com.zeroone.star.project.dto.j7.adpick.AdPickDTO">
+        UPDATE ad_pick
+        <set>
+            <if test="originalDocumentCode != null">original_document_code = #{originalDocumentCode},</if>
+            <if test="orderIdType != null">order_id_type = #{orderIdType},</if>
+            <if test="productCode != null">product_code = #{productCode},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="quantity != null">quantity = #{quantity},</if>
+            <if test="verifiedQuantity != null">verified_quantity = #{verifiedQuantity},</if>
+            <if test="basicUnit != null">basic_unit = #{basicUnit},</if>
+            <if test="unit != null">unit = #{unit},</if>
+            <if test="sourcePalletCode != null">source_pallet_code = #{sourcePalletCode},</if>
+            <if test="aimTuoPan != null">aim_tuo_pan = #{aimTuoPan},</if>
+            <if test="storageLocationCode != null">storage_location_code = #{storageLocationCode},</if>
+            <if test="cargoOwner != null">cargo_owner = #{cargoOwner},</if>
+            <if test="productTime != null">product_time = #{productTime},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="workType != null">work_type = #{workType}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 批量更新拣货信息 -->
+    <update id="batchUpdateAdPick" parameterType="java.util.List">
+        <foreach collection="adPickListDTOs" item="item" separator=";">
+            UPDATE ad_pick
+            <set>
+                <if test="item.quantity != null">quantity = #{item.quantity},</if>
+                <if test="item.verifiedQuantity != null">verified_quantity = #{item.verifiedQuantity},</if>
+                <if test="item.baseUnit != null">base_unit = #{item.baseUnit},</if>
+                <if test="item.sourcePalletCode != null">source_pallet_code = #{item.sourcePalletCode},</if>
+                <if test="item.storageLocationCode != null">storage_location_code = #{item.storageLocationCode},</if>
+                <if test="item.productTime != null">product_time = #{item.productTime}</if>
+            </set>
+            WHERE id = #{item.id}
+        </foreach>
+    </update>
+
+    <!-- 获取拣货数据用于导出Excel -->
+    <select id="getExportData" parameterType="com.zeroone.star.project.query.j7.adpick.AdPickQuery" resultType="com.zeroone.star.project.dto.j7.adpick.OutDetailExcelDTO">
+        SELECT
+        ap.id,
+        ap.original_document_code AS originalDocumentCode,
+        ap.order_id_type AS orderIdType,
+        ap.product_code AS productCode,
+        ap.remark,
+        ap.quantity,
+        ap.verified_quantity AS verifiedQuantity,
+        ap.basic_unit AS basicUnit,
+        ap.unit,
+        ap.source_pallet_code AS sourcePalletCode,
+        ap.aim_tuo_pan AS aimTuoPan,
+        ap.storage_location_code AS storageLocationCode,
+        ap.cargo_owner AS cargoOwner,
+        ap.product_time AS productTime,
+        ap.create_time AS createTime,
+        ap.status,
+        ap.work_type AS workType
+        FROM ad_pick ap
+        <where>
+            <if test="originalDocumentCode != null and originalDocumentCode != ''">
+                AND ap.original_document_code LIKE CONCAT('%', #{originalDocumentCode}, '%')
+            </if>
+            <if test="productCode != null and productCode != ''">
+                AND ap.product_code LIKE CONCAT('%', #{productCode}, '%')
+            </if>
+            <!-- 可以根据需要添加更多的查询条件 -->
+        </where>
+    </select>
+
+
+</mapper>

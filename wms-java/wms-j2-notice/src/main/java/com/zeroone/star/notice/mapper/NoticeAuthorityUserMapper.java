@@ -1,0 +1,17 @@
+package com.zeroone.star.notice.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zeroone.star.notice.entity.NoticeAuthorityRole;
+import com.zeroone.star.notice.entity.NoticeAuthorityUser;
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * <p>
+ * 公告 授权用户 接口
+ * </p>
+ *
+ * @author 恒
+ */
+@Mapper
+public interface NoticeAuthorityUserMapper extends BaseMapper<NoticeAuthorityUser> {
+}

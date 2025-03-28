@@ -1,0 +1,50 @@
+educational_background:
+    modify: 修改学历代码
+    delete: 删除学历代码
+    import: 导入学历代码
+    export: 导出学历代码
+    filename: 文件名
+    filed:
+        Education_code: 学历代码
+        Education_name: 学历名称
+        Education_operation: 操作
+stucode:
+    get: 获取性别代码列表（条件+分页）
+    set: 录入性别代码
+    del: 删除性别代码（支持批量）
+    modify: 修改性别代码
+    import: 导入性别代码
+    field:
+        name: 性别名称
+        code: 性别代码
+        stu: 性别
+        simple:
+           name: 示例名称
+education:
+ field:
+  id: 字段id
+  educode: 学历代码
+  eduname: 学历名称
+ get:
+  summary: 分页查询学历数据
+ query-by-cd:
+  summary: 通过学历代码获取单条数据
+ post:
+  summary: 新增一条学历数据
+sex:
+ filed:
+  id: 字段id
+  sexcode: 性别代码
+  sexname: 性别名称
+file:
+ upload: 
+  summary: 导入性别代码
+ download:
+  summary: 导出性别代码
+ field:
+  filename: 文件名
+  img-url: 图片src
+  img-alt: 图片文字描述
+  img-href: 图片链接地址
+  sexaddr: 导入excle地址
+test: 测试中文

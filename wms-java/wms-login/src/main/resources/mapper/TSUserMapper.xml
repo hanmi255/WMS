@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.login.mapper.TSUserMapper">
+
+    <select id="selectUserMesssageByUsername" resultType="com.zeroone.star.login.entity.TSUser">
+        SELECT
+            u.id,
+            u.email,
+            u.mobilePhone,
+            u.officePhone,
+            u.signatureFile
+        FROM
+            t_s_user u,
+            t_s_base_user b
+        WHERE
+            u.id = b.ID
+          AND
+            b.username = #{username};
+    </select>
+</mapper>

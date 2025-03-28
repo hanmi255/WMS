@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.outgoodsmanage.mapper.WmToDownGoodsMapper">
+
+    <update id="batchUpdateDownGoods">
+        <foreach collection="downGoodsDTOList" item="item" separator=";">
+            UPDATE wm_to_down_goods
+            <set>
+                goods_qua = #{item.goodsQua},
+                base_goodscount = #{item.baseGoodscount}
+            </set>
+            WHERE id = #{item.id}
+        </foreach>
+    </update>
+    <delete id="downGoods">
+        delete from wm_to_down_goods
+        where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <delete id="deleteDownGoods">
+        delete from wm_om_qm_i
+        where id=#{id}
+    </delete>
+
+    <update id="updateByGoodsAndOrder">
+        UPDATE wm_to_down_goods
+        <set>
+            <if test="goodsQua != null and goodsQua != ''">goods_qua = #{goodsQua},</if>
+            <if test="goodsQuaok != null and goodsQuaok != ''">goods_quaok = #{goodsQuaok},</if>
+            <if test="baseGoodscount != null and baseGoodscount != ''">base_goodscount = #{baseGoodscount},</if>
+            <if test="goodsProData != null and goodsProData != ''">goods_pro_data = #{goodsProData},</if>
+            <if test="binIdFrom != null and binIdFrom != ''">bin_id_from = #{binIdFrom},</if>
+            <if test="kuWeiBianMa != null and kuWeiBianMa != ''">ku_wei_bian_ma = #{kuWeiBianMa},</if>
+            <if test="goodsId != null and goodsId != ''">goods_id = #{goodsId},</if>
+            <if test="orderId != null and orderId != ''">order_id = #{orderId},</if>
+            <if test="orderType != null and orderType != ''">order_type = #{orderType},</if>
+            <if test="goodsUnit != null and goodsUnit != ''">goods_unit = #{goodsUnit},</if>
+            <if test="actTypeCode != null and actTypeCode != ''">act_type_code = #{actTypeCode},</if>
+            <if test="binIdTo != null and binIdTo != ''">bin_id_to = #{binIdTo},</if>
+            <if test="cusCode != null and cusCode != ''">cus_code = #{cusCode},</if>
+            <if test="downSta != null and downSta != ''">down_sta = #{downSta},</if>
+            <if test="baseUnit != null and baseUnit != ''">base_unit = #{baseUnit},</if>
+            update_date = NOW()
+        </set>
+        WHERE
+        goods_name = #{goodsName}
+        AND im_cus_code = #{imCusCode}
+    </update>
+    <update id="updateBatchByGoodsAndOrder">
+        UPDATE wm_to_down_goods
+        <trim prefix="SET" suffixOverrides=",">
+            <trim prefix="base_goodscount = CASE" suffix="END,">
+                <foreach collection="list" item="dto">
+                    <if test="dto.baseGoodscount != null and dto.baseGoodscount != ''">
+                        WHEN goods_name = #{dto.goodsName} AND im_cus_code = #{dto.imCusCode}
+                        THEN #{dto.baseGoodscount}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="bin_id_from = CASE" suffix="END,">
+                <foreach collection="list" item="dto">
+                    <if test="dto.binIdFrom != null and dto.binIdFrom != ''">
+                        WHEN goods_name = #{dto.goodsName} AND im_cus_code = #{dto.imCusCode}
+                        THEN #{dto.binIdFrom}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="goods_quaok = CASE" suffix="END,">
+                <foreach collection="list" item="dto">
+                    <if test="dto.goodsQuaok != null and dto.goodsQuaok != ''">
+                        WHEN goods_name = #{dto.goodsName} AND im_cus_code = #{dto.imCusCode}
+                        THEN #{dto.goodsQuaok}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="goods_qua = CASE" suffix="END,">
+                <foreach collection="list" item="dto">
+                    <if test="dto.goodsQua != null and dto.goodsQua != ''">
+                        WHEN goods_name = #{dto.goodsName} AND im_cus_code = #{dto.imCusCode}
+                        THEN #{dto.goodsQua}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="ku_wei_bian_ma = CASE" suffix="END,">
+                <foreach collection="list" item="dto">
+                    <if test="dto.kuWeiBianMa != null and dto.kuWeiBianMa != ''">
+                        WHEN goods_name = #{dto.goodsName} AND im_cus_code = #{dto.imCusCode}
+                        THEN #{dto.kuWeiBianMa}
+                    </if>
+                </foreach>
+            </trim>
+            <trim prefix="goods_pro_data = CASE" suffix="END,">
+                <foreach collection="list" item="dto">
+                    <if test="dto.goodsProData != null and dto.goodsProData != ''">
+                        WHEN goods_name = #{dto.goodsName} AND im_cus_code = #{dto.imCusCode}
+                        THEN #{dto.goodsProData}
+                    </if>
+                </foreach>
+            </trim>
+            update_date = NOW()
+        </trim>
+        WHERE (goods_name, im_cus_code) IN
+        <foreach collection="list" item="dto" open="(" separator="," close=")">
+            (#{dto.goodsName},#{dto.imCusCode})
+        </foreach>
+    </update>
+    <select id="selectExportData" parameterType="com.zeroone.star.project.query.j7.adpick.AdPickQuery" resultType="com.zeroone.star.project.dto.j7.adpick.AdPickExportDTO">
+        SELECT
+        create_by,
+        goods_id,
+        goods_name,
+        goods_qua,
+        goods_quaok,
+        order_id,
+        order_id_i,
+        order_type,
+        goods_unit,
+        goods_pro_data,
+        act_type_code,
+        ku_wei_bian_ma,
+        bin_id_to,
+        bin_id_from,
+        cus_code,
+        down_sta,
+        base_unit,
+        base_goodscount,
+        im_cus_code,
+        om_bei_zhu
+        FROM wm_to_down_goods
+        <where>
+            <if test="createDate != null">
+                AND DATE(create_date) = DATE(#{createDate})
+            </if>
+            <if test="orderId != null and orderId != ''">
+                AND order_id = #{orderId}
+            </if>
+            <if test="goodsId != null and goodsId != ''">
+                AND goods_id = #{goodsId}
+            </if>
+            <if test="goodsName != null and goodsName != ''">
+                AND goods_name LIKE CONCAT('%', #{goodsName}, '%')
+            </if>
+            <if test="customerOrderId != null and customerOrderId != ''">
+                AND im_cus_code = #{customerOrderId}
+            </if>
+            <if test="omBeiZhu != null and omBeiZhu != ''">
+                AND om_bei_zhu LIKE CONCAT('%', #{omBeiZhu}, '%')
+            </if>
+            <if test="goodsQua != null and goodsQua != ''">
+                AND goods_qua = #{goodsQua}
+            </if>
+            <if test="goodsQuaok != null and goodsQuaok != ''">
+                AND goods_quaok = #{goodsQuaok}
+            </if>
+            <if test="baseUnit != null and baseUnit != ''">
+                AND base_unit = #{baseUnit}
+            </if>
+            <if test="goodsUnit != null and goodsUnit != ''">
+                AND goods_unit = #{goodsUnit}
+            </if>
+            <if test="goodsProData != null and goodsProData != ''">
+                AND goods_pro_data = #{goodsProData}
+            </if>
+            <if test="binIdFrom != null and binIdFrom != ''">
+                AND bin_id_from = #{binIdFrom}
+            </if>
+            <if test="kuWeiBianMa != null and kuWeiBianMa != ''">
+                AND ku_wei_bian_ma = #{kuWeiBianMa}
+            </if>
+            <if test="cusCode != null and cusCode != ''">
+                AND cus_code = #{cusCode}
+            </if>
+        </where>
+    </select>
+</mapper>

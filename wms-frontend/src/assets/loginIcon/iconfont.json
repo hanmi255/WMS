@@ -1,0 +1,30 @@
+{
+	"id": "4839232",
+	"name": "no name",
+	"font_family": "iconfont",
+	"css_prefix_text": "icon-",
+	"description": "",
+	"glyphs": [
+		{
+			"icon_id": "928956",
+			"name": "arrow-right",
+			"font_class": "arrowright",
+			"unicode": "e627",
+			"unicode_decimal": 58919
+		},
+		{
+			"icon_id": "384198",
+			"name": "key",
+			"font_class": "key",
+			"unicode": "e66e",
+			"unicode_decimal": 58990
+		},
+		{
+			"icon_id": "11349198",
+			"name": "tea-f",
+			"font_class": "tea-f",
+			"unicode": "e64d",
+			"unicode_decimal": 58957
+		}
+	]
+}

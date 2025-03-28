@@ -1,0 +1,147 @@
+package com.zeroone.star.j1.dashboard.entity;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author j1-yunyu
+ * @since 2025-02-27
+ */
+@Getter
+@Setter
+@TableName("wm_to_up_goods")
+public class WmToUpGoods implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 主键
+     */
+    private String id;
+
+    /**
+     * 创建人名称
+     */
+    private String createName;
+
+    /**
+     * 创建人登录名称
+     */
+    private String createBy;
+
+    /**
+     * 创建日期
+     */
+    private LocalDateTime createDate;
+
+    /**
+     * 更新人名称
+     */
+    private String updateName;
+
+    /**
+     * 更新人登录名称
+     */
+    private String updateBy;
+
+    /**
+     * 更新日期
+     */
+    private LocalDateTime updateDate;
+
+    /**
+     * 所属部门
+     */
+    private String sysOrgCode;
+
+    /**
+     * 所属公司
+     */
+    private String sysCompanyCode;
+
+    /**
+     * 商品编码
+     */
+    private String goodsId;
+
+    /**
+     * 数量
+     */
+    private String goodsQua;
+
+    /**
+     * 原始单据类型
+     */
+    private String orderTypeCode;
+
+    /**
+     * 原始单据编码
+     */
+    private String orderId;
+
+    /**
+     * 原始单据行项目
+     */
+    private String orderIdI;
+
+    /**
+     * 上架ID
+     */
+    private String wmToUpId;
+
+    /**
+     * 单位
+     */
+    private String goodsUnit;
+
+    /**
+     * 批次
+     */
+    private String goodsBatch;
+
+    /**
+     * 生产日期
+     */
+    private String goodsProData;
+
+    /**
+     * 作业类型
+     */
+    private String actTypeCode;
+
+    /**
+     * 库位编码
+     */
+    private String kuWeiBianMa;
+
+    /**
+     * 托盘码
+     */
+    private String binId;
+
+    /**
+     * 货主
+     */
+    private String cusCode;
+
+    /**
+     * 基本单位
+     */
+    private String baseUnit;
+
+    /**
+     * 基本单位数量
+     */
+    private String baseGoodscount;
+
+    private String goodsName;
+
+
+}

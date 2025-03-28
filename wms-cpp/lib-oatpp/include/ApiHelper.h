@@ -428,7 +428,7 @@ if(part##_VAR_){ \
  * 解析文件数据，此时将解析内存中的文件数据到存储变量中
  * @param _CONTAINER_: 读取容器
  * @param _FIELD_NAME_: 字段名称。如："head"
- * @param _VAR_: 存储变量的名称。如：head 
+ * @param _VAR_: 存储变量的名称。如：head
  */
 #define API_MULTIPART_PARSE_FILE_FIELD(_CONTAINER_, _FIELD_NAME_, _VAR_) \
 oatpp::String _VAR_ = nullptr; \

@@ -1,0 +1,79 @@
+AreaInfo:
+ info: 地区信息
+ modify: 修改地区信息 
+ delete: 删除地区信息
+ export: 导出地区信息
+ import: 导入地区信息
+ id: Id
+ name: 名称
+ infosub: 子地区信息
+ namesub: 子地区名称
+ add: 录入地区信息
+ city_code: 地区代码
+ city_name: 地区名称
+ city_serc: 地区助记码
+ city_del: 停用
+ city_type_name: 城市类型名称
+ barea_name: 片区信息
+ area_name: 大区信息
+ getnametree: 获取地区信息名称树
+ get: 获取地区信息列表
+ infoList: 地区信息列表
+DareaInfo:
+ info: 大区信息
+ area_code: 大区代码
+ area_name: 大区名称
+ dareainfoAll: 获取大区信息列表
+ dareainfoAdd: 录入大区信息
+ dareainfoUpd: 修改大区信息
+ dareainfoRom: 删除大区信息
+ export: 导出大区信息
+ import: 导入大区信息
+BareaInfo:
+ info: 片区信息
+ getnamelist: 获取片区信息名称列表
+ getinfolist: 获取片区信息列表
+ export: 导出片区信息
+ excel:
+  head1: 片区代码
+  head2: 片区名称
+  head3: 回单时限
+test: 测试中文
+wrong_format: 格式错误
+delete_region: 删除片区信息
+export_region: 导出片区信息
+insert_region: 导入片区信息
+modify_region: 修改片区信息
+add_region: 录入片区信息
+region:
+ field:
+  code: 片区代码
+  name: 片区名称
+  rdate: 回单限时
+  id: 片区id
+ info: 
+  name: 大区信息名称
+  code: 大区信息代码
+  uniq_id: 大区信息唯一标识
+  namelist: 获取大区信息名称列表
+  namekey: 大区信息名称查询关键词
+citytype: 
+ type: 城市类型
+ name: 城市类型名称
+ code: 城市类型代码
+ uniq_id: 唯一标识
+ upload: 导入城市类型
+ download: 导出城市类型
+ modify: 修改城市类型
+ get_names_list: 获取城市类型名称列表
+ querycitytypelist: 获取城市类型列表
+ add: 新增城市类型
+get: 
+ region: 
+  name: 
+   list: 获取大区信息名称列表
+file: 
+ name: 文件名    
+del: 
+ city: 
+  type: 删除城市类型

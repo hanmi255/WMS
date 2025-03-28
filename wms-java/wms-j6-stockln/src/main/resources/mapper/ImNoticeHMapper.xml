@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.stockln.mapper.ImNoticeIMapper">
+
+    <update id="updateImNoticeItem">
+        <foreach collection="dtos" item="dto" separator=";">
+            update wm_im_notice_i set goods_code=#{dto.goodsCode}
+                                    ,goods_count=#{dto.goodsCount}
+                                    ,bin_plan=#{dto.binPlan}
+                                    ,bin_pre=#{dto.binPre}
+                                    ,goods_fvol=#{dto.goodsFvol}
+                                    ,goods_weight=#{dto.goodsWeight}
+            where im_notice_id=#{imNoticeId}
+        </foreach>
+    </update>
+</mapper>
